@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+<ModulePrefs title="__UP_value__" 
+						 description="Customizable max min values retrieval from wunderground web site." 
+						 author="Jordi Morell" author_email="nospam.hokus04@gmail.com" 
+						 title_url="http://www.wunderground.com" 
+						 directory_title="Wunderground Max Min Values." 
+						 category="weather" 
+						 height="100"/>
+	<UserPref name="wnd_id" display_name="Wunderground station id" required="true"/>
+	<UserPref name="wnd_field" datatype="enum" display_name="Field to check" default_value="temp_c" required="true">
+		<EnumValue value="temp_c" display_value="Temperature ºC" />
+		<EnumValue value="temp_f" display_value="Temperature F" />
+		<EnumValue value="relative_humidity" display_value="Relative Humidity" />
+		<EnumValue value="wind_degrees" display_value="Wind Degrees" />
+		<EnumValue value="wind_mph" display_value="Wind mph" />
+		<EnumValue value="wind_gust_mph" display_value="Wind Gust mph" />
+		<EnumValue value="pressure_mb" display_value="Pressure mb" />
+		<EnumValue value="pressure_in" display_value="Pressure in" />
+		<EnumValue value="dewpoint_c" display_value="Dew Point ºC" />
+		<EnumValue value="dewpoint_f" display_value="Dew Point F" />
+		<EnumValue value="precip_1hr_metric" display_value="1 hour rain (cm)" />
+		<EnumValue value="precip_1hr_in" display_value="1 hour rain (in)" />
+		<EnumValue value="precip_today_metric" display_value="Today rain (cm)" />
+		<EnumValue value="precip_today_in" display_value="Today rain (in)" />
+	</UserPref>
+	<UserPref name="value" display_name="Title" required="true"/>
+	<UserPref name="max_value_prefix" display_name="Max value prefix" default_value="Max " required="true"/>
+	<UserPref name="max_value_suffix" display_name="Max value suffix" default_value="ºC" required="true"/>
+	<UserPref name="min_value_prefix" display_name="Mim value prefix" default_value="Min " required="true"/>
+	<UserPref name="min_value_suffix" display_name="Mim value suffix" default_value="ºC" required="true"/>
+	<Content type="html">
+		<![CDATA[
+			<span id="maxmin__MODULE_ID__">Reading xml...</span>
+			<script type="text/javascript">
+				function displayMenu() {
+				  this.name = 'maxmin__MODULE_ID__';
+					var prefs = new _IG_Prefs(__MODULE_ID__);
+					var wunderID = prefs.getString("wnd_id");
+					var wunderField = prefs.getString("wnd_field");
+					var maxValuePrefix = prefs.getString("max_value_prefix");
+					var maxValueSuffix = prefs.getString("max_value_suffix");
+					var minValuePrefix = prefs.getString("min_value_prefix");
+					var minValueSuffix = prefs.getString("min_value_suffix");
+					var url = "http://api.wunderground.com/weatherstation/WXDailyHistory.asp?ID=" + wunderID + "&format=XML";
+					_IG_FetchXmlContent(url, function (response) {
+						if (response == null || typeof(response) != "object" || response.firstChild == null) {
+							_gel("content_div").innerHTML = "<i>Invalid data.</i>";
+					  	return;
+						}
+					var html = ""; 
+					var maxData = -10000; 
+					var minData = 10000;     
+					var observationList = response.getElementsByTagName("current_observation");   
+					for (var i = 0; i < observationList.length ; i++) { 
+						var data = 0;
+						data = observationList[i].getElementsByTagName(wunderField)[0].firstChild.data;  
+						if (data > maxData) {                    
+							maxData = data;       
+						}                      
+						if (data < minData) {  
+							minData = data;         
+						}  
+					}      
+					html += maxValuePrefix + maxData + maxValueSuffix;
+					html += "<br>"; 
+					html += minValuePrefix + minData + minValueSuffix;
+					// Display HTML string
+					_gel(this.name).innerHTML = html;
+					}, { refreshInterval: 30 });	
+				} 
+				_IG_RegisterOnloadHandler(displayMenu);  
+			</script>
+		]]> 
+	</Content> 
+</Module>
