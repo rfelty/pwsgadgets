@@ -6,7 +6,7 @@
 						 title_url="http://www.wunderground.com" 
 						 directory_title="Wunderground Max Min Values." 
 						 category="weather" 
-						 height="100"/>
+						 height="50"/>
 	<UserPref name="wnd_id" display_name="Wunderground station id" required="true"/>
 	<UserPref name="wnd_field" datatype="enum" display_name="Field to check" default_value="temp_c" required="true">
 		<EnumValue value="temp_c" display_value="Temperature ºC" />
@@ -26,13 +26,19 @@
 	</UserPref>
 	<UserPref name="value" display_name="Title" required="true"/>
 	<UserPref name="max_value_prefix" display_name="Max value prefix" default_value="Max " required="true"/>
-	<UserPref name="max_value_suffix" display_name="Max value suffix" default_value="ºC" required="true"/>
+	<UserPref name="max_value_suffix" display_name="Max value suffix" default_value=" ºC" required="true"/>
 	<UserPref name="min_value_prefix" display_name="Mim value prefix" default_value="Min " required="true"/>
-	<UserPref name="min_value_suffix" display_name="Mim value suffix" default_value="ºC" required="true"/>
+	<UserPref name="min_value_suffix" display_name="Mim value suffix" default_value=" ºC" required="true"/>
 	<Content type="html">
 		<![CDATA[
-			<span id="maxmin__MODULE_ID__">Reading xml...</span>
+			<div id="maxmin__MODULE_ID__" style="font-size:12pt; padding:5px; color: black;">Reading xml...</div>
+			<div id="debug_div" style="font-size:9pt; padding:5px; color: red;"></div>
+
 			<script type="text/javascript">
+					// debug flag. When its value is non-zero, debugging messages are displayed
+      		var debug = 0;
+      		// The string containing debugging messages
+      		var debug_html = "";			
 				function displayMenu() {
 				  this.name = 'maxmin__MODULE_ID__';
 					var prefs = new _IG_Prefs(__MODULE_ID__);
@@ -42,33 +48,43 @@
 					var maxValueSuffix = prefs.getString("max_value_suffix");
 					var minValuePrefix = prefs.getString("min_value_prefix");
 					var minValueSuffix = prefs.getString("min_value_suffix");
-					var url = "http://api.wunderground.com/weatherstation/WXDailyHistory.asp?ID=" + wunderID + "&format=XML";
+					var url = "http://api.wunderground.com/weatherstation/WXDailyHistory.asp?ID=" + wunderID + "&format=XML&rnd=" + Math.random();
+					print(url);
 					_IG_FetchXmlContent(url, function (response) {
 						if (response == null || typeof(response) != "object" || response.firstChild == null) {
-							_gel("content_div").innerHTML = "<i>Invalid data.</i>";
+							_gel(this.name).innerHTML = "<i>Invalid data.</i>";
 					  	return;
 						}
 					var html = ""; 
 					var maxData = -10000; 
 					var minData = 10000;     
+					var data = 0;
 					var observationList = response.getElementsByTagName("current_observation");   
 					for (var i = 0; i < observationList.length ; i++) { 
-						var data = 0;
-						data = observationList[i].getElementsByTagName(wunderField)[0].firstChild.data;  
+						data = parseFloat(observationList[i].getElementsByTagName(wunderField)[0].firstChild.data);
 						if (data > maxData) {                    
 							maxData = data;       
 						}                      
 						if (data < minData) {  
 							minData = data;         
-						}  
+						}
+						print(data + " Max " + maxData + " Min " + minData);
 					}      
 					html += maxValuePrefix + maxData + maxValueSuffix;
 					html += "<br>"; 
 					html += minValuePrefix + minData + minValueSuffix;
 					// Display HTML string
 					_gel(this.name).innerHTML = html;
-					}, { refreshInterval: 30 });	
-				} 
+					}, { refreshInterval: (60 * 4)});	
+				}
+				// Outputs debug messages if debug flag has a non-zero value
+				function print(msg) {
+					if (debug) {
+						debug_html += msg + "<br>";
+						// Write debug HTML to div
+						_gel("debug_div").innerHTML = debug_html; 
+					}
+				}
 				_IG_RegisterOnloadHandler(displayMenu);  
 			</script>
 		]]> 
