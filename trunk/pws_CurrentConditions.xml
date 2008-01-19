@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-<ModulePrefs title="__UP_value__" 
-						 description="Weather underground personal station current conditions." 
-						 author="Jordi Morell" author_email="nospam.hokus04@gmail.com" 
-						 title_url="http://www.wunderground.com" 
-						 directory_title="Wunderground current conditions." 
-						 category="weather" 
-						 height="200"/>
+	<ModulePrefs title="__UP_value__" 
+							 description="Weather underground personal station current conditions." 
+							 author="Jordi Morell" author_email="nospam.hokus04@gmail.com" 
+							 title_url="http://www.wunderground.com" 
+							 directory_title="Wunderground current conditions." 
+							 category="weather" 
+							 height="50">
+		<Require feature="dynamic-height"/>
+	</ModulePrefs>
 	<UserPref name="wnd_id" display_name="Wunderground station id" required="true"/>
 	<UserPref name="wnd_units" datatype="enum" display_name="Units" default_value="metric" required="true">
 		<EnumValue value="metric" display_value="Metric" />
@@ -27,61 +29,70 @@
 		<![CDATA[
 			<div id="current__MODULE_ID__" style="font-size:12pt; padding:5px; color: black;">Reading xml...</div>
 			<div id="debug_div" style="font-size:9pt; padding:5px; color: red;"></div>
-
+	
 			<script type="text/javascript">
-					// debug flag. When its value is non-zero, debugging messages are displayed
-      		var debug = 0;
-      		// The string containing debugging messages
-      		var debug_html = "";			
-				function displayMenu() {
+				// debug flag. When its value is non-zero, debugging messages are displayed
+	     	var debug = 0;
+	     	// The string containing debugging messages
+	     	var debug_html = "";
+	
+				function display() {
 				  this.name = 'current__MODULE_ID__';
 					var prefs = new _IG_Prefs(__MODULE_ID__);
-					var wunderID = prefs.getString("wnd_id");
 					var units = prefs.getString("wnd_units");
-					var url = "http://api.wunderground.com/weatherstation/WXCurrentObXML.asp?ID=" + wunderID + "&rnd=" + Math.random();
+					var url = "http://api.wunderground.com/weatherstation/WXCurrentObXML.asp?ID=" + prefs.getString("wnd_id") + "&rnd=" + Math.random();
 					print(url);
 					_IG_FetchXmlContent(url, function (response) {
 						if (response == null || typeof(response) != "object" || response.firstChild == null) {
-							_gel(this.name).innerHTML = "<i>Invalid data.</i>";
+							setContent("<i>Invalid data.</i>");
 					  	return;
 						}
-					var html = ""; 
-					if (units == "metric") {
-						if (prefs.getBool("show_observationtime")==true) { html += response.getElementsByTagName("observation_time")[0].firstChild.data + "<br>"; }
-						if (prefs.getBool("show_temperature")==true) { html += "Temperature: " + response.getElementsByTagName("temp_c")[0].firstChild.data + " ºC<br>"; }
-						if (prefs.getBool("show_dewpoint")==true) { html += "Dew point: " + response.getElementsByTagName("dewpoint_c")[0].firstChild.data + " ºC<br>"; }
-						if (prefs.getBool("show_humidity")==true) { html += "Relative Humidity: " + response.getElementsByTagName("relative_humidity")[0].firstChild.data + "%<br>"; }
-						if (prefs.getBool("show_wind")==true) { html += "Wind speed: " + (parseFloat(response.getElementsByTagName("wind_mph")[0].firstChild.data) * 1.61) + " km/h<br>"; }
-						if (prefs.getBool("show_windgust")==true) { html += "Wind Gust: " + (parseFloat(response.getElementsByTagName("wind_gust_mph")[0].firstChild.data) * 1.61) + " km/h<br>"; }
-						if (prefs.getBool("show_winddegrees")==true) { html += "Wind degrees: " + response.getElementsByTagName("wind_degrees")[0].firstChild.data + "º<br>"; }
-						if (prefs.getBool("show_pressure")==true) { html += "Pressure: " + response.getElementsByTagName("pressure_mb")[0].firstChild.data + " mb<br>"; }
-						if (prefs.getBool("show_1hrain")==true) { html += "1 Hour Rain: " + response.getElementsByTagName("precip_1hr_metric")[0].firstChild.data + "mm<br>"; }
-						if (prefs.getBool("show_todayrain")==true) { html += "Today Rain: " + response.getElementsByTagName("precip_today_metric")[0].firstChild.data + "mm"; }
-					} else if (units == "english") {
-						if (prefs.getBool("show_observationtime")==true) { html += response.getElementsByTagName("observation_time")[0].firstChild.data + "<br>"; }
-						if (prefs.getBool("show_temperature")==true) { html += "Temperature: " + response.getElementsByTagName("temp_f")[0].firstChild.data + " F<br>"; }
-						if (prefs.getBool("show_dewpoint")==true) { html += "Dew point: " + response.getElementsByTagName("dewpoint_f")[0].firstChild.data + " F<br>"; }
-						if (prefs.getBool("show_humidity")==true) { html += "Relative Humidity: " + response.getElementsByTagName("relative_humidity")[0].firstChild.data + "%<br>"; }
-						if (prefs.getBool("show_wind")==true) { html += "Wind speed: " + response.getElementsByTagName("wind_mph")[0].firstChild.data + " mph<br>"; }
-						if (prefs.getBool("show_windgust")==true) { html += "Wind Gust: " + response.getElementsByTagName("wind_gust_mph")[0].firstChild.data + " mph<br>"; }
-						if (prefs.getBool("show_winddegrees")==true) { html += "Wind degrees: " + response.getElementsByTagName("wind_degrees")[0].firstChild.data + "º<br>"; }
-						if (prefs.getBool("show_pressure")==true) { html += "Pressure: " + response.getElementsByTagName("pressure_in")[0].firstChild.data + " in<br>"; }
-						if (prefs.getBool("show_1hrain")==true) { html += "1 Hour Rain: " + response.getElementsByTagName("precip_1hr_in")[0].firstChild.data + "in<br>"; }
-						if (prefs.getBool("show_todayrain")==true) { html += "Today Rain: " + response.getElementsByTagName("precip_today_in")[0].firstChild.data + "in"; }
+						var html = ""; 
+						if (units == "metric") {
+							if (prefs.getBool("show_observationtime")==true) { html += response.getElementsByTagName("observation_time")[0].firstChild.data + "<br>"; }
+							if (prefs.getBool("show_temperature")==true) { html += "Temperature: " + response.getElementsByTagName("temp_c")[0].firstChild.data + " ºC<br>"; }
+							if (prefs.getBool("show_dewpoint")==true) { html += "Dew point: " + response.getElementsByTagName("dewpoint_c")[0].firstChild.data + " ºC<br>"; }
+							if (prefs.getBool("show_humidity")==true) { html += "Relative Humidity: " + response.getElementsByTagName("relative_humidity")[0].firstChild.data + "%<br>"; }
+							if (prefs.getBool("show_wind")==true) { html += "Wind speed: " + (parseFloat(response.getElementsByTagName("wind_mph")[0].firstChild.data) * 1.61) + " km/h<br>"; }
+							if (prefs.getBool("show_windgust")==true) { html += "Wind Gust: " + (parseFloat(response.getElementsByTagName("wind_gust_mph")[0].firstChild.data) * 1.61) + " km/h<br>"; }
+							if (prefs.getBool("show_winddegrees")==true) { html += "Wind degrees: " + response.getElementsByTagName("wind_degrees")[0].firstChild.data + "º<br>"; }
+							if (prefs.getBool("show_pressure")==true) { html += "Pressure: " + response.getElementsByTagName("pressure_mb")[0].firstChild.data + " mb<br>"; }
+							if (prefs.getBool("show_1hrain")==true) { html += "1 Hour Rain: " + response.getElementsByTagName("precip_1hr_metric")[0].firstChild.data + "mm<br>"; }
+							if (prefs.getBool("show_todayrain")==true) { html += "Today Rain: " + response.getElementsByTagName("precip_today_metric")[0].firstChild.data + "mm"; }
+						} else if (units == "english") {
+							if (prefs.getBool("show_observationtime")==true) { html += response.getElementsByTagName("observation_time")[0].firstChild.data + "<br>"; }
+							if (prefs.getBool("show_temperature")==true) { html += "Temperature: " + response.getElementsByTagName("temp_f")[0].firstChild.data + " F<br>"; }
+							if (prefs.getBool("show_dewpoint")==true) { html += "Dew point: " + response.getElementsByTagName("dewpoint_f")[0].firstChild.data + " F<br>"; }
+							if (prefs.getBool("show_humidity")==true) { html += "Relative Humidity: " + response.getElementsByTagName("relative_humidity")[0].firstChild.data + "%<br>"; }
+							if (prefs.getBool("show_wind")==true) { html += "Wind speed: " + response.getElementsByTagName("wind_mph")[0].firstChild.data + " mph<br>"; }
+							if (prefs.getBool("show_windgust")==true) { html += "Wind Gust: " + response.getElementsByTagName("wind_gust_mph")[0].firstChild.data + " mph<br>"; }
+							if (prefs.getBool("show_winddegrees")==true) { html += "Wind degrees: " + response.getElementsByTagName("wind_degrees")[0].firstChild.data + "º<br>"; }
+							if (prefs.getBool("show_pressure")==true) { html += "Pressure: " + response.getElementsByTagName("pressure_in")[0].firstChild.data + " in<br>"; }
+							if (prefs.getBool("show_1hrain")==true) { html += "1 Hour Rain: " + response.getElementsByTagName("precip_1hr_in")[0].firstChild.data + "in<br>"; }
+							if (prefs.getBool("show_todayrain")==true) { html += "Today Rain: " + response.getElementsByTagName("precip_today_in")[0].firstChild.data + "in"; }
+						}
+						// Display HTML string
+						setContent(html);
+						}, { refreshInterval: 30});	
 					}
-					// Display HTML string
+	
+				// Outputs content to the div and resizes the gadget
+				function setContent(html) {
 					_gel(this.name).innerHTML = html;
-					}, { refreshInterval: 30});	
+					_IG_AdjustIFrameHeight();
 				}
+	
 				// Outputs debug messages if debug flag has a non-zero value
 				function print(msg) {
 					if (debug) {
 						debug_html += msg + "<br>";
 						// Write debug HTML to div
-						_gel("debug_div").innerHTML = debug_html; 
+						_gel("debug_div").innerHTML = debug_html;
+						_IG_AdjustIFrameHeight();
 					}
 				}
-				_IG_RegisterOnloadHandler(displayMenu);  
+					
+				_IG_RegisterOnloadHandler(display);  
 			</script>
 		]]> 
 	</Content> 
