@@ -12,6 +12,16 @@
 		<EnumValue value="metric" display_value="Metric" />
 		<EnumValue value="english" display_value="English" />
 	</UserPref>
+	<UserPref name="show_observationtime" display_name="Show observation time?" datatype="bool" default_value="true"/>
+	<UserPref name="show_temperature" display_name="Show temperature?" datatype="bool" default_value="true"/>
+	<UserPref name="show_dewpoint" display_name="Show dew point?" datatype="bool" default_value="true"/>
+	<UserPref name="show_humidity" display_name="Show relative humidity?" datatype="bool" default_value="true"/>
+	<UserPref name="show_wind" display_name="Show wind speed?" datatype="bool" default_value="true"/>
+	<UserPref name="show_windgust" display_name="Show wind gust?" datatype="bool" default_value="true"/>
+	<UserPref name="show_winddegrees" display_name="Show wind degrees?" datatype="bool" default_value="true"/>
+	<UserPref name="show_pressure" display_name="Show pressure?" datatype="bool" default_value="true"/>
+	<UserPref name="show_1hrain" display_name="Show 1 hour rain?" datatype="bool" default_value="true"/>
+	<UserPref name="show_todayrain" display_name="Show today rain?" datatype="bool" default_value="true"/>
 	<UserPref name="value" display_name="Title" required="true"/>
 	<Content type="html">
 		<![CDATA[
@@ -37,26 +47,27 @@
 						}
 					var html = ""; 
 					if (units == "metric") {
-					  html += response.getElementsByTagName("observation_time")[0].firstChild.data + "<br>";
-						html += "Temperature: " + response.getElementsByTagName("temp_c")[0].firstChild.data + " ºC<br>";
-						html += "Dew point: " + response.getElementsByTagName("dewpoint_c")[0].firstChild.data + " ºC<br>";
-						html += "Relative Humidity: " + response.getElementsByTagName("relative_humidity")[0].firstChild.data + "%<br>";
-						html += "Wind speed: " + (parseFloat(response.getElementsByTagName("wind_mph")[0].firstChild.data) * 1.61) + " km/h<br>";
-						html += "Wind Gust: " + (parseFloat(response.getElementsByTagName("wind_gust_mph")[0].firstChild.data) * 1.61) + " km/h<br>";
-						html += "Pressure: " + response.getElementsByTagName("pressure_mb")[0].firstChild.data + " mb<br>";
-						html += "Wind degrees: " + response.getElementsByTagName("wind_degrees")[0].firstChild.data + "º<br>";
-						html += "1 Hour Rain: " + response.getElementsByTagName("precip_1hr_metric")[0].firstChild.data + "mm<br>";
-						html += "Today Rain: " + response.getElementsByTagName("precip_today_metric")[0].firstChild.data + "mm";
+						if (prefs.getBool("show_observationtime")==true) { html += response.getElementsByTagName("observation_time")[0].firstChild.data + "<br>"; }
+						if (prefs.getBool("show_temperature")==true) { html += "Temperature: " + response.getElementsByTagName("temp_c")[0].firstChild.data + " ºC<br>"; }
+						if (prefs.getBool("show_dewpoint")==true) { html += "Dew point: " + response.getElementsByTagName("dewpoint_c")[0].firstChild.data + " ºC<br>"; }
+						if (prefs.getBool("show_humidity")==true) { html += "Relative Humidity: " + response.getElementsByTagName("relative_humidity")[0].firstChild.data + "%<br>"; }
+						if (prefs.getBool("show_wind")==true) { html += "Wind speed: " + (parseFloat(response.getElementsByTagName("wind_mph")[0].firstChild.data) * 1.61) + " km/h<br>"; }
+						if (prefs.getBool("show_windgust")==true) { html += "Wind Gust: " + (parseFloat(response.getElementsByTagName("wind_gust_mph")[0].firstChild.data) * 1.61) + " km/h<br>"; }
+						if (prefs.getBool("show_winddegrees")==true) { html += "Wind degrees: " + response.getElementsByTagName("wind_degrees")[0].firstChild.data + "º<br>"; }
+						if (prefs.getBool("show_pressure")==true) { html += "Pressure: " + response.getElementsByTagName("pressure_mb")[0].firstChild.data + " mb<br>"; }
+						if (prefs.getBool("show_1hrain")==true) { html += "1 Hour Rain: " + response.getElementsByTagName("precip_1hr_metric")[0].firstChild.data + "mm<br>"; }
+						if (prefs.getBool("show_todayrain")==true) { html += "Today Rain: " + response.getElementsByTagName("precip_today_metric")[0].firstChild.data + "mm"; }
 					} else if (units == "english") {
-						html += "Temp: " + response.getElementsByTagName("temp_f")[0].firstChild.data + " F<br>";
-						html += "Dew point: " + response.getElementsByTagName("dewpoint_f")[0].firstChild.data + " F<br>";
-						html += "Relative Humidity: " + response.getElementsByTagName("relative_humidity")[0].firstChild.data + "%<br>";
-						html += "Wind speed: " + response.getElementsByTagName("wind_mph")[0].firstChild.data + " mph<br>";
-						html += "Wind Gust: " + response.getElementsByTagName("wind_gust_mph")[0].firstChild.data + " mph<br>";
-						html += "Pressure: " + response.getElementsByTagName("pressure_in")[0].firstChild.data + " in<br>";
-						html += "Wind degrees: " + response.getElementsByTagName("wind_degrees")[0].firstChild.data + "º<br>";
-						html += "1 Hour Rain: " + response.getElementsByTagName("precip_1hr_in")[0].firstChild.data + "in<br>";
-						html += "Today Rain: " + response.getElementsByTagName("precip_today_in")[0].firstChild.data + "in";
+						if (prefs.getBool("show_observationtime")==true) { html += response.getElementsByTagName("observation_time")[0].firstChild.data + "<br>"; }
+						if (prefs.getBool("show_temperature")==true) { html += "Temperature: " + response.getElementsByTagName("temp_f")[0].firstChild.data + " F<br>"; }
+						if (prefs.getBool("show_dewpoint")==true) { html += "Dew point: " + response.getElementsByTagName("dewpoint_f")[0].firstChild.data + " F<br>"; }
+						if (prefs.getBool("show_humidity")==true) { html += "Relative Humidity: " + response.getElementsByTagName("relative_humidity")[0].firstChild.data + "%<br>"; }
+						if (prefs.getBool("show_wind")==true) { html += "Wind speed: " + response.getElementsByTagName("wind_mph")[0].firstChild.data + " mph<br>"; }
+						if (prefs.getBool("show_windgust")==true) { html += "Wind Gust: " + response.getElementsByTagName("wind_gust_mph")[0].firstChild.data + " mph<br>"; }
+						if (prefs.getBool("show_winddegrees")==true) { html += "Wind degrees: " + response.getElementsByTagName("wind_degrees")[0].firstChild.data + "º<br>"; }
+						if (prefs.getBool("show_pressure")==true) { html += "Pressure: " + response.getElementsByTagName("pressure_in")[0].firstChild.data + " in<br>"; }
+						if (prefs.getBool("show_1hrain")==true) { html += "1 Hour Rain: " + response.getElementsByTagName("precip_1hr_in")[0].firstChild.data + "in<br>"; }
+						if (prefs.getBool("show_todayrain")==true) { html += "Today Rain: " + response.getElementsByTagName("precip_today_in")[0].firstChild.data + "in"; }
 					}
 					// Display HTML string
 					_gel(this.name).innerHTML = html;
