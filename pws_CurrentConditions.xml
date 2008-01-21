@@ -8,6 +8,7 @@
 							 category="weather" 
 							 height="50">
 		<Require feature="dynamic-height"/>
+		<Require feature="analytics"/>
 	</ModulePrefs>
 	<UserPref name="wnd_id" display_name="Wunderground station id" required="true"/>
 	<UserPref name="wnd_units" datatype="enum" display_name="Units" default_value="metric" required="true">
@@ -35,12 +36,15 @@
 	     	var debug = 0;
 	     	// The string containing debugging messages
 	     	var debug_html = "";
-	
+	     	
 				function display() {
 				  this.name = 'current__MODULE_ID__';
 					var prefs = new _IG_Prefs(__MODULE_ID__);
 					var units = prefs.getString("wnd_units");
-					var url = "http://api.wunderground.com/weatherstation/WXCurrentObXML.asp?ID=" + prefs.getString("wnd_id") + "&rnd=" + Math.random();
+					var wunderID = prefs.getString("wnd_id")
+					var url = "http://api.wunderground.com/weatherstation/WXCurrentObXML.asp?ID=" + wunderID + "&rnd=" + Math.random();
+					// Track this gadget using Google Analytics specifiying the wunder id used.
+					_IG_Analytics("UA-3007781-2", "/CurrentConditions/" + wunderID);
 					print(url);
 					_IG_FetchXmlContent(url, function (response) {
 						if (response == null || typeof(response) != "object" || response.firstChild == null) {
@@ -91,7 +95,6 @@
 						_IG_AdjustIFrameHeight();
 					}
 				}
-					
 				_IG_RegisterOnloadHandler(display);  
 			</script>
 		]]> 
