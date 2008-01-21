@@ -15,16 +15,16 @@
 		<EnumValue value="metric" display_value="Metric" />
 		<EnumValue value="english" display_value="English" />
 	</UserPref>
-	<UserPref name="show_observationtime" display_name="Show observation time?" datatype="bool" default_value="true"/>
-	<UserPref name="show_temperature" display_name="Show temperature?" datatype="bool" default_value="true"/>
-	<UserPref name="show_dewpoint" display_name="Show dew point?" datatype="bool" default_value="true"/>
-	<UserPref name="show_humidity" display_name="Show relative humidity?" datatype="bool" default_value="true"/>
-	<UserPref name="show_wind" display_name="Show wind speed?" datatype="bool" default_value="true"/>
-	<UserPref name="show_windgust" display_name="Show wind gust?" datatype="bool" default_value="true"/>
-	<UserPref name="show_winddegrees" display_name="Show wind degrees?" datatype="bool" default_value="true"/>
-	<UserPref name="show_pressure" display_name="Show pressure?" datatype="bool" default_value="true"/>
-	<UserPref name="show_1hrain" display_name="Show 1 hour rain?" datatype="bool" default_value="true"/>
-	<UserPref name="show_todayrain" display_name="Show today rain?" datatype="bool" default_value="true"/>
+	<UserPref name="show_observationtime" display_name="Observation time:" datatype="bool" default_value="true"/>
+	<UserPref name="show_temperature" display_name="Temperature:" datatype="bool" default_value="true"/>
+	<UserPref name="show_dewpoint" display_name="Dew point:" datatype="bool" default_value="true"/>
+	<UserPref name="show_humidity" display_name="Relative humidity:" datatype="bool" default_value="true"/>
+	<UserPref name="show_wind" display_name="Wind speed:" datatype="bool" default_value="true"/>
+	<UserPref name="show_windgust" display_name="Wind gust:" datatype="bool" default_value="true"/>
+	<UserPref name="show_winddirection" display_name="Wind direction:" datatype="bool" default_value="true"/>
+	<UserPref name="show_pressure" display_name="Pressure:" datatype="bool" default_value="true"/>
+	<UserPref name="show_1hrain" display_name="1 hour rain:" datatype="bool" default_value="true"/>
+	<UserPref name="show_todayrain" display_name="Today rain:" datatype="bool" default_value="true"/>
 	<UserPref name="value" display_name="Title" required="true"/>
 	<Content type="html">
 		<![CDATA[
@@ -59,7 +59,7 @@
 							if (prefs.getBool("show_humidity")==true) { html += "Relative Humidity: " + response.getElementsByTagName("relative_humidity")[0].firstChild.data + "%<br>"; }
 							if (prefs.getBool("show_wind")==true) { html += "Wind speed: " + (parseFloat(response.getElementsByTagName("wind_mph")[0].firstChild.data) * 1.61) + " km/h<br>"; }
 							if (prefs.getBool("show_windgust")==true) { html += "Wind Gust: " + (parseFloat(response.getElementsByTagName("wind_gust_mph")[0].firstChild.data) * 1.61) + " km/h<br>"; }
-							if (prefs.getBool("show_winddegrees")==true) { html += "Wind degrees: " + response.getElementsByTagName("wind_degrees")[0].firstChild.data + "º<br>"; }
+							if (prefs.getBool("show_winddirection")==true) { html += "Wind direction: " + lookupWindString(response.getElementsByTagName("wind_degrees")[0].firstChild.data) + "<br>"; }
 							if (prefs.getBool("show_pressure")==true) { html += "Pressure: " + response.getElementsByTagName("pressure_mb")[0].firstChild.data + " mb<br>"; }
 							if (prefs.getBool("show_1hrain")==true) { html += "1 Hour Rain: " + response.getElementsByTagName("precip_1hr_metric")[0].firstChild.data + "mm<br>"; }
 							if (prefs.getBool("show_todayrain")==true) { html += "Today Rain: " + response.getElementsByTagName("precip_today_metric")[0].firstChild.data + "mm"; }
@@ -70,7 +70,7 @@
 							if (prefs.getBool("show_humidity")==true) { html += "Relative Humidity: " + response.getElementsByTagName("relative_humidity")[0].firstChild.data + "%<br>"; }
 							if (prefs.getBool("show_wind")==true) { html += "Wind speed: " + response.getElementsByTagName("wind_mph")[0].firstChild.data + " mph<br>"; }
 							if (prefs.getBool("show_windgust")==true) { html += "Wind Gust: " + response.getElementsByTagName("wind_gust_mph")[0].firstChild.data + " mph<br>"; }
-							if (prefs.getBool("show_winddegrees")==true) { html += "Wind degrees: " + response.getElementsByTagName("wind_degrees")[0].firstChild.data + "º<br>"; }
+							if (prefs.getBool("show_winddirection")==true) { html += "Wind direction: " + lookupWindString(response.getElementsByTagName("wind_degrees")[0].firstChild.data) + "<br>"; }
 							if (prefs.getBool("show_pressure")==true) { html += "Pressure: " + response.getElementsByTagName("pressure_in")[0].firstChild.data + " in<br>"; }
 							if (prefs.getBool("show_1hrain")==true) { html += "1 Hour Rain: " + response.getElementsByTagName("precip_1hr_in")[0].firstChild.data + "in<br>"; }
 							if (prefs.getBool("show_todayrain")==true) { html += "Today Rain: " + response.getElementsByTagName("precip_today_in")[0].firstChild.data + "in"; }
@@ -95,6 +95,30 @@
 						_IG_AdjustIFrameHeight();
 					}
 				}
+				
+				function lookupWindString(n) {
+					var s="-";
+					if (n > 360) n = n%360;
+					if (n >= 0 && n < 11.25 ) s="N";
+					else if (n >= 11.25  && n < 33.75 ) s="NNE";
+					else if (n >= 33.75  && n < 56.25 ) s="NE";
+					else if (n >= 67.5   && n < 78.75 ) s="ENE";
+					else if (n >= 78.75  && n < 101.25) s="E";
+					else if (n >= 101.25 && n < 123.75) s="ESE";
+					else if (n >= 123.75 && n < 146.25) s="SE";
+					else if (n >= 146.2  && n < 168.75) s="SSE";
+					else if (n >= 168.75 && n < 191.25) s="S";
+					else if (n >= 191.25 && n < 213.75) s="SSW";
+					else if (n >= 213.75 && n < 236.25) s="SW";
+					else if (n >= 236.25 && n < 258.75) s="WSW";
+					else if (n >= 258.75 && n < 281.25) s="W";
+					else if (n >= 281.25 && n < 303.75) s="WNW";
+					else if (n >= 303.75 && n < 326.25) s="NW";
+					else if (n >= 326.25 && n < 348.75) s="NNW";
+					else if (n >= 348.75) s="N";
+					return s;
+				}
+
 				_IG_RegisterOnloadHandler(display);  
 			</script>
 		]]> 
