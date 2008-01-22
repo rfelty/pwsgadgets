@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
 	<ModulePrefs title="__UP_value__" 
-							 description="Weather underground personal station current conditions." 
-							 author="Jordi Morell" author_email="nospam.hokus04@gmail.com" 
+							 description="Personal weather station current data from wunderground.com." 
+							 author="Jordi Morell"
+							 author_email="pwsgadgets.feedback@gmail.com" 
+							 author_location="Palma de Mallorca, Spain"
+							 thumbnail="http://icons.wunderground.com/graphics/logos/full_4c_gradient.jpg"
+							 screenshot="http://icons.wunderground.com/graphics/logos/full_4c_gradient.jpg"
 							 title_url="http://www.wunderground.com" 
-							 directory_title="Wunderground current conditions." 
-							 category="weather" 
-							 height="50">
+							 directory_title="Weather underground PWS current conditions." 
+							 height="50"
+							 scaling="true">
 		<Require feature="dynamic-height"/>
 		<Require feature="analytics"/>
 	</ModulePrefs>
@@ -14,6 +18,14 @@
 	<UserPref name="wnd_units" datatype="enum" display_name="Units" default_value="metric" required="true">
 		<EnumValue value="metric" display_value="Metric" />
 		<EnumValue value="english" display_value="English" />
+	</UserPref>
+	<UserPref name="update_timer" datatype="enum" display_name="Update every: " default_value="30000" required="true">
+		<EnumValue value="30000" display_value="30 seconds" />
+		<EnumValue value="60000" display_value="1 minute" />
+		<EnumValue value="120000" display_value="2 minutes" />
+		<EnumValue value="180000" display_value="3 minutes" />
+		<EnumValue value="240000" display_value="4 minutes" />
+		<EnumValue value="300000" display_value="5 minutes" />
 	</UserPref>
 	<UserPref name="show_observationtime" display_name="Observation time:" datatype="bool" default_value="true"/>
 	<UserPref name="show_temperature" display_name="Temperature:" datatype="bool" default_value="true"/>
@@ -25,7 +37,7 @@
 	<UserPref name="show_pressure" display_name="Pressure:" datatype="bool" default_value="true"/>
 	<UserPref name="show_1hrain" display_name="1 hour rain:" datatype="bool" default_value="true"/>
 	<UserPref name="show_todayrain" display_name="Today rain:" datatype="bool" default_value="true"/>
-	<UserPref name="value" display_name="Title" required="true"/>
+	<UserPref name="value" display_name="Title" required="true" default_value="Current conditions"/>
 	<Content type="html">
 		<![CDATA[
 			<div id="current__MODULE_ID__" style="font-size:12pt; padding:5px; color: black;">Reading xml...</div>
@@ -57,8 +69,8 @@
 							if (prefs.getBool("show_temperature")==true) { html += "Temperature: " + response.getElementsByTagName("temp_c")[0].firstChild.data + " ºC<br>"; }
 							if (prefs.getBool("show_dewpoint")==true) { html += "Dew point: " + response.getElementsByTagName("dewpoint_c")[0].firstChild.data + " ºC<br>"; }
 							if (prefs.getBool("show_humidity")==true) { html += "Relative Humidity: " + response.getElementsByTagName("relative_humidity")[0].firstChild.data + "%<br>"; }
-							if (prefs.getBool("show_wind")==true) { html += "Wind speed: " + (parseFloat(response.getElementsByTagName("wind_mph")[0].firstChild.data) * 1.61) + " km/h<br>"; }
-							if (prefs.getBool("show_windgust")==true) { html += "Wind Gust: " + (parseFloat(response.getElementsByTagName("wind_gust_mph")[0].firstChild.data) * 1.61) + " km/h<br>"; }
+							if (prefs.getBool("show_wind")==true) { html += "Wind speed: " + parseInt(parseFloat(response.getElementsByTagName("wind_mph")[0].firstChild.data) * 1.61) + " km/h<br>"; }
+							if (prefs.getBool("show_windgust")==true) { html += "Wind Gust: " + parseInt(parseFloat(response.getElementsByTagName("wind_gust_mph")[0].firstChild.data) * 1.61) + " km/h<br>"; }
 							if (prefs.getBool("show_winddirection")==true) { html += "Wind direction: " + lookupWindString(response.getElementsByTagName("wind_degrees")[0].firstChild.data) + "<br>"; }
 							if (prefs.getBool("show_pressure")==true) { html += "Pressure: " + response.getElementsByTagName("pressure_mb")[0].firstChild.data + " mb<br>"; }
 							if (prefs.getBool("show_1hrain")==true) { html += "1 Hour Rain: " + response.getElementsByTagName("precip_1hr_metric")[0].firstChild.data + "mm<br>"; }
@@ -77,6 +89,7 @@
 						}
 						// Display HTML string
 						setContent(html);
+						setTimeout("display()", prefs.getInt("update_timer"));
 						}, { refreshInterval: 30});	
 					}
 	
