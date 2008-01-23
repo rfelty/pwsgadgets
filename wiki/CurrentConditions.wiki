@@ -3,7 +3,7 @@
 
 = Description =
 
-This gadget provides you with the current weather data.
+This gadget provides you with your Personal Weather Station updated data from wunderground.com.
 
 = Features =
  * You can provide any Weather Underground PWS id.
