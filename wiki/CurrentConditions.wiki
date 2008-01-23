@@ -9,7 +9,17 @@ This gadget provides you with the current weather data.
  * You can provide any Weather Underground PWS id.
  * Select between Metric or English units.
  * Select the refresh rate.
- * Select the data you want to show (observation time, temperature, dew point, relative humidity, wind speed, wind gust, wind direction, pressure, 1 hour rain and today rain).
+ * Select the data you want to show
+    # Observation time
+    # Temperature
+    # Dew point
+    # Relative humidity
+    # Wind speed
+    # Wind gust
+    # Wind direction
+    # Pressure
+    # 1 hour rain
+    # Today rain
  * Customize the title.
 
 To add this gadget to your iGoogle click the button [http://fusion.google.com/add?source=atgs&amp;moduleurl=http%3A//pwsgadgets.googlecode.com/svn/trunk/pws_CurrentConditions.xml http://gmodules.com/ig/images/plus_google.gif]
