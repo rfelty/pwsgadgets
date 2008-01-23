@@ -8,7 +8,7 @@ This gadget provides you with the current weather data.
 = Features =
  * You can provide any Weather Underground PWS id.
  * Select between Metric or English units.
- * Select the update policy.
+ * Select the refresh rate.
  * Select the data you want to show (observation time, temperature, dew point, relative humidity, wind speed, wind gust, wind direction, pressure, 1 hour rain and today rain).
  * Customize the title.
 
