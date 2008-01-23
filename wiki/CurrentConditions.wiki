@@ -1,14 +1,11 @@
 #summary Current Conditions Gadget.
 #labels Featured
 
-= Introduction =
+= Description =
 
 This gadget provides you with the current weather data.
 
-
-= Details =
-
-*Features:*
+= Features =
  * You can provide any Weather Underground PWS id.
  * Select between Metric or English units.
  * Select the update policy.
@@ -17,7 +14,7 @@ This gadget provides you with the current weather data.
 
 To add this gadget to your iGoogle click the button [http://fusion.google.com/add?source=atgs&amp;moduleurl=http%3A//pwsgadgets.googlecode.com/svn/trunk/pws_CurrentConditions.xml http://gmodules.com/ig/images/plus_google.gif]
 
-*Future versions:*
+= Future versions: =
 
  * Improve design.
  * Interancionalization.
