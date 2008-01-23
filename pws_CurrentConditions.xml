@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
 	<ModulePrefs title="__UP_value__" 
-							 description="Personal weather station current data from wunderground.com." 
+							 description="This gadget provides you with your Personal Weather Station updated data from wunderground.com." 
 							 author="Jordi Morell"
 							 author_email="pwsgadgets.feedback@gmail.com" 
 							 author_location="Palma de Mallorca, Spain"
 							 thumbnail="http://icons.wunderground.com/graphics/logos/full_4c_gradient.jpg"
 							 screenshot="http://icons.wunderground.com/graphics/logos/full_4c_gradient.jpg"
-							 title_url="http://www.wunderground.com" 
+							 title_url="http://pwsgadgets.googlecode.com" 
 							 directory_title="Weather underground PWS current conditions." 
 							 height="50"
 							 scaling="true">
@@ -57,13 +57,16 @@
 					var url = "http://api.wunderground.com/weatherstation/WXCurrentObXML.asp?ID=" + wunderID + "&rnd=" + Math.random();
 					// Track this gadget using Google Analytics specifiying the wunder id used.
 					_IG_Analytics("UA-3007781-2", "/CurrentConditions/" + wunderID);
+					// If debug enabled print info
 					print(url);
+					// Fetch the XML from wunderground site.
 					_IG_FetchXmlContent(url, function (response) {
 						if (response == null || typeof(response) != "object" || response.firstChild == null) {
 							setContent("<i>Invalid data.</i>");
 					  	return;
 						}
 						var html = ""; 
+						// Display metric units.
 						if (units == "metric") {
 							if (prefs.getBool("show_observationtime")==true) { html += response.getElementsByTagName("observation_time")[0].firstChild.data + "<br>"; }
 							if (prefs.getBool("show_temperature")==true) { html += "Temperature: " + response.getElementsByTagName("temp_c")[0].firstChild.data + " ºC<br>"; }
@@ -89,6 +92,7 @@
 						}
 						// Display HTML string
 						setContent(html);
+						// Set the timeout
 						setTimeout("display()", prefs.getInt("update_timer"));
 						}, { refreshInterval: 30});	
 					}
@@ -109,6 +113,7 @@
 					}
 				}
 				
+				// Outputs the wind direction string from the degrees
 				function lookupWindString(n) {
 					var s="-";
 					if (n > 360) n = n%360;
