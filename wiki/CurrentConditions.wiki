@@ -3,7 +3,7 @@
 
 = Introduction =
 
-If you have a Personal Weather Station and you upload the data to Weather Underground here you have a google gadget that provides you with the current weather data. 
+This gadget provides you with the current weather data.
 
 
 = Details =
