@@ -1,0 +1,22 @@
+#summary One-sentence summary of this page.
+#labels Featured
+
+= Introduction =
+
+If you have a Personal Weather Station and you upload the data to Weather Underground here you have a google gadget that provides you with the current weather data. 
+
+
+= Details =
+
+*Features:*
+ * You can provide any Weather Underground PWS id.
+ * Select between Metric or English units.
+ * Select the update policy.
+ * Select the data you want to show (observation time, temperature, dew point, relative humidity, wind speed, wind gust, wind direction, pressure, 1 hour rain and today rain).
+ * Customize the title.
+
+To add this gadget to your iGoogle click the button [http://fusion.google.com/add?source=atgs&amp;moduleurl=http%3A//pwsgadgets.googlecode.com/svn/trunk/pws_CurrentConditions.xml http://gmodules.com/ig/images/plus_google.gif]
+
+*Future versions:*
+
+ * Improve design.
