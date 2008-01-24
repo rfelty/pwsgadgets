@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<ModulePrefs title="Weather underground PWS charts" 
+							 description="This gadget provides you with your Personal Weather Station updated charts from wunderground.com." 
+							 author="Jordi Morell"
+							 author_email="pwsgadgets.feedback@gmail.com" 
+							 author_location="Palma de Mallorca, Spain"
+							 thumbnail="http://icons.wunderground.com/graphics/logos/full_4c_gradient.jpg"
+							 screenshot="http://icons.wunderground.com/graphics/logos/full_4c_gradient.jpg"
+							 title_url="http://pwsgadgets.googlecode.com" 
+							 directory_title="Weather underground PWS charts." 
+							 height="50"
+							 singleton="false">
+		<Require feature="dynamic-height"/>
+		<Require feature="analytics"/>
+		<Require feature="settitle" />
+	</ModulePrefs>
+	<UserPref name="wnd_id" display_name="Wunderground station id" required="true"/>
+	<UserPref name="update_timer" datatype="enum" display_name="Update every: " default_value="60000" required="true">
+		<EnumValue value="60000" display_value="1 minute" />
+		<EnumValue value="120000" display_value="2 minutes" />
+		<EnumValue value="180000" display_value="3 minutes" />
+		<EnumValue value="240000" display_value="4 minutes" />
+		<EnumValue value="300000" display_value="5 minutes" />
+		<EnumValue value="480000" display_value="8 minutes" />
+		<EnumValue value="600000" display_value="10 minutes" />
+		<EnumValue value="900000" display_value="15 minutes" />
+		<EnumValue value="1800000" display_value="30 minutes" />
+	</UserPref>
+	<UserPref name="show_temperature" display_name="Temperature:" datatype="bool" default_value="true"/>
+	<UserPref name="show_wind" display_name="Wind speed:" datatype="bool" default_value="true"/>
+	<UserPref name="show_winddirection" display_name="Wind direction:" datatype="bool" default_value="true"/>
+	<UserPref name="show_pressure" display_name="Pressure:" datatype="bool" default_value="true"/>
+	<UserPref name="show_rain" display_name="Rain:" datatype="bool" default_value="true"/>
+	<UserPref name="type" datatype="enum" display_name="Range: " default_value="3" required="true">
+		<EnumValue value="3" display_value="Today" />
+		<EnumValue value="2" display_value="Current week" />
+		<EnumValue value="1" display_value="Current month" />
+		<EnumValue value="0" display_value="Current year" />
+		<EnumValue value="4" display_value="Last 3 months" />
+		<EnumValue value="5" display_value="Last 6 months" />
+	</UserPref>
+	<UserPref name="title" display_name="Title"/>
+	<UserPref name="img_width" datatype="enum" display_name="Image width: " default_value="250" required="true">
+		<EnumValue value="250" display_value="250" />
+		<EnumValue value="300" display_value="300" />
+		<EnumValue value="350" display_value="350" />
+		<EnumValue value="400" display_value="400" />
+		<EnumValue value="450" display_value="450" />
+		<EnumValue value="500" display_value="500" />
+	</UserPref>
+	<Content type="html">
+		<![CDATA[
+			<div id="wunderchart__MODULE_ID__" style="font-size:12pt; padding:5px; color: black;">Loading chart...</div>
+			<div id="debug_div" style="font-size:9pt; padding:5px; color: red;"></div>
+	
+			<script type="text/javascript">
+				// debug flag. When its value is non-zero, debugging messages are displayed
+	     	var debug = 0;
+	     	// The string containing debugging messages
+	     	var debug_html = "";
+	     	
+				function display() {
+				  this.name = "wunderchart__MODULE_ID__";
+					var prefs = new _IG_Prefs(__MODULE_ID__);
+					var wunderID = prefs.getString("wnd_id");
+					// Track this gadget using Google Analytics specifiying the wunder id used.
+					_IG_Analytics("UA-3007781-2", "/WundergroundChart/" + wunderID);
+					setTitle(prefs);
+					var today = new Date();
+					var url = "http://www.wunderground.com/cgi-bin/wxStationGraphAll?ID=" + wunderID + "&day=";
+					print(url);
+					// Add the date parameters
+					url += today.getDate() + "&year=" + today.getYear() + "&month=" + (today.getMonth() + 1);
+					print(url);
+					url += "&type=" + prefs.getString("type");
+					print(url);
+					if (prefs.getBool("show_temperature")==true) { 
+						url += "&showtemp=1";
+						adjustDivHeight();
+					}
+					if (prefs.getBool("show_wind")==true) {
+						url += "&showwind=1";
+						adjustDivHeight();
+					}
+					if (prefs.getBool("show_winddirection")==true) {
+						url += "&showwinddir=1";
+						adjustDivHeight();
+					}
+					if (prefs.getBool("show_pressure")==true) {
+						url += "&showpressure=1";
+						adjustDivHeight();
+					}
+					if (prefs.getBool("show_rain")==true) {
+						url += "&showrain=1";
+						adjustDivHeight();
+					}
+					print(url);
+					url += "&showtitle=0&width=" + prefs.getString("img_width");
+					// If debug enabled print info
+					print(url);
+					// Display HTML string
+					setContent("<img src='" + url + "' alt='" + prefs.getString("value") + "'>");
+					// Set the timeout
+					setTimeout("display()", prefs.getInt("update_timer"));
+				}
+
+				// Sets the div height.
+				function setDivHeight(ht) {
+					_gel(this.name).style.height = ht;
+					_IG_AdjustIFrameHeight();
+				}
+				
+				// Gets the div height.
+				function getDivHeight() {
+					return _gel(this.name).style.height;
+				}
+
+				// Adjusts the div height.
+				function adjustDivHeight() {
+						if (getDivHeight() == "500px" ) {
+							setDivHeight(620);
+						} else if (getDivHeight() == "380px" ) {
+							setDivHeight(500);							
+						} else if (getDivHeight() == "260px" ) {
+							setDivHeight(380);							
+						} else if (getDivHeight() == "140px" ) {
+							setDivHeight(260);
+						} else {
+							setDivHeight(140);
+						}
+				}
+
+				function setTitle(prefs) {
+					var type = prefs.getInt("type");
+					if (!prefs.getString("title") == "") {
+						_IG_SetTitle(prefs.getString("title"));
+					} else if (type == 0) {
+						_IG_SetTitle("Current year chart");
+					} else if (type == 1) {
+						_IG_SetTitle("Current month chart");
+					} else if (type == 2) {
+						_IG_SetTitle("Current week chart");
+					} else if (type == 3) {
+						_IG_SetTitle("Today chart");
+					} else if (type == 4) {
+						_IG_SetTitle("Last 3 months chart");
+					} else if (type == 5) {
+						_IG_SetTitle("Last 6 months chart");
+					}
+				}
+				
+				// Outputs content to the div and resizes the gadget
+				function setContent(html) {
+					_gel(this.name).innerHTML = html;
+					_IG_AdjustIFrameHeight();
+				}
+	
+				// Outputs debug messages if debug flag has a non-zero value
+				function print(msg) {
+					if (debug) {
+						debug_html += msg + "<br>";
+						// Write debug HTML to div
+						_gel("debug_div").innerHTML = debug_html;
+						_IG_AdjustIFrameHeight();
+					}
+				}
+
+				_IG_RegisterOnloadHandler(display);  
+			</script>
+		]]> 
+	</Content> 
+</Module>
