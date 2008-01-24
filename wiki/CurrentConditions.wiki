@@ -27,4 +27,4 @@ To add this gadget to your iGoogle click the button [http://fusion.google.com/ad
 = Future versions =
 
  * Improve design.
- * Interancionalization.
+ * Internacionalization.
