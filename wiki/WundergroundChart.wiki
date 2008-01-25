@@ -1,13 +1,23 @@
-#summary One-sentence summary of this page.
+#summary Weather Underground Charts Gadget.
+#labels Featured
 
-= Introduction =
+= Description =
 
-Add your content here.
+This gadget provides you with your Personal Weather Station updated charts from wunderground.com.
 
+= Features =
+ * You can provide any Weather Underground PWS id.
+ * Select the refresh rate.
+ * Select the charts you want to see
+    * Temperature
+    * Wind speed
+    * Wind direction
+    * Pressure
+    * Rain
+ * Customize the title.
 
-= Details =
+To add this gadget to your iGoogle click the button [http://fusion.google.com/add?source=atgs&amp;moduleurl=http%3A//pwsgadgets.googlecode.com/svn/trunk/pws_WundregroundChart.xml http://gmodules.com/ig/images/plus_google.gif]
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+= Future versions =
+
+ * Add more charts.
