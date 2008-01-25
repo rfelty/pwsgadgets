@@ -16,7 +16,7 @@ This gadget provides you with your Personal Weather Station updated charts from 
     * Rain
  * Customize the title.
 
-To add this gadget to your iGoogle click the button [http://fusion.google.com/add?source=atgs&moduleurl=http://pwsgadgets.googlecode.com/svn/trunk/pws_WundregroundChart.xml http://gmodules.com/ig/images/plus_google.gif]
+To add this gadget to your iGoogle click the button [http://fusion.google.com/add?source=atgs&moduleurl=http%3A//pwsgadgets.googlecode.com/svn/trunk/pws_WundergroundChart.xml http://gmodules.com/ig/images/plus_google.gif]
 
 = Future versions =
 
