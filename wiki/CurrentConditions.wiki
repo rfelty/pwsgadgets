@@ -22,6 +22,9 @@ This gadget provides you with your Personal Weather Station updated data from wu
     * Today rain
  * Customize the title.
 
+= New features =
+ * (26/01/2008) Added the ability to show data in both units (Metric and English).
+
 To add this gadget to your iGoogle click the button [http://fusion.google.com/add?source=atgs&amp;moduleurl=http%3A//pwsgadgets.googlecode.com/svn/trunk/pws_CurrentConditions.xml http://gmodules.com/ig/images/plus_google.gif]
 
 = Future versions =
