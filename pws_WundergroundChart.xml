@@ -41,13 +41,32 @@
 		<EnumValue value="5" display_value="Last 6 months" />
 	</UserPref>
 	<UserPref name="title" display_name="Title"/>
-	<UserPref name="img_width" datatype="enum" display_name="Image width: " default_value="250" required="true">
+	<UserPref name="img_width" datatype="enum" display_name="Image width: " default_value="350" required="true">
+		<EnumValue value="200" display_value="200" />
+		<EnumValue value="225" display_value="225" />
 		<EnumValue value="250" display_value="250" />
+		<EnumValue value="275" display_value="275" />
 		<EnumValue value="300" display_value="300" />
+		<EnumValue value="325" display_value="325" />
 		<EnumValue value="350" display_value="350" />
+		<EnumValue value="375" display_value="375" />
 		<EnumValue value="400" display_value="400" />
+		<EnumValue value="425" display_value="425" />
 		<EnumValue value="450" display_value="450" />
+		<EnumValue value="475" display_value="475" />
 		<EnumValue value="500" display_value="500" />
+		<EnumValue value="525" display_value="525" />
+		<EnumValue value="550" display_value="550" />
+		<EnumValue value="575" display_value="575" />
+		<EnumValue value="600" display_value="600" />
+		<EnumValue value="625" display_value="625" />
+		<EnumValue value="650" display_value="650" />
+		<EnumValue value="675" display_value="675" />
+		<EnumValue value="700" display_value="700" />
+		<EnumValue value="725" display_value="725" />
+		<EnumValue value="750" display_value="750" />
+		<EnumValue value="775" display_value="775" />
+		<EnumValue value="800" display_value="800" />
 	</UserPref>
 	<Content type="html">
 		<![CDATA[
@@ -55,6 +74,7 @@
 			<div id="debug_div" style="font-size:9pt; padding:5px; color: red;"></div>
 	
 			<script type="text/javascript">
+				var version = "1.0.1";
 				// debug flag. When its value is non-zero, debugging messages are displayed
 	     	var debug = 0;
 	     	// The string containing debugging messages
