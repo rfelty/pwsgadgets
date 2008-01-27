@@ -42,7 +42,7 @@
 	<UserPref name="title" display_name="Title" required="true" default_value="Current conditions"/>
 	<Content type="html">
 		<![CDATA[
-			<div id="current__MODULE_ID__" style="font-size:12pt; padding:5px; color: black;">Reading xml...</div>
+			<div id="current__MODULE_ID__" style="font-size:12pt; padding:5px; color: black;">Fetching xml...</div>
 			<div id="debug_div" style="font-size:9pt; padding:5px; color: red;"></div>
 	
 			<script type="text/javascript">
