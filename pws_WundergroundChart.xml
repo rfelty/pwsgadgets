@@ -76,7 +76,7 @@
 			<div id="debug_div" style="font-size:9pt; padding:5px; color: red;"></div>
 	
 			<script type="text/javascript">
-				var version = "1.1.0";
+				var version = "1.1.1";
 				// debug flag. When its value is non-zero, debugging messages are displayed
 	     	var debug = 0;
 	     	// The string containing debugging messages
@@ -93,7 +93,7 @@
 					var url = "http://www.wunderground.com/cgi-bin/wxStationGraphAll?ID=" + wunderID + "&day=";
 					print(url);
 					// Add the date parameters
-					url += today.getDate() + "&year=" + today.getYear() + "&month=" + (today.getMonth() + 1);
+					url += today.getDate() + "&year=" + today.getFullYear() + "&month=" + (today.getMonth() + 1);
 					print(url);
 					url += "&type=" + prefs.getString("type");
 					print(url);
