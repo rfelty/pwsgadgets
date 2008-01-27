@@ -76,7 +76,7 @@
 			<div id="debug_div" style="font-size:9pt; padding:5px; color: red;"></div>
 	
 			<script type="text/javascript">
-				var version = "1.0.1";
+				var version = "1.0.2";
 				// debug flag. When its value is non-zero, debugging messages are displayed
 	     	var debug = 0;
 	     	// The string containing debugging messages
