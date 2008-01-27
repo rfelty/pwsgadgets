@@ -32,6 +32,8 @@
 	<UserPref name="show_winddirection" display_name="Wind direction:" datatype="bool" default_value="true"/>
 	<UserPref name="show_pressure" display_name="Pressure:" datatype="bool" default_value="true"/>
 	<UserPref name="show_rain" display_name="Rain:" datatype="bool" default_value="true"/>
+	<UserPref name="show_solarradiation" display_name="Solar radiation:" datatype="bool" default_value="false"/>
+	<UserPref name="show_uv" display_name="UV (index):" datatype="bool" default_value="false"/>
 	<UserPref name="type" datatype="enum" display_name="Range: " default_value="3" required="true">
 		<EnumValue value="3" display_value="Today" />
 		<EnumValue value="2" display_value="Current week" />
@@ -115,6 +117,14 @@
 						url += "&showrain=1";
 						adjustDivHeight();
 					}
+					if (prefs.getBool("show_solarradiation")==true) {
+						url += "&showsolarradiation=1";
+						adjustDivHeight();
+					}
+					if (prefs.getBool("show_uv")==true) {
+						url += "&showuv=1";
+						adjustDivHeight();
+					}
 					print(url);
 					url += "&showtitle=0&width=" + prefs.getString("img_width");
 					// If debug enabled print info
@@ -138,7 +148,11 @@
 
 				// Adjusts the div height.
 				function adjustDivHeight() {
-						if (getDivHeight() == "500px" ) {
+					if (getDivHeight() == "765px" ) {
+							setDivHeight(885);	
+						} else if (getDivHeight() == "620px" ) {
+							setDivHeight(765);
+						} else if (getDivHeight() == "500px" ) {
 							setDivHeight(620);
 						} else if (getDivHeight() == "380px" ) {
 							setDivHeight(500);							
