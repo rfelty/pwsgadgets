@@ -73,21 +73,29 @@
 	<Content type="html">
 		<![CDATA[
 			<div id="wunderchart__MODULE_ID__" style="font-size:12pt; padding:5px; color: black;">Loading chart...</div>
-			<div id="debug_div" style="font-size:9pt; padding:5px; color: red;"></div>
+			<div id="debug___MODULE_ID__" style="font-size:9pt; padding:5px; color: red;"></div>
+			<div id="version___MODULE_ID__" style="font-size:7pt; padding:5px; color: black;"></div>
 	
 			<script type="text/javascript">
-				var version = "1.1.1";
+			  // version variable
+				var version = "v1.1.2";
+				// Main div name
+				mainDiv = "wunderchart__MODULE_ID__";
+				// Debug div name
+				debugDiv = "debug___MODULE_ID__";
+				// Version div name
+				versionDiv = "version___MODULE_ID__";
 				// debug flag. When its value is non-zero, debugging messages are displayed
 	     	var debug = 0;
 	     	// The string containing debugging messages
 	     	var debug_html = "";
+
+				// Track this gadget using Google Analytics specifiying the wunder id used.
+				_IG_Analytics("UA-3007781-2", "/WundergroundChart/" + new _IG_Prefs(__MODULE_ID__).getString("wnd_id"));
 	     	
 				function display() {
-				  this.name = "wunderchart__MODULE_ID__";
 					var prefs = new _IG_Prefs(__MODULE_ID__);
 					var wunderID = prefs.getString("wnd_id");
-					// Track this gadget using Google Analytics specifiying the wunder id used.
-					_IG_Analytics("UA-3007781-2", "/WundergroundChart/" + wunderID);
 					setTitle(prefs);
 					var today = new Date();
 					var url = "http://www.wunderground.com/cgi-bin/wxStationGraphAll?ID=" + wunderID + "&day=";
@@ -131,19 +139,21 @@
 					print(url);
 					// Display HTML string
 					setContent("<img src='" + url + "' alt='" + prefs.getString("value") + "'>");
+					// Displays version
+					setVersion(version);
 					// Set the timeout
 					setTimeout("display()", prefs.getInt("update_timer"));
 				}
 
 				// Sets the div height.
 				function setDivHeight(ht) {
-					_gel(this.name).style.height = ht;
+					_gel(mainDiv).style.height = ht;
 					_IG_AdjustIFrameHeight();
 				}
 				
 				// Gets the div height.
 				function getDivHeight() {
-					return _gel(this.name).style.height;
+					return _gel(mainDiv).style.height;
 				}
 
 				// Adjusts the div height.
@@ -186,7 +196,7 @@
 				
 				// Outputs content to the div and resizes the gadget
 				function setContent(html) {
-					_gel(this.name).innerHTML = html;
+					_gel(mainDiv).innerHTML = html;
 					_IG_AdjustIFrameHeight();
 				}
 	
@@ -195,9 +205,15 @@
 					if (debug) {
 						debug_html += msg + "<br>";
 						// Write debug HTML to div
-						_gel("debug_div").innerHTML = debug_html;
+						_gel(debugDiv).innerHTML = debug_html;
 						_IG_AdjustIFrameHeight();
 					}
+				}
+
+				// Outputs version
+				function setVersion(version) {
+						_gel(versionDiv).innerHTML = version;
+						_IG_AdjustIFrameHeight();
 				}
 
 				_IG_RegisterOnloadHandler(display);  

@@ -43,23 +43,31 @@
 	<Content type="html">
 		<![CDATA[
 			<div id="current__MODULE_ID__" style="font-size:12pt; padding:5px; color: black;">Fetching xml...</div>
-			<div id="debug_div" style="font-size:9pt; padding:5px; color: red;"></div>
+			<div id="debug___MODULE_ID__" style="font-size:9pt; padding:5px; color: red;"></div>
+			<div id="version___MODULE_ID__" style="font-size:7pt; padding:5px; color: black;"></div>
 	
 			<script type="text/javascript">
-				var version = "1.1.0";
+			  // version variable
+				var version = "v1.1.1";
+				// Main div name
+				mainDiv = "current__MODULE_ID__";
+				// Debug div name
+				debugDiv = "debug___MODULE_ID__";
+				// Version div name
+				versionDiv = "version___MODULE_ID__";
 				// debug flag. When its value is non-zero, debugging messages are displayed
 	     	var debug = 0;
 	     	// The string containing debugging messages
 	     	var debug_html = "";
+
+				// Track this gadget using Google Analytics specifiying the wunder id used.
+				_IG_Analytics("UA-3007781-2", "/CurrentConditions/" + new _IG_Prefs(__MODULE_ID__).getString("wnd_id"));
 	     	
 				function display() {
-				  this.name = 'current__MODULE_ID__';
 					var prefs = new _IG_Prefs(__MODULE_ID__);
 					var units = prefs.getString("wnd_units");
 					var wunderID = prefs.getString("wnd_id")
 					var url = "http://api.wunderground.com/weatherstation/WXCurrentObXML.asp?ID=" + wunderID + "&rnd=" + Math.random();
-					// Track this gadget using Google Analytics specifiying the wunder id used.
-					_IG_Analytics("UA-3007781-2", "/CurrentConditions/" + wunderID);
 					// If debug enabled print info
 					print(url);
 					// Fetch the XML from wunderground site.
@@ -106,6 +114,8 @@
 						}
 						// Display HTML string
 						setContent(html);
+						// Displays version
+						setVersion(version);
 						// Set the timeout
 						setTimeout("display()", prefs.getInt("update_timer"));
 						}, { refreshInterval: 30});	
@@ -113,7 +123,7 @@
 	
 				// Outputs content to the div and resizes the gadget
 				function setContent(html) {
-					_gel(this.name).innerHTML = html;
+					_gel(mainDiv).innerHTML = html;
 					_IG_AdjustIFrameHeight();
 				}
 	
@@ -122,7 +132,7 @@
 					if (debug) {
 						debug_html += msg + "<br>";
 						// Write debug HTML to div
-						_gel("debug_div").innerHTML = debug_html;
+						_gel(debugDiv).innerHTML = debug_html;
 						_IG_AdjustIFrameHeight();
 					}
 				}
@@ -149,6 +159,12 @@
 					else if (n >= 326.25 && n < 348.75) s="NNW";
 					else if (n >= 348.75) s="N";
 					return s;
+				}
+
+				// Outputs version
+				function setVersion(version) {
+						_gel(versionDiv).innerHTML = version;
+						_IG_AdjustIFrameHeight();
 				}
 
 				_IG_RegisterOnloadHandler(display);  
