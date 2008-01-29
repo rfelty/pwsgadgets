@@ -22,7 +22,8 @@ This gadget provides you with your Personal Weather Station updated data from wu
     * Today rain
  * Customize the title.
 
-= New features =
+= Version History =
+ * (23/01/2008) v1.0.0 Initial release.
  * (26/01/2008) v1.1.0 Added the ability to show data in both units (Metric and English).
  * (29/01/2008) v1.1.1 Added version number. Analytics fix.
 
