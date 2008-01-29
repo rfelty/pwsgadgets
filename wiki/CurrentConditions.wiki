@@ -24,6 +24,7 @@ This gadget provides you with your Personal Weather Station updated data from wu
 
 = New features =
  * (26/01/2008) v1.1.0 Added the ability to show data in both units (Metric and English).
+ * (29/01/2008) v1.1.1 Added version number. Analytics fix.
 
 To add this gadget to your iGoogle click the button [http://fusion.google.com/add?source=atgs&amp;moduleurl=http%3A//pwsgadgets.googlecode.com/svn/trunk/pws_CurrentConditions.xml http://gmodules.com/ig/images/plus_google.gif]
 

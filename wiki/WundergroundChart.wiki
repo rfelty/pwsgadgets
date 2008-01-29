@@ -20,6 +20,8 @@ This gadget provides you with your Personal Weather Station updated charts from 
  * (26/01/2008) v1.0.1 Added different chart height options from 200 to 800 pixels.
  * (27/01/2008) v1.1.0 Added solar radiation and UV index charts.
  * (27/01/2008) v1.1.1 Fixed bg when it runs on Firefox that causes a 'Data Not Available' image chart.
+ * (29/01/2008) v1.1.2 Added version number. Analytics fix.
+ 
 To add this gadget to your iGoogle click the button [http://fusion.google.com/add?source=atgs&moduleurl=http%3A//pwsgadgets.googlecode.com/svn/trunk/pws_WundergroundChart.xml http://gmodules.com/ig/images/plus_google.gif]
 
 = Future versions =
