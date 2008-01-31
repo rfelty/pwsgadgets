@@ -5,6 +5,8 @@
 
 This gadget provides you with your Personal Weather Station updated data from wunderground.com.
 
+To add this gadget to your iGoogle click the button [http://fusion.google.com/add?source=atgs&amp;moduleurl=http%3A//pwsgadgets.googlecode.com/svn/trunk/pws_CurrentConditions.xml http://gmodules.com/ig/images/plus_google.gif]
+
 = Features =
  * You can provide any Weather Underground PWS id.
  * Select between Metric or English units.
@@ -23,11 +25,16 @@ This gadget provides you with your Personal Weather Station updated data from wu
  * Customize the title.
 
 = Version History =
- * (23/01/2008) v1.0.0 Initial release.
- * (26/01/2008) v1.1.0 Added the ability to show data in both units (Metric and English).
- * (29/01/2008) v1.1.1 Added version number. Analytics fix.
-
-To add this gadget to your iGoogle click the button [http://fusion.google.com/add?source=atgs&amp;moduleurl=http%3A//pwsgadgets.googlecode.com/svn/trunk/pws_CurrentConditions.xml http://gmodules.com/ig/images/plus_google.gif]
+ * (23/01/2008) v1.0.0
+    * Initial release.
+ * (26/01/2008) v1.1.0
+    * Added the ability to show data in both units (Metric and English).
+ * (29/01/2008) v1.1.1
+    * Added version number.
+    * Analytics fix.
+ * (31/01/2008) v1.1.2
+    * Added last gadget refresh date and time.
+    * Version color changed to gray and aligned to right.
 
 = Future versions =
 
