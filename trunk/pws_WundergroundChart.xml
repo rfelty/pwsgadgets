@@ -74,11 +74,11 @@
 		<![CDATA[
 			<div id="wunderchart__MODULE_ID__" style="font-size:12pt; padding:5px; color: black;">Loading chart...</div>
 			<div id="debug___MODULE_ID__" style="font-size:9pt; padding:5px; color: red;"></div>
-			<div id="version___MODULE_ID__" style="font-size:7pt; padding:5px; color: black;"></div>
+			<div id="version___MODULE_ID__" style="font-size:7pt; padding:5px; color: gray; text-align: right;"></div>
 	
 			<script type="text/javascript">
 			  // version variable
-				var version = "v1.1.2";
+				var version = "v1.1.3";
 				// Main div name
 				mainDiv = "wunderchart__MODULE_ID__";
 				// Debug div name
@@ -105,42 +105,21 @@
 					print(url);
 					url += "&type=" + prefs.getString("type");
 					print(url);
-					if (prefs.getBool("show_temperature")==true) { 
-						url += "&showtemp=1";
-						adjustDivHeight();
-					}
-					if (prefs.getBool("show_wind")==true) {
-						url += "&showwind=1";
-						adjustDivHeight();
-					}
-					if (prefs.getBool("show_winddirection")==true) {
-						url += "&showwinddir=1";
-						adjustDivHeight();
-					}
-					if (prefs.getBool("show_pressure")==true) {
-						url += "&showpressure=1";
-						adjustDivHeight();
-					}
-					if (prefs.getBool("show_rain")==true) {
-						url += "&showrain=1";
-						adjustDivHeight();
-					}
-					if (prefs.getBool("show_solarradiation")==true) {
-						url += "&showsolarradiation=1";
-						adjustDivHeight();
-					}
-					if (prefs.getBool("show_uv")==true) {
-						url += "&showuv=1";
-						adjustDivHeight();
-					}
-					print(url);
+					if (prefs.getBool("show_temperature")==true) {url += "&showtemp=1";}
+					if (prefs.getBool("show_wind")==true) {url += "&showwind=1";}
+					if (prefs.getBool("show_winddirection")==true) {url += "&showwinddir=1";}
+					if (prefs.getBool("show_pressure")==true) {url += "&showpressure=1";}
+					if (prefs.getBool("show_rain")==true) {url += "&showrain=1";}
+					if (prefs.getBool("show_solarradiation")==true) {url += "&showsolarradiation=1";}
+					if (prefs.getBool("show_uv")==true) {url += "&showuv=1";}
 					url += "&showtitle=0&width=" + prefs.getString("img_width");
+					url += "&rnd=" + Math.random();
 					// If debug enabled print info
 					print(url);
 					// Display HTML string
-					setContent("<img src='" + url + "' alt='" + prefs.getString("value") + "'>");
+					setContent("<img src='" + url + "' alt='" + prefs.getString("value") + "' onload='_IG_AdjustIFrameHeight()'>");
 					// Displays version
-					setVersion(version);
+					setVersion(version + "<br>Last gadget refresh: " + new Date().toLocaleString());
 					// Set the timeout
 					setTimeout("display()", prefs.getInt("update_timer"));
 				}
@@ -154,25 +133,6 @@
 				// Gets the div height.
 				function getDivHeight() {
 					return _gel(mainDiv).style.height;
-				}
-
-				// Adjusts the div height.
-				function adjustDivHeight() {
-					if (getDivHeight() == "765px" ) {
-							setDivHeight(885);	
-						} else if (getDivHeight() == "620px" ) {
-							setDivHeight(765);
-						} else if (getDivHeight() == "500px" ) {
-							setDivHeight(620);
-						} else if (getDivHeight() == "380px" ) {
-							setDivHeight(500);							
-						} else if (getDivHeight() == "260px" ) {
-							setDivHeight(380);							
-						} else if (getDivHeight() == "140px" ) {
-							setDivHeight(260);
-						} else {
-							setDivHeight(140);
-						}
 				}
 
 				function setTitle(prefs) {
