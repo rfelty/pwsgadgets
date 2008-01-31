@@ -44,11 +44,11 @@
 		<![CDATA[
 			<div id="current__MODULE_ID__" style="font-size:12pt; padding:5px; color: black;">Fetching xml...</div>
 			<div id="debug___MODULE_ID__" style="font-size:9pt; padding:5px; color: red;"></div>
-			<div id="version___MODULE_ID__" style="font-size:7pt; padding:5px; color: black;"></div>
+			<div id="version___MODULE_ID__" style="font-size:7pt; padding:5px; color: gray; text-align: right;"></div>
 	
 			<script type="text/javascript">
 			  // version variable
-				var version = "v1.1.1";
+				var version = "v1.1.2";
 				// Main div name
 				mainDiv = "current__MODULE_ID__";
 				// Debug div name
@@ -115,7 +115,7 @@
 						// Display HTML string
 						setContent(html);
 						// Displays version
-						setVersion(version);
+						setVersion(version + "<br>Last gadget refresh: " + new Date().toLocaleString());
 						// Set the timeout
 						setTimeout("display()", prefs.getInt("update_timer"));
 						}, { refreshInterval: 30});	
