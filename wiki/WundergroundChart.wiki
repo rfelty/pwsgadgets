@@ -33,5 +33,5 @@ To add this gadget to your iGoogle click the button [http://fusion.google.com/ad
  * (31/01/2008) v1.1.3
     * Added last gadget refresh date and time.
     * Chart image now is not cached.
-    * Fixed bug that causes the gadget not to resize proprely.
+    * Fixed bug that causes the gadget not to resize properly.
     * Version color changed to gray and aligned to right.
