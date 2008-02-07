@@ -22,6 +22,7 @@ To add this gadget to your iGoogle click the button [http://fusion.google.com/ad
  * Customize the title.
 
 = Version History =
+
  * (07/02/2008) v2.0.0
     * Gadget code rewrite from scratch.
     * Added tabs.
