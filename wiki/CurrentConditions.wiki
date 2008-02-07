@@ -9,34 +9,36 @@ To add this gadget to your iGoogle click the button [http://fusion.google.com/ad
 
 = Features =
  * You can provide any Weather Underground PWS id.
- * Select between Metric or English units.
+ * Select between Metric, English units or both.
  * Select the refresh rate.
+ * Shows temperature and last refresh time.
  * Select the data you want to show
-    * Observation time
-    * Temperature
     * Dew point
     * Relative humidity
-    * Wind speed
-    * Wind gust
-    * Wind direction
+    * Wind 
     * Pressure
     * 1 hour rain
     * Today rain
  * Customize the title.
 
 = Version History =
- * (23/01/2008) v1.0.0
-    * Initial release.
- * (26/01/2008) v1.1.0
-    * Added the ability to show data in both units (Metric and English).
- * (29/01/2008) v1.1.1
-    * Added version number.
-    * Analytics fix.
+ * (07/02/2008) v2.0.0
+    * Gadget code rewrite from scratch.
+    * Added tabs.
+    * Design improvement.
  * (31/01/2008) v1.1.2
     * Added last gadget refresh date and time.
     * Version color changed to gray and aligned to right.
+ * (29/01/2008) v1.1.1
+    * Added version number.
+    * Analytics fix.
+ * (26/01/2008) v1.1.0
+    * Added the ability to show data in both units (Metric and English).
+ * (23/01/2008) v1.0.0
+    * Initial release.
 
 = Future versions =
 
  * Improve design.
  * Internacionalization.
+ * Add new tabs (extreme values, ...).
