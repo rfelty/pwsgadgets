@@ -1,0 +1,8 @@
+#summary Current conditions help page
+#labels Featured,CurrentConditions,Help
+= Configuration Parameters =
+
+In the Current Conditions gadget you can find the following configuration parameters :
+  * *Wunderground station id*: To get your Wunderground weather station ID you need to add and configure a personal weather station at the [http://www.wunderground.com/weatherstation/index.asp Weather Underground] web site. Example value: IISLASBA11. This parameter is mandatory.
+  * *Units*: You can choose to show your data in Metric units (ºC, km/h, mb, mm), English units (F, mph, in, in)
+  * 
