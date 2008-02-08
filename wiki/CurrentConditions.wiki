@@ -41,4 +41,4 @@ To add this gadget to your iGoogle click the button [http://fusion.google.com/ad
 
  * Improve design.
  * Internacionalization.
- * Add new tabs (extreme values, ...).
+ * Add new tabs (extreme values, forecast, lunar phase...).
