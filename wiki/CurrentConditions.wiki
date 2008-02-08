@@ -41,4 +41,5 @@ To add this gadget to your iGoogle click the button [http://fusion.google.com/ad
 
  * Improve design.
  * Internacionalization.
+ * Add current weather icon to the Current tab.
  * Add new tabs (extreme values, forecast, lunar phase...).
