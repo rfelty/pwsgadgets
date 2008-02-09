@@ -21,6 +21,14 @@ To add this gadget to your iGoogle click the button [http://fusion.google.com/ad
     * Today rain
  * Customize the title.
 
+= Future versions =
+
+ * Improve design.
+ * Internacionalization.
+ * Add current weather icon to the Current tab.
+ * Add new tabs (extreme values, forecast, lunar phase, tips...).
+ * Add a mini message when the gadget detects no updated data for a period longer than a specified amount time.
+
 = Version History =
  * (07/02/2008) v2.0.0
     * Gadget code rewrite from scratch.
@@ -36,10 +44,3 @@ To add this gadget to your iGoogle click the button [http://fusion.google.com/ad
     * Added the ability to show data in both units (Metric and English).
  * (23/01/2008) v1.0.0
     * Initial release.
-
-= Future versions =
-
- * Improve design.
- * Internacionalization.
- * Add current weather icon to the Current tab.
- * Add new tabs (extreme values, forecast, lunar phase...).
