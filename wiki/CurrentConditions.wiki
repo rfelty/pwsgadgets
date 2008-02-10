@@ -8,7 +8,7 @@ This gadget provides you with your Personal Weather Station updated data from [h
 To add this gadget to your iGoogle click the button [http://fusion.google.com/add?source=atgs&amp;moduleurl=http%3A//pwsgadgets.googlecode.com/svn/trunk/pws_CurrentConditions.xml http://gmodules.com/ig/images/plus_google.gif]
 
 = Features =
- *You can provide any Weather Underground Personal Weather Station id.
+ * You can provide any Weather Underground Personal Weather Station id.
  * Select between Metric units, English units or both.
  * Select the refresh rate.
  * Shows temperature and last refresh time.
