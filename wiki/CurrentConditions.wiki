@@ -20,6 +20,41 @@ To add this gadget to your iGoogle click the button [http://fusion.google.com/ad
     * 1 hour rain
     * Today rain
  * Customize the title.
+ * If your station is not uploading data to Weather Underground for more than 10 minutes the gadget advises you.
+
+= Configuration Parameters =
+
+In the Current Conditions gadget you can find the following configuration parameters :
+  * *Wunderground station id*: To get your Wunderground weather station ID you need to add and configure a personal weather station at the [http://www.wunderground.com/weatherstation/index.asp Weather Underground] web site.
+    * This parameter is mandatory.
+    * Example value: IISLASBA11.
+  * *Units*: You can choose to show your data in Metric units (ºC, km/h, mb, mm), English units (F, mph, in, in) or both.
+    * This parameter is mandatory.
+    * Default value: Metric.
+  * *Update every*: You can choose refresh time.
+    * This parameter is mandatory.
+    * Default value: 30 seconds.
+  * *Dew point*: This parameter indicates whether to show or not the dew point temperature in thew selected unit.
+    * This parameter is NOT mandatory.
+    * Default value: Yes.
+  * *Relative humidity*: This parameter indicates whether to show or not the relative humidity percentage.
+    * This parameter is NOT mandatory.
+    * Default value: Yes.
+  * *Wind*: This parameter indicates whether to show or not the wind info, including wind direction, wind speed and wind gust in the selected units.
+    * This parameter is NOT mandatory.
+    * Default value: Yes.
+  * *Pressure*: This parameter indicates whether to show or not the atmosferic pressure in the selected units.
+    * This parameter is NOT mandatory.
+    * Default value: Yes.
+  * *1 hour rain*: This parameter indicates whether to show or not the last hour rain in the selected units.
+    * This parameter is NOT mandatory.
+    * Default value: Yes.
+  * *Today rain*: This parameter indicates whether to show or not the today's rain in the selected units.
+    * This parameter is NOT mandatory.
+    * Default value: Yes.
+  * *Title*: This is the title you want to show in the gadget.
+    * This parameter is mandatory.
+    * Default value: Current Conditions.
 
 = Future versions =
 
