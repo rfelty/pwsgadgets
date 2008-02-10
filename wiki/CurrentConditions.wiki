@@ -9,7 +9,7 @@ To add this gadget to your iGoogle click the button [http://fusion.google.com/ad
 
 = Features =
  * You can provide any Weather Underground Personal Weather Station id.
- * Select between Metric, English units or both.
+ * Select between Metric units, English units or both.
  * Select the refresh rate.
  * Shows temperature and last refresh time.
  * Select the data you want to show
