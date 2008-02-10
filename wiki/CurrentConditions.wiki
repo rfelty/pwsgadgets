@@ -3,12 +3,12 @@
 
 = Description =
 
-This gadget provides you with your Personal Weather Station updated data from wunderground.com.
+This gadget provides you with your Personal Weather Station updated data from [http://www.weatherunderground.com Weather Underground] web site.
 
 To add this gadget to your iGoogle click the button [http://fusion.google.com/add?source=atgs&amp;moduleurl=http%3A//pwsgadgets.googlecode.com/svn/trunk/pws_CurrentConditions.xml http://gmodules.com/ig/images/plus_google.gif]
 
 = Features =
- * You can provide any Weather Underground PWS id.
+ * You can provide any Weather Underground Personal Weather Station id.
  * Select between Metric, English units or both.
  * Select the refresh rate.
  * Shows temperature and last refresh time.
@@ -25,11 +25,15 @@ To add this gadget to your iGoogle click the button [http://fusion.google.com/ad
 
  * Improve design.
  * Internacionalization.
- * Add current weather icon to the Current tab.
- * Add new tabs (extreme values, forecast, lunar phase, tips...).
- * Add a mini message when the gadget detects no updated data for a period longer than a specified amount time.
+ * Add new tabs (extreme values, forecast, lunar phase...).
 
 = Version History =
+ * (10/02/2008) v2.1.0
+    * Current weather icon next to temperature in the 'Current' tab added.
+    * Added 'Tips' tab where you can find some suggestions and other useful information like:
+      * If your station is not uploading data to Weather Underground for more than 10 minutes.
+      * Info you can provide into Weather Underground web site to improve the design.
+      * Useful links.
  * (07/02/2008) v2.0.0
     * Gadget code rewrite from scratch.
     * Added tabs.
