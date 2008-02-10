@@ -64,11 +64,14 @@ In the Current Conditions gadget you can find the following configuration parame
 
 = Version History =
  * (10/02/2008) v2.1.0
+
     * Current weather icon next to temperature in the 'Current' tab added.
     * Added 'Tips' tab where you can find some suggestions and other useful information like:
       * If your station is not uploading data to Weather Underground for more than 10 minutes.
       * Info you can provide into Weather Underground web site to improve the design.
       * Useful links.
+    * Fixed size.
+    * Added scrolling if the gadget is too big for the size.
  * (07/02/2008) v2.0.0
     * Gadget code rewrite from scratch.
     * Added tabs.
