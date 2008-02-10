@@ -12,13 +12,13 @@ To add this gadget to your iGoogle click the button [http://fusion.google.com/ad
  * Select between Metric units, English units or both.
  * Select the refresh rate.
  * Shows temperature and last refresh time.
- * Select the data you want to show
-    * Dew point
-    * Relative humidity
-    * Wind 
-    * Pressure
-    * 1 hour rain
-    * Today rain
+ * Select the data you want to show:
+    * Dew point.
+    * Relative humidity.
+    * Wind.
+    * Pressure.
+    * 1 hour rain.
+    * Today rain.
  * Customize the title.
  * If your station is not uploading data to Weather Underground for more than 10 minutes the gadget advises you.
 
