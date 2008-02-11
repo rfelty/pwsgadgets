@@ -12,6 +12,8 @@ To add this gadget to your iGoogle click the button [http://fusion.google.com/ad
  * Select between Metric units, English units or both.
  * Select the refresh rate.
  * Shows temperature and last refresh time.
+ * Shows current weather icon.
+ * Current weather icon is different during daytime and night.
  * Select the data you want to show:
     * Dew point.
     * Relative humidity.
@@ -63,6 +65,9 @@ In the Current Conditions gadget you can find the following configuration parame
  * Add new tabs (extreme values, forecast, lunar phase...).
 
 = Version History =
+ * (11/02/2008) v2.1.2
+    * Fixed a bug that sometimes causes to show only the icon.
+    * The icon is different during daytime and night.
  * (11/02/2008) v2.1.1
     * Fixed bronken link for icon next to temperature.
  * (10/02/2008) v2.1.0
