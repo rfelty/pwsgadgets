@@ -45,10 +45,9 @@
 			<div id="footer" style="font-size:7pt; padding:5px; color: gray; text-align: right;"></div>
 			<script type="text/javascript">
 			  // version variable
-				var version = "v2.1.1";
+				var version = "v2.1.2";
 				// Current conditions tab id
 				var currentTabId = "current__MODULE_ID__";
-				var currentTabHtml = "";
 				// Extreme values tab id
 				//extremeTabId = "extreme__MODULE_ID__";
 				// Hints tab id
@@ -72,6 +71,7 @@
 				
 				// Create 'Current' tab html.
 				function displayCurrentConditionsHtml(xml) {
+					_gel(currentTabId).innerHTML = "";
 					var prefs = new _IG_Prefs(__MODULE_ID__);
 					var units = prefs.getString("wnd_units");
 					var html = ""; 
@@ -82,19 +82,17 @@
 						var latitude = xml.getElementsByTagName("latitude")[0].firstChild.data;
 						var longitude = xml.getElementsByTagName("longitude")[0].firstChild.data;
 						_IG_FetchXmlContent(getForecastURL(latitude, longitude), displayCurrentIconHtml);
+						if (xml.getElementsByTagName("neighborhood")[0].firstChild != null) {	html += xml.getElementsByTagName("neighborhood")[0].firstChild.data + " "; }
 						if (units == "metric") {
-							if (xml.getElementsByTagName("neighborhood")[0].firstChild != null) {	html += xml.getElementsByTagName("neighborhood")[0].firstChild.data + " "; }
 							if (xml.getElementsByTagName("temp_c")[0].firstChild != null) { html += xml.getElementsByTagName("temp_c")[0].firstChild.data + " ºC"; }
 							html += "</h3></center>";
 							if (xml.getElementsByTagName("dewpoint_c")[0].firstChild != null && prefs.getBool("show_dewpoint")==true) { html += "Dew point: " + xml.getElementsByTagName("dewpoint_c")[0].firstChild.data + " ºC<br>"; }
 							if (xml.getElementsByTagName("relative_humidity")[0].firstChild != null && prefs.getBool("show_humidity")==true) { html += "Relative Humidity: " + xml.getElementsByTagName("relative_humidity")[0].firstChild.data + "%<br>"; }
 							if (xml.getElementsByTagName("wind_degrees")[0].firstChild != null && xml.getElementsByTagName("wind_mph")[0].firstChild != null && xml.getElementsByTagName("wind_gust_mph")[0].firstChild != null && prefs.getBool("show_wind")==true) { html += "Wind: " + lookupWindString(xml.getElementsByTagName("wind_degrees")[0].firstChild.data) + " at " + parseInt(parseFloat(xml.getElementsByTagName("wind_mph")[0].firstChild.data) * 1.61) + " km/h gusting to " + parseInt(parseFloat(xml.getElementsByTagName("wind_gust_mph")[0].firstChild.data) * 1.61) + " km/h<br>"; }
 							if (xml.getElementsByTagName("pressure_mb")[0].firstChild != null && prefs.getBool("show_pressure")==true) { html += "Pressure: " + xml.getElementsByTagName("pressure_mb")[0].firstChild.data + " mb<br>"; }
-							if (xml.getElementsByTagName("precip_1hr_metric")[0].firstChild != null && prefs.getBool("show_1hrain")==true) { html += "1 Hour Rain: " + xml.getElementsByTagName("precip_1hr_metric")[0].firstChild.data + "mm<br>"; }
-							if (xml.getElementsByTagName("precip_today_metric")[0].firstChild != null && prefs.getBool("show_todayrain")==true) { html += "Today Rain: " + xml.getElementsByTagName("precip_today_metric")[0].firstChild.data + "mm"; }
-							html += "<br> Last updated: " + new Date().toLocaleString();
+							if (xml.getElementsByTagName("precip_1hr_metric")[0].firstChild != null && prefs.getBool("show_1hrain")==true) { html += "1 Hour Rain: " + xml.getElementsByTagName("precip_1hr_metric")[0].firstChild.data + " mm<br>"; }
+							if (xml.getElementsByTagName("precip_today_metric")[0].firstChild != null && prefs.getBool("show_todayrain")==true) { html += "Today Rain: " + xml.getElementsByTagName("precip_today_metric")[0].firstChild.data + " mm<br>"; }
 						} else if (units == "english") {
-							if (xml.getElementsByTagName("neighborhood")[0].firstChild != null) {	html += xml.getElementsByTagName("neighborhood")[0].firstChild.data + " "; }
 							if (xml.getElementsByTagName("temp_f")[0].firstChild != null) { html += xml.getElementsByTagName("temp_f")[0].firstChild.data + " F"; }
 							html += "</h3></center>";
 							if (xml.getElementsByTagName("dewpoint_f")[0].firstChild != null && prefs.getBool("show_dewpoint")==true) { html += "Dew point: " + xml.getElementsByTagName("dewpoint_f")[0].firstChild.data + " F<br>"; }
@@ -102,10 +100,8 @@
 							if (xml.getElementsByTagName("wind_degrees")[0].firstChild != null && xml.getElementsByTagName("wind_mph")[0].firstChild != null && xml.getElementsByTagName("wind_gust_mph")[0].firstChild != null && prefs.getBool("show_wind")==true) { html += "Wind: " + lookupWindString(xml.getElementsByTagName("wind_degrees")[0].firstChild.data) + " at " + parseFloat(xml.getElementsByTagName("wind_mph")[0].firstChild.data) + " mph gusting to " + parseFloat(xml.getElementsByTagName("wind_gust_mph")[0].firstChild.data) + " mph<br>"; }						
 							if (xml.getElementsByTagName("pressure_in")[0].firstChild != null && prefs.getBool("show_pressure")==true) { html += "Pressure: " + xml.getElementsByTagName("pressure_in")[0].firstChild.data + " in<br>"; }
 							if (xml.getElementsByTagName("precip_1hr_in")[0].firstChild != null && prefs.getBool("show_1hrain")==true) { html += "1 Hour Rain: " + xml.getElementsByTagName("precip_1hr_in")[0].firstChild.data + " in<br>"; }
-							if (xml.getElementsByTagName("precip_today_in")[0].firstChild != null && prefs.getBool("show_todayrain")==true) { html += "Today Rain: " + xml.getElementsByTagName("precip_today_in")[0].firstChild.data + " in"; }
-							html += "<br> Last updated: " + new Date().toLocaleString();
+							if (xml.getElementsByTagName("precip_today_in")[0].firstChild != null && prefs.getBool("show_todayrain")==true) { html += "Today Rain: " + xml.getElementsByTagName("precip_today_in")[0].firstChild.data + " in<br>"; }
 						} else if (units == "both") {
-							if (xml.getElementsByTagName("neighborhood")[0].firstChild != null) {	html += xml.getElementsByTagName("neighborhood")[0].firstChild.data + " "; }
 							if (xml.getElementsByTagName("temp_f")[0].firstChild != null && xml.getElementsByTagName("temp_c")[0].firstChild != null) { html += xml.getElementsByTagName("temp_f")[0].firstChild.data + " F (" + xml.getElementsByTagName("temp_c")[0].firstChild.data + "ºC)"; }
 							html += "</h3></center>";
 							if (xml.getElementsByTagName("dewpoint_f")[0].firstChild != null && xml.getElementsByTagName("dewpoint_c")[0].firstChild != null && prefs.getBool("show_dewpoint")==true) { html += "Dew point: " + xml.getElementsByTagName("dewpoint_f")[0].firstChild.data + " F (" + xml.getElementsByTagName("dewpoint_c")[0].firstChild.data + "ºC)<br>"; }
@@ -113,14 +109,46 @@
 							if (xml.getElementsByTagName("wind_degrees")[0].firstChild != null && xml.getElementsByTagName("wind_mph")[0].firstChild != null && xml.getElementsByTagName("wind_gust_mph")[0].firstChild != null && prefs.getBool("show_wind")==true) { html += "Wind: " + lookupWindString(xml.getElementsByTagName("wind_degrees")[0].firstChild.data) + " at " + parseFloat(xml.getElementsByTagName("wind_mph")[0].firstChild.data) + " mph (" + parseInt(parseFloat(xml.getElementsByTagName("wind_mph")[0].firstChild.data) * 1.61) + " km/h) gusting to " + parseFloat(xml.getElementsByTagName("wind_gust_mph")[0].firstChild.data) + " mph ("+ parseInt(parseFloat(xml.getElementsByTagName("wind_gust_mph")[0].firstChild.data) * 1.61) + " km/h)<br>"; }						
 							if (xml.getElementsByTagName("pressure_in")[0].firstChild != null && xml.getElementsByTagName("pressure_mb")[0].firstChild != null && prefs.getBool("show_pressure")==true) { html += "Pressure: " + xml.getElementsByTagName("pressure_in")[0].firstChild.data + " in (" + xml.getElementsByTagName("pressure_mb")[0].firstChild.data + " mb)<br>"; }
 							if (xml.getElementsByTagName("precip_1hr_in")[0].firstChild != null && xml.getElementsByTagName("precip_1hr_metric")[0].firstChild != null && prefs.getBool("show_1hrain")==true) { html += "1 Hour Rain: " + xml.getElementsByTagName("precip_1hr_in")[0].firstChild.data + " in (" + xml.getElementsByTagName("precip_1hr_metric")[0].firstChild.data + " mm)<br>"; }
-							if (xml.getElementsByTagName("precip_today_in")[0].firstChild != null && xml.getElementsByTagName("precip_today_metric")[0].firstChild != null && prefs.getBool("show_todayrain")==true) { html += "Today Rain: " + xml.getElementsByTagName("precip_today_in")[0].firstChild.data + " in (" + xml.getElementsByTagName("precip_today_metric")[0].firstChild.data + " mm)"; }
-							html += "<br> Last updated: " + new Date().toLocaleString();
+							if (xml.getElementsByTagName("precip_today_in")[0].firstChild != null && xml.getElementsByTagName("precip_today_metric")[0].firstChild != null && prefs.getBool("show_todayrain")==true) { html += "Today Rain: " + xml.getElementsByTagName("precip_today_in")[0].firstChild.data + " in (" + xml.getElementsByTagName("precip_today_metric")[0].firstChild.data + " mm)<br>"; }
 						}
+						html += "Last updated: " + new Date().toLocaleString();
 					}
-					// Save HTML string
-					currentTabHtml = html;
+					// Display HTML string
+					if (_gel(currentTabId).innerHTML.indexOf("img",0) == -1) {
+						_gel(currentTabId).innerHTML = "<center><h3>" + html;
+					} else {
+						_gel(currentTabId).innerHTML = "<center><h3>" + _gel(currentTabId).innerHTML + html;					
+					}
 					// Set the timeout
 					setTimeout("displayCurrentTab()", prefs.getInt("update_timer"));
+				}
+
+				// Gets the current conditions icon url.
+				function displayCurrentIconHtml(xml) {
+					var img = "";
+					var html = "";
+					var sunsetHour = xml.getElementsByTagName("sunset")[0].getElementsByTagName("hour")[0].firstChild.data;
+					var sunsetMinutes = xml.getElementsByTagName("sunset")[0].getElementsByTagName("minute")[0].firstChild.data;
+					var now = new Date();
+					var sunset = new Date();
+					sunset.setHours(sunsetHour);
+					sunset.setMinutes(sunsetMinutes);
+					if (xml.getElementsByTagName("icon")[0].firstChild != null) {
+						img += "<img style='vertical-align:middle' src='http://icons.wunderground.com/graphics/conds/"
+						if (sunset.getTime() - now.getTime() > 0) {
+							img += xml.getElementsByTagName("icon")[0].firstChild.data;
+						} else {
+							img += "nt_" + xml.getElementsByTagName("icon")[0].firstChild.data;
+						}
+						img += ".gif' height='42' width='42'>&nbsp;&nbsp;";
+					}
+					// Display HTML string
+					if (_gel(currentTabId).innerHTML.indexOf("center",0) == -1) {
+						_gel(currentTabId).innerHTML = img;
+					} else {
+						html = _gel(currentTabId).innerHTML.substr(12);
+						_gel(currentTabId).innerHTML = "<center><h3>" + img + html;
+					}
 				}
 				
 				// Create 'Hints' tab html.
@@ -182,15 +210,6 @@
 				// Gets the Weather Underground forecast URL.
 				function getForecastURL(latitude, longitude) {
 					return url = "http://api.wunderground.com/auto/wui/geo/ForecastXML/index.xml?query=" + latitude + "," + longitude;
-				}
-
-				// Gets the current conditions icon url.
-				function displayCurrentIconHtml(xml) {
-					var html = "<center><h3>";
-					if (xml.getElementsByTagName("icon")[0].firstChild != null) {
-						html += "<img style='vertical-align:middle' src='http://icons.wunderground.com/graphics/conds/" + xml.getElementsByTagName("icon")[0].firstChild.data + ".gif' height='42' width='42'>&nbsp;&nbsp;";
-					}
-					_gel(currentTabId).innerHTML = html + currentTabHtml;
 				}
 				
 				function displayCurrentTab(tabId) {
