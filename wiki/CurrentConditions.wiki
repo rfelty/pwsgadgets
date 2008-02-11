@@ -63,6 +63,8 @@ In the Current Conditions gadget you can find the following configuration parame
  * Add new tabs (extreme values, forecast, lunar phase...).
 
 = Version History =
+ * (11/02/2008) v2.1.1
+    * Fixed bronken link for icon next to temperature.
  * (10/02/2008) v2.1.0
     * Current weather icon next to temperature in the 'Current' tab added.
     * Added 'Tips' tab where you can find some suggestions and other useful information like:
