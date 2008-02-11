@@ -45,7 +45,7 @@
 			<div id="footer" style="font-size:7pt; padding:5px; color: gray; text-align: right;"></div>
 			<script type="text/javascript">
 			  // version variable
-				var version = "v2.1.0";
+				var version = "v2.1.1";
 				// Current conditions tab id
 				var currentTabId = "current__MODULE_ID__";
 				var currentTabHtml = "";
@@ -188,7 +188,7 @@
 				function displayCurrentIconHtml(xml) {
 					var html = "<center><h3>";
 					if (xml.getElementsByTagName("icon")[0].firstChild != null) {
-						html += "<img style='vertical-align:middle' src='http://pwsgadgets.googlecode.com/svn/trunk/img/" + xml.getElementsByTagName("icon")[0].firstChild.data + ".gif' height='50' width='50'>&nbsp;&nbsp;";
+						html += "<img style='vertical-align:middle' src='http://icons.wunderground.com/graphics/conds/" + xml.getElementsByTagName("icon")[0].firstChild.data + ".gif' height='42' width='42'>&nbsp;&nbsp;";
 					}
 					_gel(currentTabId).innerHTML = html + currentTabHtml;
 				}
