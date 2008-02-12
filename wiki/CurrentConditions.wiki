@@ -58,12 +58,19 @@ In the Current Conditions gadget you can find the following configuration parame
     * This parameter is mandatory.
     * Default value: Current Conditions.
 
+= Current weather icons =
+
+The current weather icon is the icon you can see next to the temparature.
+It shows you the stimated current weather conditions at your personal weather station location.
+
+The possible icons are the following:
+  * TODO
+
 = Future versions =
 
  * Improve design.
  * Internacionalization.
  * Add new tabs (extreme values, forecast, lunar phase...).
- * Add to this page all the current weather icons with descriptions.
 
 = Version History =
  * (12/02/2008) v2.1.3
