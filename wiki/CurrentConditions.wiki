@@ -61,7 +61,7 @@ In the Current Conditions gadget you can find the following configuration parame
 = Current weather icons =
 
 The current weather icon is the icon you can see next to the temparature.
-It shows you the stimated current weather conditions at your personal weather station location.
+It shows you the estimated current weather conditions at your personal weather station location.
 
 Here you have a list containing the different icons you can see with a brief description:
   * TODO
