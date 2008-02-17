@@ -58,13 +58,24 @@ In the Current Conditions gadget you can find the following configuration parame
     * This parameter is mandatory.
     * Default value: Current Conditions.
 
-= Current weather icons =
+= Current weather icon =
 
-The current weather icon is the icon you can see next to the temparature.
+The current weather icon is the icon next to the temparature.
 It shows you the estimated current weather conditions at your personal weather station location.
 
-Here you have a list containing the different icons you can see with a brief description:
-  * TODO
+Here you have a list with a brief description containing all icons you can see:
+
+*Daytime Images*
+|| Chance of Flurries || http://icons.wunderground.com/graphics/conds/chanceflurries.gif || Chance of Rain || http://icons.wunderground.com/graphics/conds/chancerain.gif || Chance of Sleet || http://icons.wunderground.com/graphics/conds/chancesleet.gif || Chance of Snow || http://icons.wunderground.com/graphics/conds/chancesnow.gif || Chance of Thunderstorms || http://icons.wunderground.com/graphics/conds/chancetstorms.gif ||
+|| Clear || http://icons.wunderground.com/graphics/conds/clear.gif || Cloudy || http://icons.wunderground.com/graphics/conds/cloudy.gif || Flurries || http://icons.wunderground.com/graphics/conds/flurries.gif || Fog || http://icons.wunderground.com/graphics/conds/fog.gif || Hazy || http://icons.wunderground.com/graphics/conds/hazy.gif ||
+|| Mostly cloudy || http://icons.wunderground.com/graphics/conds/mostlycloudy.gif || Mostly sunny || http://icons.wunderground.com/graphics/conds/mostlysunny.gif || Partly cloudy || http://icons.wunderground.com/graphics/conds/partlycloudy.gif || Partly sunny || http://icons.wunderground.com/graphics/conds/partlysunny.gif || Rain || http://icons.wunderground.com/graphics/conds/rain.gif ||
+|| Sleet || http://icons.wunderground.com/graphics/conds/sleet.gif || Snow || http://icons.wunderground.com/graphics/conds/snow.gif || Sunny || http://icons.wunderground.com/graphics/conds/sunny.gif || Thunderstorms || http://icons.wunderground.com/graphics/conds/tstorms.gif || Unknown || http://icons.wunderground.com/graphics/conds/unknown.gif ||
+
+*Nightime Images*
+|| Chance of Flurries || http://icons.wunderground.com/graphics/conds/nt_chanceflurries.gif || Chance of Rain || http://icons.wunderground.com/graphics/conds/nt_chancerain.gif || Chance of Sleet || http://icons.wunderground.com/graphics/conds/nt_chancesleet.gif || Chance of Snow || http://icons.wunderground.com/graphics/conds/nt_chancesnow.gif || Chance of Thunderstorms || http://icons.wunderground.com/graphics/conds/nt_chancetstorms.gif ||
+|| Clear || http://icons.wunderground.com/graphics/conds/nt_clear.gif || Cloudy || http://icons.wunderground.com/graphics/conds/nt_cloudy.gif || Flurries || http://icons.wunderground.com/graphics/conds/nt_flurries.gif || Fog || http://icons.wunderground.com/graphics/conds/nt_fog.gif || Hazy || http://icons.wunderground.com/graphics/conds/nt_hazy.gif ||
+|| Mostly cloudy || http://icons.wunderground.com/graphics/conds/nt_mostlycloudy.gif || Mostly sunny || http://icons.wunderground.com/graphics/conds/nt_mostlysunny.gif || Partly cloudy || http://icons.wunderground.com/graphics/conds/nt_partlycloudy.gif || Partly sunny || http://icons.wunderground.com/graphics/conds/nt_partlysunny.gif || Rain || http://icons.wunderground.com/graphics/conds/nt_rain.gif ||
+|| Sleet || http://icons.wunderground.com/graphics/conds/nt_sleet.gif || Snow || http://icons.wunderground.com/graphics/conds/nt_snow.gif || Sunny || http://icons.wunderground.com/graphics/conds/nt_sunny.gif || Thunderstorms || http://icons.wunderground.com/graphics/conds/nt_tstorms.gif || Unknown || http://icons.wunderground.com/graphics/conds/nt_unknown.gif ||
 
 = Future versions =
 
