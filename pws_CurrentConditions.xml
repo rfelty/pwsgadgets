@@ -39,17 +39,18 @@
 	<UserPref name="title" display_name="Title" required="true" default_value="Current conditions"/>
 	<Content type="html">
 		<![CDATA[
-			<div id="current__MODULE_ID__" style="font-size:10pt; padding:5px; color: black; text-align: left;">Fetching xml...</div>
-			<div id="hints__MODULE_ID__" style="font-size:9pt; padding:5px; color: gray; text-align: left;"></div>
+			<div id="current__MODULE_ID__" style="font-size:10pt; padding:5px; color: black; text-align: left;">Gathering information...</div>
+			<!--div id="extreme__MODULE_ID__" style="font-size:10pt; padding:5px; color: black; text-align: left;">Gathering information...</div-->
+			<div id="hints__MODULE_ID__" style="font-size:9pt; padding:5px; color: gray; text-align: left;">Gathering information...</div>
 			<div id="about__MODULE_ID__" style="font-size:10pt; padding:5px; color: gray; text-align: left;"></div>
 			<div id="footer" style="font-size:7pt; padding:5px; color: gray; text-align: right;"></div>
 			<script type="text/javascript">
 			  // version variable
-				var version = "v2.1.3";
+				var version = "v2.1.4";
 				// Current conditions tab id
 				var currentTabId = "current__MODULE_ID__";
 				// Extreme values tab id
-				//extremeTabId = "extreme__MODULE_ID__";
+				var extremeTabId = "extreme__MODULE_ID__";
 				// Hints tab id
 				var hintsTabId = "hints__MODULE_ID__";				
 				// About tab id
@@ -155,9 +156,36 @@
 					if (_gel(currentTabId).innerHTML.indexOf("center",0) == -1 && _gel(currentTabId).innerHTML.indexOf("CENTER",0) == -1) {
 						_gel(currentTabId).innerHTML = img;
 					} else {
-						html = _gel(currentTabId).innerHTML.substr(12);
-						_gel(currentTabId).innerHTML = "<center><h3>" + img + html;
+						html = _gel(currentTabId).innerHTML.replace(/<center><h3>/i, "<center><h3>" + img);
+						_gel(currentTabId).innerHTML = html;
 					}
+				}
+
+				// Create 'Extreme' tab html.
+				function displayExtremeHtml(xml) {
+					var html = ""; 
+					var maxTemp = -10000; 
+					var minTemp = 10000;     
+					var maxTempTime;
+					var minTempTime;
+					var data = 0;
+					var observationList = xml.getElementsByTagName("current_observation");					
+					for (var i = 0; i < observationList.length ; i++) { 
+						data = parseFloat(observationList[i].getElementsByTagName("temp_c")[0].firstChild.data);
+						if (data > maxTemp) {                    
+							maxTemp = data;
+							maxTempTime = Date.parse(observationList[i].getElementsByTagName("observation_time_rfc822")[0].firstChild.data);
+						}                      
+						if (data < minTemp) {  
+							minTemp = data;
+							minTempTime = Date.parse(observationList[i].getElementsByTagName("observation_time_rfc822")[0].firstChild.data);
+						}
+					}
+//					html += "Highest temperature: " + maxTemp + "ºC at " + maxTempTime.getHours() + ":" + maxTempTime.getMinutes();
+					html += "<br>"; 
+//					html += "Lower temperature: " + minTemp + "ºC at " + minTempTime.getHours() + ":" + mimTempTime.getMinutes();
+					// Display HTML string
+//					_gel(extremeTabId).innerHTML = html;
 				}
 				
 				// Create 'Hints' tab html.
@@ -215,6 +243,11 @@
 				function getCurrentConditionsUrl() {
 					return "http://api.wunderground.com/weatherstation/WXCurrentObXML.asp?ID=" + new _IG_Prefs(__MODULE_ID__).getString("wnd_id") + "&rnd=" + Math.random();
 				}
+
+				// Gets the Weather Underground Daily Observations URL.
+				function getDailyObservationsUrl() {
+					return "http://api.wunderground.com/weatherstation/WXDailyHistory.asp?ID=" + new _IG_Prefs(__MODULE_ID__).getString("wnd_id") + "&rnd=" + Math.random() + "&format=XML";
+				}
 				
 				// Gets the Weather Underground forecast URL.
 				function getForecastURL(latitude, longitude) {
@@ -226,7 +259,7 @@
 				}
 
 				function displayExtremeTab(tabId) {
-
+					_IG_FetchXmlContent(getDailyObservationsUrl(), displayExtremeHtml);
 				}
 
 				function displayHintsTab(tabId) {
