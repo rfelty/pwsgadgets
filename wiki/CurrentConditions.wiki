@@ -81,9 +81,12 @@ Here you have a list with a brief description containing all icons you can see:
 
  * Improve design.
  * Internacionalization.
- * Add new tabs (extreme values, forecast, lunar phase...).
+ * Add new tabs (forecast, lunar phase...).
 
 = Version History =
+ * (24/02/2008) v2.2.0
+    * Added new tab containing extreme values.
+    * Added current tempaerature just before version number.
  * (18/02/2008) v2.1.4
     * Fixed bug that causes to sometimes show the {{{3>}}} characters between the weather icon and the temperature.
  * (12/02/2008) v2.1.3
