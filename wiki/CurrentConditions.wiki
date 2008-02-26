@@ -84,6 +84,9 @@ Here you have a list with a brief description containing all icons you can see:
  * Add new tabs (forecast, lunar phase...).
 
 = Version History =
+ * (26/02/2008) v2.2.1
+    * Several code enhancements.
+    * Fixed bug that causes sometimes show the current weather icon twice.
  * (24/02/2008) v2.2.0
     * Added new tab containing extreme values.
     * Added current temperature just before version number.
