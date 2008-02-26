@@ -39,22 +39,76 @@
 	<UserPref name="title" display_name="Title" required="true" default_value="Current conditions"/>
 	<Content type="html">
 		<![CDATA[
-			<div id="current__MODULE_ID__" style="font-size:10pt; padding:5px; color: black; text-align: left;">Gathering information...</div>
-			<div id="extreme__MODULE_ID__" style="font-size:10pt; padding:5px; color: black; text-align: left;">Gathering information...</div>
-			<div id="hints__MODULE_ID__" style="font-size:9pt; padding:5px; color: gray; text-align: left;">Gathering information...</div>
-			<div id="about__MODULE_ID__" style="font-size:10pt; padding:5px; color: gray; text-align: left;"></div>
+			<div id="current">
+				<div id="current_error" style="font-size:10pt; padding:5px; color: black; text-align: left;"></div>
+				<center>
+					<table>
+						<tr>
+							<td align="right"><div id="current_icon" style='vertical-align:middle'"></div></td>
+							<td align="left"><div id="current_temperature" style="font-weight: bold; padding:5px; color: black; vertical-align:middle"></div></td>
+						</tr>
+					</table>
+				</center>
+				<div id="current_dewpoint" style="font-size:10pt; text-align: left;"></div>
+				<div id="current_humidity" style="font-size:10pt; text-align: left;"></div>
+				<div id="current_wind" style="font-size:10pt; text-align: left;"></div>
+				<div id="current_pressure" style="font-size:10pt; text-align: left;"></div>
+				<div id="current_1hourrain" style="font-size:10pt; text-align: left;"></div>
+				<div id="current_todayrain" style="font-size:10pt; text-align: left;"></div>
+				<div id="current_lastupdated" style="font-size:10pt; text-align: left;"></div>
+			</div>
+			<div id="extreme">
+				<table>
+					<tr>
+						<td align="left" width="24%">&nbsp;</td>
+						<td align="left" width="38%"><div style="font-size: small; color:red; font-weight: bold">Max</div></td>
+						<td align="left" width="38%"><div style="font-size: small; color:blue; font-weight: bold">Min</div></td>
+					</tr>
+					<tr>
+						<td align="left" width="24%"><div id="extreme_Temp" style="font-size: small; font-weight: bold"></div></td>
+						<td align="right" width="38%"><div id="extreme_maxTemp" style="float: left; font-size: small; color:red; font-weight: bold"></div><div id="extreme_maxTempTime" style="float: left; font-size: small"></div></td>
+						<td align="right" width="38%"><div id="extreme_minTemp" style="float: left; font-size: small; color:blue; font-weight: bold"></div><div id="extreme_minTempTime" style="float: left; font-size: small"></div></td>
+					</tr>
+					<tr>
+						<td align="left" width="24%"><div id="extreme_DewPoint" style="font-size: small; font-weight: bold"></div></td>
+						<td align="right" width="38%"><div id="extreme_maxDewPoint" style="float: left; font-size: small; color:red; font-weight: bold"></div><div id="extreme_maxDewPointTime" style="float: left; font-size: small"></div></td>
+						<td align="right" width="38%"><div id="extreme_minDewPoint" style="float: left; font-size: small; color:blue; font-weight: bold"></div><div id="extreme_minDewPointTime" style="float: left; font-size: small"></div></td>
+					</tr>
+					<tr>
+						<td align="left" width="24%"><div id="extreme_Humidity" style="font-size: small; font-weight: bold"></div></td>
+						<td align="right" width="38%"><div id="extreme_maxHumidity" style="float: left; font-size: small; color:red; font-weight: bold"></div><div id="extreme_maxHumidityTime" style="float: left; font-size: small"></div></td>
+						<td align="right" width="38%"><div id="extreme_minHumidity" style="float: left; font-size: small; color:blue; font-weight: bold"></div><div id="extreme_minHumidityTime" style="float: left; font-size: small"></div></td>
+					</tr>
+					<tr>
+						<td align="left" width="24%"><div id="extreme_Wind" style="font-size: small; font-weight: bold"></div></td>
+						<td align="left" width="76%" colspan="2"><div id="extreme_maxWind" style="float: left; font-size: small; color:red; font-weight: bold"></div><div id="extreme_maxWindTime" style="float: left; font-size: small"></div></td>
+					<tr>
+						<td align="left" width="24%"><div id="extreme_Pressure" style="font-size: small; font-weight: bold"></div></td>
+						<td align="right" width="38%"><div id="extreme_maxPressure" style="float: left; font-size: small; color:red; font-weight: bold"></div><div id="extreme_maxPressureTime" style="float: left; font-size: small"></div></td>
+						<td align="right" width="38%"><div id="extreme_minPressure" style="float: left; font-size: small; color:blue; font-weight: bold"></div><div id="extreme_minPressureTime" style="float: left; font-size: small"></div></td>
+					</tr>
+				</table>
+				<div id="extreme_lastUpdated"></div>
+			</div>
+			<div id="hints" style="font-size:9pt; padding:5px; color: gray; text-align: left;"></div>
+			<div id="about" style="font-size:10pt; padding:5px; color: gray; text-align: left;"></div>
 			<div id="footer" style="font-size:7pt; padding:5px; color: gray; text-align: right;"></div>
 			<script type="text/javascript">
 			  // version variable
-				var version = "v2.2.0";
+				var version = "v2.2.1";
 				// Current conditions tab id
-				var currentTabId = "current__MODULE_ID__";
+				var currentTabId = "current";
+				var currentTabTemperatureId = "current_temperature";
+				var currentTabIconId = "current_icon";
+				var currentTabOtherId = "current_otherparams";
 				// Extreme values tab id
-				var extremeTabId = "extreme__MODULE_ID__";
+				var extremeTabId = "extreme";
 				// Hints tab id
-				var hintsTabId = "hints__MODULE_ID__";				
+				var hintsTabId = "hints";
 				// About tab id
-				var aboutTabId = "about__MODULE_ID__";
+				var aboutTabId = "about";
+				// Footer id.
+				var footerId = "footer";
 				// Initialize tabs.
 				var tabs = new _IG_Tabs(__MODULE_ID__, "Current");
 				// Track this gadget using Google Analytics specifiying the wunder id used.
@@ -63,14 +117,44 @@
 				// Init function.
 				function init() {
 					// Add the gadget tabs.
-					tabs.addTab("Current", currentTabId, displayCurrentTab);
-					tabs.addTab("Extreme", extremeTabId, displayExtremeTab);
-					tabs.addTab("Hints", hintsTabId, displayHintsTab);
+					tabs.addTab("Current", currentTabId);
+					tabs.addTab("Extreme", extremeTabId);
+					tabs.addTab("Hints", hintsTabId);
 					tabs.addTab("About", aboutTabId, displayAboutTab);
-					_gel("footer").innerHTML = version;
-					_IG_FetchXmlContent(getCurrentConditionsUrl(), displayCurrentConditionsHtml);
-					_IG_FetchXmlContent(getDailyObservationsUrl(), displayExtremeHtml);
-					_IG_FetchXmlContent(getCurrentConditionsUrl(), displayHintsHtml);
+					_IG_FetchXmlContent(getCurrentConditionsUrl(), processCurrentConditionsResponse);
+					_IG_FetchXmlContent(getDailyObservationsUrl(), processDailyObservationsResponse);
+				}
+				
+				function processCurrentConditionsResponse(xml) {
+					displayCurrentConditionsHtml(xml);
+					displayHintsHtml(xml);
+					displayFooterHtml(xml);
+					// updateExtremeHtml(xml);
+					// Set the timeout
+					setTimeout("_IG_FetchXmlContent(getCurrentConditionsUrl(), processCurrentConditionsResponse)", new _IG_Prefs(__MODULE_ID__).getInt("update_timer"));
+				}
+				
+				function processDailyObservationsResponse(xml) {
+					displayExtremeHtml(xml);
+				}
+				
+				function processForecastResponse(xml) {
+					displayCurrentIconHtml(xml);
+				}
+				
+				function displayFooterHtml(xml) {
+					var units = new _IG_Prefs(__MODULE_ID__).getString("wnd_units");
+					if (xml.getElementsByTagName("station_id")[0].firstChild != null) {
+						if (units == "metric") {
+							_gel(footerId).innerHTML = xml.getElementsByTagName("temp_c")[0].firstChild.data + " ºC " + version;
+						} else if (units == "english") {
+							_gel(footerId).innerHTML = xml.getElementsByTagName("temp_f")[0].firstChild.data + " F " + version;
+						} else if (units == "both") {
+							_gel(footerId).innerHTML = xml.getElementsByTagName("temp_f")[0].firstChild.data + " F / " + xml.getElementsByTagName("temp_c")[0].firstChild.data + " ºC " + version;
+						}
+					} else {
+							_gel(footerId).innerHTML = version;
+					}
 				}
 				
 				// Create 'Current' tab html.
@@ -79,69 +163,48 @@
 						_gel(currentTabId).innerHTML = "<i>Invalid data.</i>";
 					  return;
 					}
-					_gel(currentTabId).innerHTML = "";
 					var prefs = new _IG_Prefs(__MODULE_ID__);
 					var units = prefs.getString("wnd_units");
-					var html = ""; 
+					var temperatureHtml = "";
 					// Display metric units.
 					if (xml.getElementsByTagName("station_id")[0].firstChild == null) {
-						html += "<b>Invalid wunderground station id.</b><br>Please visit <a href='http://www.wunderground.com/weatherstation/index.asp' target='_blank'>Personal Weather Stations Weather Underground</a> site to get more info."
+						_gel("current_error").innerHTML = "<b>Invalid wunderground station id.</b><br>Please visit <a href='http://www.wunderground.com/weatherstation/index.asp' target='_blank'>Personal Weather Stations Weather Underground</a> site to get more info."
 					} else {
 						var latitude = xml.getElementsByTagName("latitude")[0].firstChild.data;
 						var longitude = xml.getElementsByTagName("longitude")[0].firstChild.data;
-						_IG_FetchXmlContent(getForecastURL(latitude, longitude), displayCurrentIconHtml);
-						if (xml.getElementsByTagName("neighborhood")[0].firstChild != null) {	html += xml.getElementsByTagName("neighborhood")[0].firstChild.data + " "; }
+						_IG_FetchXmlContent(getForecastURL(latitude, longitude), processForecastResponse);
+						if (xml.getElementsByTagName("neighborhood")[0].firstChild != null) {	temperatureHtml += xml.getElementsByTagName("neighborhood")[0].firstChild.data + " "; }
 						if (units == "metric") {
-							if (xml.getElementsByTagName("temp_c")[0].firstChild != null) {
-								html += xml.getElementsByTagName("temp_c")[0].firstChild.data + " ºC";
-								_gel("footer").innerHTML = xml.getElementsByTagName("temp_c")[0].firstChild.data + " ºC " + version;
-							}
-							html += "</h3></center>";
-							if (xml.getElementsByTagName("dewpoint_c")[0].firstChild != null && prefs.getBool("show_dewpoint")==true) { html += "Dew point: " + xml.getElementsByTagName("dewpoint_c")[0].firstChild.data + " ºC<br>"; }
-							if (xml.getElementsByTagName("relative_humidity")[0].firstChild != null && prefs.getBool("show_humidity")==true) { html += "Relative Humidity: " + xml.getElementsByTagName("relative_humidity")[0].firstChild.data + "%<br>"; }
-							if (xml.getElementsByTagName("wind_degrees")[0].firstChild != null && xml.getElementsByTagName("wind_mph")[0].firstChild != null && xml.getElementsByTagName("wind_gust_mph")[0].firstChild != null && prefs.getBool("show_wind")==true) { html += "Wind: " + lookupWindString(xml.getElementsByTagName("wind_degrees")[0].firstChild.data) + " at " + toKmh(parseFloat(xml.getElementsByTagName("wind_mph")[0].firstChild.data)) + " km/h gusting to " + toKmh(parseFloat(xml.getElementsByTagName("wind_gust_mph")[0].firstChild.data)) + " km/h<br>"; }
-							if (xml.getElementsByTagName("pressure_mb")[0].firstChild != null && prefs.getBool("show_pressure")==true) { html += "Pressure: " + xml.getElementsByTagName("pressure_mb")[0].firstChild.data + " mb<br>"; }
-							if (xml.getElementsByTagName("precip_1hr_metric")[0].firstChild != null && prefs.getBool("show_1hrain")==true) { html += "1 Hour Rain: " + xml.getElementsByTagName("precip_1hr_metric")[0].firstChild.data + " mm<br>"; }
-							if (xml.getElementsByTagName("precip_today_metric")[0].firstChild != null && prefs.getBool("show_todayrain")==true) { html += "Today Rain: " + xml.getElementsByTagName("precip_today_metric")[0].firstChild.data + " mm<br>"; }
+							if (xml.getElementsByTagName("temp_c")[0].firstChild != null) {	temperatureHtml += xml.getElementsByTagName("temp_c")[0].firstChild.data + " ºC"; }
+							if (xml.getElementsByTagName("dewpoint_c")[0].firstChild != null && prefs.getBool("show_dewpoint")==true) { _gel("current_dewpoint").innerHTML = "Dew point: " + xml.getElementsByTagName("dewpoint_c")[0].firstChild.data + " ºC"; }
+							if (xml.getElementsByTagName("relative_humidity")[0].firstChild != null && prefs.getBool("show_humidity")==true) { _gel("current_humidity").innerHTML = "Relative Humidity: " + xml.getElementsByTagName("relative_humidity")[0].firstChild.data + "%"; }
+							if (xml.getElementsByTagName("wind_degrees")[0].firstChild != null && xml.getElementsByTagName("wind_mph")[0].firstChild != null && xml.getElementsByTagName("wind_gust_mph")[0].firstChild != null && prefs.getBool("show_wind")==true) { _gel("current_wind").innerHTML = "Wind: " + lookupWindString(xml.getElementsByTagName("wind_degrees")[0].firstChild.data) + " at " + toKmh(parseFloat(xml.getElementsByTagName("wind_mph")[0].firstChild.data)) + " km/h gusting to " + toKmh(parseFloat(xml.getElementsByTagName("wind_gust_mph")[0].firstChild.data)) + " km/h"; }
+							if (xml.getElementsByTagName("pressure_mb")[0].firstChild != null && prefs.getBool("show_pressure")==true) { _gel("current_pressure").innerHTML = "Pressure: " + xml.getElementsByTagName("pressure_mb")[0].firstChild.data + " mb"; }
+							if (xml.getElementsByTagName("precip_1hr_metric")[0].firstChild != null && prefs.getBool("show_1hrain")==true) { _gel("current_1hourrain").innerHTML =  "1 Hour Rain: " + xml.getElementsByTagName("precip_1hr_metric")[0].firstChild.data + " mm"; }
+							if (xml.getElementsByTagName("precip_today_metric")[0].firstChild != null && prefs.getBool("show_todayrain")==true) { _gel("current_todayrain").innerHTML = "Today Rain: " + xml.getElementsByTagName("precip_today_metric")[0].firstChild.data + " mm"; }
 						} else if (units == "english") {
-							if (xml.getElementsByTagName("temp_f")[0].firstChild != null) {
-								html += xml.getElementsByTagName("temp_f")[0].firstChild.data + " F";
-								_gel("footer").innerHTML = xml.getElementsByTagName("temp_f")[0].firstChild.data + " F" + version;
-							}
-							html += "</h3></center>";
-							if (xml.getElementsByTagName("dewpoint_f")[0].firstChild != null && prefs.getBool("show_dewpoint")==true) { html += "Dew point: " + xml.getElementsByTagName("dewpoint_f")[0].firstChild.data + " F<br>"; }
-							if (xml.getElementsByTagName("relative_humidity")[0].firstChild != null && prefs.getBool("show_humidity")==true) { html += "Relative Humidity: " + xml.getElementsByTagName("relative_humidity")[0].firstChild.data + "%<br>"; }
-							if (xml.getElementsByTagName("wind_degrees")[0].firstChild != null && xml.getElementsByTagName("wind_mph")[0].firstChild != null && xml.getElementsByTagName("wind_gust_mph")[0].firstChild != null && prefs.getBool("show_wind")==true) { html += "Wind: " + lookupWindString(xml.getElementsByTagName("wind_degrees")[0].firstChild.data) + " at " + parseFloat(xml.getElementsByTagName("wind_mph")[0].firstChild.data) + " mph gusting to " + parseFloat(xml.getElementsByTagName("wind_gust_mph")[0].firstChild.data) + " mph<br>"; }						
-							if (xml.getElementsByTagName("pressure_in")[0].firstChild != null && prefs.getBool("show_pressure")==true) { html += "Pressure: " + xml.getElementsByTagName("pressure_in")[0].firstChild.data + " in<br>"; }
-							if (xml.getElementsByTagName("precip_1hr_in")[0].firstChild != null && prefs.getBool("show_1hrain")==true) { html += "1 Hour Rain: " + xml.getElementsByTagName("precip_1hr_in")[0].firstChild.data + " in<br>"; }
-							if (xml.getElementsByTagName("precip_today_in")[0].firstChild != null && prefs.getBool("show_todayrain")==true) { html += "Today Rain: " + xml.getElementsByTagName("precip_today_in")[0].firstChild.data + " in<br>"; }
+							if (xml.getElementsByTagName("temp_f")[0].firstChild != null) { temperatureHtml += xml.getElementsByTagName("temp_f")[0].firstChild.data + " F"; }
+							if (xml.getElementsByTagName("dewpoint_f")[0].firstChild != null && prefs.getBool("show_dewpoint")==true) { _gel("current_dewpoint").innerHTML = "Dew point: " + xml.getElementsByTagName("dewpoint_f")[0].firstChild.data + " F"; }
+							if (xml.getElementsByTagName("relative_humidity")[0].firstChild != null && prefs.getBool("show_humidity")==true) { _gel("current_humidity").innerHTML = "Relative Humidity: " + xml.getElementsByTagName("relative_humidity")[0].firstChild.data + "%"; }
+							if (xml.getElementsByTagName("wind_degrees")[0].firstChild != null && xml.getElementsByTagName("wind_mph")[0].firstChild != null && xml.getElementsByTagName("wind_gust_mph")[0].firstChild != null && prefs.getBool("show_wind")==true) { _gel("current_wind").innerHTML = "Wind: " + lookupWindString(xml.getElementsByTagName("wind_degrees")[0].firstChild.data) + " at " + parseFloat(xml.getElementsByTagName("wind_mph")[0].firstChild.data) + " mph gusting to " + parseFloat(xml.getElementsByTagName("wind_gust_mph")[0].firstChild.data) + " mph"; }
+							if (xml.getElementsByTagName("pressure_in")[0].firstChild != null && prefs.getBool("show_pressure")==true) { _gel("current_pressure").innerHTML = "Pressure: " + xml.getElementsByTagName("pressure_in")[0].firstChild.data + " in"; }
+							if (xml.getElementsByTagName("precip_1hr_in")[0].firstChild != null && prefs.getBool("show_1hrain")==true) { _gel("current_1hourrain").innerHTML = "1 Hour Rain: " + xml.getElementsByTagName("precip_1hr_in")[0].firstChild.data + " in"; }
+							if (xml.getElementsByTagName("precip_today_in")[0].firstChild != null && prefs.getBool("show_todayrain")==true) { _gel("current_todayrain").innerHTML = "Today Rain: " + xml.getElementsByTagName("precip_today_in")[0].firstChild.data + " in"; }
 						} else if (units == "both") {
-							if (xml.getElementsByTagName("temp_f")[0].firstChild != null && xml.getElementsByTagName("temp_c")[0].firstChild != null) {
-								html += xml.getElementsByTagName("temp_f")[0].firstChild.data + " F / " + xml.getElementsByTagName("temp_c")[0].firstChild.data + " ºC";
-								_gel("footer").innerHTML = xml.getElementsByTagName("temp_f")[0].firstChild.data + " F / " + xml.getElementsByTagName("temp_c")[0].firstChild.data + " ºC " + version;
-							}
-							html += "</h3></center>";
-							if (xml.getElementsByTagName("dewpoint_f")[0].firstChild != null && xml.getElementsByTagName("dewpoint_c")[0].firstChild != null && prefs.getBool("show_dewpoint")==true) { html += "Dew point: " + xml.getElementsByTagName("dewpoint_f")[0].firstChild.data + " F / " + xml.getElementsByTagName("dewpoint_c")[0].firstChild.data + " ºC<br>"; }
-							if (xml.getElementsByTagName("relative_humidity")[0].firstChild != null && prefs.getBool("show_humidity")==true) { html += "Relative Humidity: " + xml.getElementsByTagName("relative_humidity")[0].firstChild.data + "%<br>"; }
-							if (xml.getElementsByTagName("wind_degrees")[0].firstChild != null && xml.getElementsByTagName("wind_mph")[0].firstChild != null && xml.getElementsByTagName("wind_gust_mph")[0].firstChild != null && prefs.getBool("show_wind")==true) { html += "Wind: " + lookupWindString(xml.getElementsByTagName("wind_degrees")[0].firstChild.data) + " at " + parseFloat(xml.getElementsByTagName("wind_mph")[0].firstChild.data) + " mph / " + toKmh(parseFloat(xml.getElementsByTagName("wind_mph")[0].firstChild.data)) + " km/h gusting to " + parseFloat(xml.getElementsByTagName("wind_gust_mph")[0].firstChild.data) + " mph / "+ toKmh(parseFloat(xml.getElementsByTagName("wind_gust_mph")[0].firstChild.data)) + " km/h<br>"; }						
-							if (xml.getElementsByTagName("pressure_in")[0].firstChild != null && xml.getElementsByTagName("pressure_mb")[0].firstChild != null && prefs.getBool("show_pressure")==true) { html += "Pressure: " + xml.getElementsByTagName("pressure_in")[0].firstChild.data + " in / " + xml.getElementsByTagName("pressure_mb")[0].firstChild.data + " mb<br>"; }
-							if (xml.getElementsByTagName("precip_1hr_in")[0].firstChild != null && xml.getElementsByTagName("precip_1hr_metric")[0].firstChild != null && prefs.getBool("show_1hrain")==true) { html += "1 Hour Rain: " + xml.getElementsByTagName("precip_1hr_in")[0].firstChild.data + " in / " + xml.getElementsByTagName("precip_1hr_metric")[0].firstChild.data + " mm<br>"; }
-							if (xml.getElementsByTagName("precip_today_in")[0].firstChild != null && xml.getElementsByTagName("precip_today_metric")[0].firstChild != null && prefs.getBool("show_todayrain")==true) { html += "Today Rain: " + xml.getElementsByTagName("precip_today_in")[0].firstChild.data + " in / " + xml.getElementsByTagName("precip_today_metric")[0].firstChild.data + " mm<br>"; }
+							if (xml.getElementsByTagName("temp_f")[0].firstChild != null && xml.getElementsByTagName("temp_c")[0].firstChild != null) { temperatureHtml += xml.getElementsByTagName("temp_f")[0].firstChild.data + " F / " + xml.getElementsByTagName("temp_c")[0].firstChild.data + " ºC"; }
+							if (xml.getElementsByTagName("dewpoint_f")[0].firstChild != null && xml.getElementsByTagName("dewpoint_c")[0].firstChild != null && prefs.getBool("show_dewpoint")==true) { _gel("current_dewpoint").innerHTML = "Dew point: " + xml.getElementsByTagName("dewpoint_f")[0].firstChild.data + " F / " + xml.getElementsByTagName("dewpoint_c")[0].firstChild.data + " ºC"; }
+							if (xml.getElementsByTagName("relative_humidity")[0].firstChild != null && prefs.getBool("show_humidity")==true) { _gel("current_humidity").innerHTML = "Relative Humidity: " + xml.getElementsByTagName("relative_humidity")[0].firstChild.data + "%"; }
+							if (xml.getElementsByTagName("wind_degrees")[0].firstChild != null && xml.getElementsByTagName("wind_mph")[0].firstChild != null && xml.getElementsByTagName("wind_gust_mph")[0].firstChild != null && prefs.getBool("show_wind")==true) { _gel("current_wind").innerHTML = "Wind: " + lookupWindString(xml.getElementsByTagName("wind_degrees")[0].firstChild.data) + " at " + parseFloat(xml.getElementsByTagName("wind_mph")[0].firstChild.data) + " mph / " + toKmh(parseFloat(xml.getElementsByTagName("wind_mph")[0].firstChild.data)) + " km/h gusting to " + parseFloat(xml.getElementsByTagName("wind_gust_mph")[0].firstChild.data) + " mph / "+ toKmh(parseFloat(xml.getElementsByTagName("wind_gust_mph")[0].firstChild.data)) + " km/h"; }
+							if (xml.getElementsByTagName("pressure_in")[0].firstChild != null && xml.getElementsByTagName("pressure_mb")[0].firstChild != null && prefs.getBool("show_pressure")==true) { _gel("current_pressure").innerHTML = "Pressure: " + xml.getElementsByTagName("pressure_in")[0].firstChild.data + " in / " + xml.getElementsByTagName("pressure_mb")[0].firstChild.data + " mb"; }
+							if (xml.getElementsByTagName("precip_1hr_in")[0].firstChild != null && xml.getElementsByTagName("precip_1hr_metric")[0].firstChild != null && prefs.getBool("show_1hrain")==true) { _gel("current_1hourrain").innerHTML = "1 Hour Rain: " + xml.getElementsByTagName("precip_1hr_in")[0].firstChild.data + " in / " + xml.getElementsByTagName("precip_1hr_metric")[0].firstChild.data + " mm"; }
+							if (xml.getElementsByTagName("precip_today_in")[0].firstChild != null && xml.getElementsByTagName("precip_today_metric")[0].firstChild != null && prefs.getBool("show_todayrain")==true) { _gel("current_todayrain").innerHTML = "Today Rain: " + xml.getElementsByTagName("precip_today_in")[0].firstChild.data + " in / " + xml.getElementsByTagName("precip_today_metric")[0].firstChild.data + " mm"; }
 						}
-						html += "Last updated: " + new Date().toLocaleString();
+						_gel("current_lastupdated").innerHTML = "Last updated: " + new Date().toLocaleString();
 					}
-					// Display HTML string
-					if (xml.getElementsByTagName("station_id")[0].firstChild == null) {
-						_gel(currentTabId).innerHTML = html;
-					} else {
-						if (_gel(currentTabId).innerHTML.indexOf("img",0) == -1 && _gel(currentTabId).innerHTML.indexOf("IMG",0) == -1) {
-							_gel(currentTabId).innerHTML = "<center><h3>" + html;
-						} else {
-							_gel(currentTabId).innerHTML = "<center><h3>" + _gel(currentTabId).innerHTML + html;					
-						}
-					}
-					// Set the timeout
-					setTimeout("displayCurrentTab()", prefs.getInt("update_timer"));
+					// Display temperature
+					_gel(currentTabTemperatureId).innerHTML = temperatureHtml;
+					// Display the footer
+					displayFooterHtml(xml);
 				}
 
 				// Gets the current conditions icon url.
@@ -149,8 +212,7 @@
 					if (xml == null || typeof(xml) != "object" || xml.firstChild == null) {
 					  return;
 					}
-					var img = "";
-					var html = "";
+					var imgHtml = "";
 					var sunriseHour = xml.getElementsByTagName("sunrise")[0].getElementsByTagName("hour")[0].firstChild.data;
 					var sunriseMinutes = xml.getElementsByTagName("sunrise")[0].getElementsByTagName("minute")[0].firstChild.data;
 					var sunsetHour = xml.getElementsByTagName("sunset")[0].getElementsByTagName("hour")[0].firstChild.data;
@@ -163,21 +225,16 @@
 					sunset.setMinutes(sunsetMinutes);
 					var now = new Date();
 					if (xml.getElementsByTagName("icon")[0].firstChild != null) {
-						img += "<img style='vertical-align:middle' src='http://icons.wunderground.com/graphics/conds/"
+						imgHtml += "<img src='http://icons.wunderground.com/graphics/conds/"
 						if (((sunrise.getTime() - now.getTime()) < 0) && ((sunset.getTime() - now.getTime()) > 0)) {
-							img += xml.getElementsByTagName("icon")[0].firstChild.data;
+							imgHtml += xml.getElementsByTagName("icon")[0].firstChild.data;
 						} else {
-							img += "nt_" + xml.getElementsByTagName("icon")[0].firstChild.data;
+							imgHtml += "nt_" + xml.getElementsByTagName("icon")[0].firstChild.data;
 						}
-						img += ".gif' height='42' width='42'>&nbsp;&nbsp;";
+						imgHtml += ".gif' height='42' width='42'>";
 					}
-					// Display HTML string
-					if (_gel(currentTabId).innerHTML.indexOf("center",0) == -1 && _gel(currentTabId).innerHTML.indexOf("CENTER",0) == -1) {
-						_gel(currentTabId).innerHTML = img;
-					} else {
-						html = _gel(currentTabId).innerHTML.replace(/<center><h3>/i, "<center><h3>" + img);
-						_gel(currentTabId).innerHTML = html;
-					}
+					// Display icon
+					_gel(currentTabIconId).innerHTML = imgHtml;
 				}
 
 				// Create 'Extreme' tab html.
@@ -188,7 +245,6 @@
 					}
 					var prefs = new _IG_Prefs(__MODULE_ID__);
 					var units = prefs.getString("wnd_units");
-					var html = "";
 					var maxTempF = -10000;
 					var minTempF = 10000;
 					var maxTempTime = new Date();
@@ -256,31 +312,84 @@
 							maxWindTime.setTime(Date.parse(observationList[i].getElementsByTagName("observation_time_rfc822")[0].firstChild.data));
 						}                      
 					}
-					html += "<table border='0'>";
-					html +="<tr><td align='left' width='24%'>&nbsp;</td><td align='center' width='38%'><span style='font-size: small; color:red; font-weight: bold'>Max</span></td><td align='center' width='38%'><span style='font-size: small; color:blue; font-weight: bold'>Min</span></td></tr>";
-					if (units == "metric") {
-						html += "<tr><td align='left' width='24%'><span style='font-size: small; font-weight: bold'>Temperature</span></td><td align='right' width='38%'><span style='font-size: small; color:red; font-weight: bold'>" + toCelsius(parseFloat(maxTempF)) + " ºC</span><span style='font-size: small'> at " + maxTempTime.getHours() + ":" + getMin(maxTempTime.getMinutes()) + "</span></td><td align='right' width='38%'><span style='font-size: small; color:blue; font-weight: bold'>" + toCelsius(parseFloat(minTempF)) + " ºC</span><span style='font-size: small'> at " + minTempTime.getHours() + ":" + getMin(minTempTime.getMinutes()) + "</span></td></tr>";
-						if (prefs.getBool("show_dewpoint")==true) {html += "<tr><td align='left' width='24%'><span style='font-size: small; font-weight: bold'>Dew point</span></td><td align='right' width='38%'><span style='font-size: small; color:red; font-weight: bold'>" + toCelsius(parseFloat(maxDewPointF)) + " ºC</span><span style='font-size: small'> at " + maxDewPointTime.getHours() + ":" + getMin(maxDewPointTime.getMinutes()) + "</span></td><td align='right' width='38%'><span style='font-size: small; color:blue; font-weight: bold'>" + toCelsius(parseFloat(minDewPointF)) + " ºC</span><span style='font-size: small'> at " + minDewPointTime.getHours() + ":" + getMin(minDewPointTime.getMinutes()) + "</span></td></tr>"; }
-						if (prefs.getBool("show_humidity")==true) {html += "<tr><td align='left' width='24%'><span style='font-size: small; font-weight: bold'>Humidity</span></td><td align='right' width='38%'><span style='font-size: small; color:red; font-weight: bold'>" + maxHumidity + "%</span><span style='font-size: small'> at " + maxHumidityTime.getHours() + ":" + getMin(maxHumidityTime.getMinutes()) + "</span></td><td align='right' width='38%'><span style='font-size: small; color:blue; font-weight: bold'>" + minHumidity + "%</span><span style='font-size: small'> at " + minHumidityTime.getHours() + ":" + getMin(minHumidityTime.getMinutes()) + "</span></td></tr>"; }
-						if (prefs.getBool("show_wind")==true) {html += "<tr><td align='left' width='24%'><span style='font-size: small; font-weight: bold'>Wind gust</span></td><td align='left' width='76%' colspan='2'><span style='font-size: small; color:red; font-weight: bold'>" + toKmh(parseFloat(maxWindMph)) + " km/h</span><span style='font-size: small'> at " + maxWindTime.getHours() + ":" + getMin(maxWindTime.getMinutes()) + "</span></td>"; }
-						if (prefs.getBool("show_pressure")==true) {html += "<tr><td align='left' width='24%'><span style='font-size: small; font-weight: bold'>Pressure</span></td><td align='right' width='38%'><span style='font-size: small; color:red; font-weight: bold'>" + toMb(parseFloat(maxPressureIn)) + " mb</span><span style='font-size: small'> at " + maxPressureTime.getHours() + ":" + getMin(maxPressureTime.getMinutes()) + "</span></td><td align='right' width='38%'><span style='font-size: small; color:blue; font-weight: bold'>" + toMb(parseFloat(minPressureIn)) + " mb</span><span style='font-size: small'> at " + minPressureTime.getHours() + ":" + getMin(minPressureTime.getMinutes()) + "</span></td></tr>"; }
-					} else if (units == "english") {
-						html += "<tr><td align='left' width='24%'><span style='font-size: small; font-weight: bold'>Temperature</span></td><td align='right' width='38%'><span style='font-size: small; color:red; font-weight: bold'>" + maxTempF + " F</span><span style='font-size: small'> at " + maxTempTime.getHours() + ":" + getMin(maxTempTime.getMinutes()) + "</span></td><td align='right' width='38%'><span style='font-size: small; color:blue; font-weight: bold'>" + minTempF + " F</span><span style='font-size: small'> at " + minTempTime.getHours() + ":" + getMin(minTempTime.getMinutes()) + "</span></td></tr>";
-						if (prefs.getBool("show_dewpoint")==true) {html += "<tr><td align='left' width='24%'><span style='font-size: small; font-weight: bold'>Dew point</span></td><td align='right' width='38%'><span style='font-size: small; color:red; font-weight: bold'>" + maxDewPointF + " F</span><span style='font-size: small'> at " + maxDewPointTime.getHours() + ":" + getMin(maxDewPointTime.getMinutes()) + "</span></td><td align='right' width='38%'><span style='font-size: small; color:blue; font-weight: bold'>" + minDewPointF + " F</span><span style='font-size: small'> at " + minDewPointTime.getHours() + ":" + getMin(minDewPointTime.getMinutes()) + "</span></td></tr>"; }
-						if (prefs.getBool("show_humidity")==true) {html += "<tr><td align='left' width='24%'><span style='font-size: small; font-weight: bold'>Humidity</span></td><td align='right' width='38%'><span style='font-size: small; color:red; font-weight: bold'>" + maxHumidity + "%</span><span style='font-size: small'> at " + maxHumidityTime.getHours() + ":" + getMin(maxHumidityTime.getMinutes()) + "</span></td><td align='right' width='38%'><span style='font-size: small; color:blue; font-weight: bold'>" + minHumidity + "%</span><span style='font-size: small'> at " + minHumidityTime.getHours() + ":" + getMin(minHumidityTime.getMinutes()) + "</span></td></tr>"; }
-						if (prefs.getBool("show_wind")==true) {html += "<tr><td align='left' width='24%'><span style='font-size: small; font-weight: bold'>Wind gust</span></td><td align='left' width='76%' colspan='2'><span style='font-size: small; color:red; font-weight: bold'>" + maxWindMph + " Mph</span><span style='font-size: small'> at " + maxWindTime.getHours() + ":" + getMin(maxWindTime.getMinutes()) + "</span></td>"; }
-						if (prefs.getBool("show_pressure")==true) {html += "<tr><td align='left' width='24%'><span style='font-size: small; font-weight: bold'>Pressure</span></td><td align='right' width='38%'><span style='font-size: small; color:red; font-weight: bold'>" + maxPressureIn + " in</span><span style='font-size: small'> at " + maxPressureTime.getHours() + ":" + getMin(maxPressureTime.getMinutes()) + "</span></td><td align='right' width='38%'><span style='font-size: small; color:blue; font-weight: bold'>" + minPressureIn + " in</span><span style='font-size: small'> at " + minPressureTime.getHours() + ":" + getMin(minPressureTime.getMinutes()) + "</span></td></tr>"; }
-					} else if (units == "both") {
-						html += "<tr><td align='left' width='24%'><span style='font-size: x-small; font-weight: bold'>Temperature</span></td><td align='right' width='38%'><span style='font-size: x-small; color:red; font-weight: bold'>" + maxTempF + " F / " + toCelsius(parseFloat(maxTempF)) + " ºC</span><span style='font-size: x-small'> at " + maxTempTime.getHours() + ":" + getMin(maxTempTime.getMinutes()) + "</span></td><td align='right' width='38%'><span style='font-size: x-small; color:blue; font-weight: bold'>" + minTempF + " F / " + toCelsius(parseFloat(minTempF)) + " ºC</span><span style='font-size: x-small'> at " + minTempTime.getHours() + ":" + getMin(minTempTime.getMinutes()) + "</span></td></tr>";
-						if (prefs.getBool("show_dewpoint")==true) {html += "<tr><td align='left' width='24%'><span style='font-size: x-small; font-weight: bold'>Dew point</span></td><td align='right' width='38%'><span style='font-size: x-small; color:red; font-weight: bold'>" + maxDewPointF + " F / " + toCelsius(parseFloat(maxDewPointF)) + " ºC</span><span style='font-size: x-small'> at " + maxDewPointTime.getHours() + ":" + getMin(maxDewPointTime.getMinutes()) + "</span></td><td align='right' width='38%'><span style='font-size: x-small; color:blue; font-weight: bold'>" + minDewPointF+ " F / "+ toCelsius(parseFloat(minDewPointF)) + " ºC</span><span style='font-size: x-small'> at " + minDewPointTime.getHours() + ":" + getMin(minDewPointTime.getMinutes()) + "</span></td></tr>"; }
-						if (prefs.getBool("show_humidity")==true) {html += "<tr><td align='left' width='24%'><span style='font-size: x-small; font-weight: bold'>Humidity</span></td><td align='right' width='38%'><span style='font-size: x-small; color:red; font-weight: bold'>" + maxHumidity + "%</span><span style='font-size: x-small'> at " + maxHumidityTime.getHours() + ":" + getMin(maxHumidityTime.getMinutes()) + "</span></td><td align='right' width='38%'><span style='font-size: x-small; color:blue; font-weight: bold'>" + minHumidity + "%</span><span style='font-size: x-small'> at " + minHumidityTime.getHours() + ":" + getMin(minHumidityTime.getMinutes()) + "</span></td></tr>"; }
-						if (prefs.getBool("show_wind")==true) {html += "<tr><td align='left' width='24%'><span style='font-size: x-small; font-weight: bold'>Wind gust</span></td><td align='left' width='76%' colspan='2'><span style='font-size: x-small; color:red; font-weight: bold'>" + maxWindMph + " mph / " + toKmh(parseFloat(maxWindMph)) + " km/h</span><span style='font-size: x-small'> at " + maxWindTime.getHours() + ":" + getMin(maxWindTime.getMinutes()) + "</span></td>"; }
-						if (prefs.getBool("show_pressure")==true) {html += "<tr><td align='left' width='24%'><span style='font-size: x-small; font-weight: bold'>Pressure</span></td><td align='right' width='38%'><span style='font-size: x-small; color:red; font-weight: bold'>" + maxPressureIn + " in / " + toMb(parseFloat(maxPressureIn)) + " mb</span><span style='font-size: x-small'> at " + maxPressureTime.getHours() + ":" + getMin(maxPressureTime.getMinutes()) + "</span></td><td align='right' width='38%'><span style='font-size: x-small; color:blue; font-weight: bold'>" + minPressureIn + " in / "+ toMb(parseFloat(minPressureIn)) + " mb</span><span style='font-size: x-small'> at " + minPressureTime.getHours() + ":" + getMin(minPressureTime.getMinutes()) + "</span></td></tr>"; }
+					_gel("extreme_Temp").innerHTML = "Temperature";
+					_gel("extreme_maxTempTime").innerHTML = "&nbsp;at " + maxTempTime.getHours() + ":" + getMin(maxTempTime.getMinutes());
+					_gel("extreme_minTempTime").innerHTML = "&nbsp;at " + minTempTime.getHours() + ":" + getMin(minTempTime.getMinutes());
+					
+					if (prefs.getBool("show_humidity")==true) {
+						_gel("extreme_Humidity").innerHTML = "Humidity";
+						_gel("extreme_maxHumidity").innerHTML = maxHumidity + "%";
+						_gel("extreme_maxHumidityTime").innerHTML = "&nbsp;at " + maxHumidityTime.getHours() + ":" + getMin(maxHumidityTime.getMinutes());
+						_gel("extreme_minHumidity").innerHTML = minHumidity + "%";
+						_gel("extreme_minHumidityTime").innerHTML = "&nbsp;at " + minHumidityTime.getHours() + ":" + getMin(minHumidityTime.getMinutes());
 					}
-					html += "</table>";
-					html += "<br>Last updated: " + new Date().toLocaleString();
-					// Display HTML string
-					_gel(extremeTabId).innerHTML = html;
+					if (units == "metric") {
+						_gel("extreme_maxTemp").innerHTML = toCelsius(parseFloat(maxTempF)) + " ºC";
+						_gel("extreme_minTemp").innerHTML =  toCelsius(parseFloat(minTempF)) + " ºC";
+						if (prefs.getBool("show_dewpoint")==true) {
+							_gel("extreme_DewPoint").innerHTML = "Dew point";
+							_gel("extreme_maxDewPoint").innerHTML = toCelsius(parseFloat(maxDewPointF)) + " ºC";
+							_gel("extreme_maxDewPointTime").innerHTML = "&nbsp;at " + maxDewPointTime.getHours() + ":" + getMin(maxDewPointTime.getMinutes());
+							_gel("extreme_minDewPoint").innerHTML = toCelsius(parseFloat(minDewPointF)) + " ºC"
+							_gel("extreme_minDewPointTime").innerHTML = "&nbsp;at " + minDewPointTime.getHours() + ":" + getMin(minDewPointTime.getMinutes());
+						}
+						if (prefs.getBool("show_wind")==true) {
+							_gel("extreme_Wind").innerHTML = "Wind gust";
+							_gel("extreme_maxWind").innerHTML = toKmh(parseFloat(maxWindMph)) + " km/h";
+							_gel("extreme_maxWindTime").innerHTML = "&nbsp;at " + maxWindTime.getHours() + ":" + getMin(maxWindTime.getMinutes());
+						}
+						if (prefs.getBool("show_pressure")==true) {
+							_gel("extreme_Pressure").innerHTML = "Pressure";
+							_gel("extreme_maxPressure").innerHTML = toMb(parseFloat(maxPressureIn)) + " mb";
+							_gel("extreme_maxPressureTime").innerHTML = "&nbsp;at " + maxPressureTime.getHours() + ":" + getMin(maxPressureTime.getMinutes());
+							_gel("extreme_minPressure").innerHTML = toMb(parseFloat(minPressureIn)) + " mb";
+							_gel("extreme_minPressureTime").innerHTML = "&nbsp;at " + minPressureTime.getHours() + ":" + getMin(minPressureTime.getMinutes());
+						}
+					} else if (units == "english") {
+						_gel("extreme_maxTemp").innerHTML = maxTempF + " F";
+						_gel("extreme_minTemp").innerHTML =  minTempF + " F";
+						if (prefs.getBool("show_dewpoint")==true) {
+							_gel("extreme_DewPoint").innerHTML = "Dew point";
+							_gel("extreme_maxDewPoint").innerHTML = maxDewPointF+ " F";
+							_gel("extreme_maxDewPointTime").innerHTML = "&nbsp;at " + maxDewPointTime.getHours() + ":" + getMin(maxDewPointTime.getMinutes());
+							_gel("extreme_minDewPoint").innerHTML = minDewPointF + " F"
+							_gel("extreme_minDewPointTime").innerHTML = "&nbsp;at " + minDewPointTime.getHours() + ":" + getMin(minDewPointTime.getMinutes());
+						}
+						if (prefs.getBool("show_wind")==true) {
+							_gel("extreme_Wind").innerHTML = "Wind gust";
+							_gel("extreme_maxWind").innerHTML = maxWindMph + " mph";
+							_gel("extreme_maxWindTime").innerHTML = "&nbsp;at " + maxWindTime.getHours() + ":" + getMin(maxWindTime.getMinutes());
+						}
+						if (prefs.getBool("show_pressure")==true) {
+							_gel("extreme_Pressure").innerHTML = "Pressure";
+							_gel("extreme_maxPressure").innerHTML = maxPressureIn + " in";
+							_gel("extreme_maxPressureTime").innerHTML = "&nbsp;at " + maxPressureTime.getHours() + ":" + getMin(maxPressureTime.getMinutes());
+							_gel("extreme_minPressure").innerHTML = minPressureIn + " in";
+							_gel("extreme_minPressureTime").innerHTML = "&nbsp;at " + minPressureTime.getHours() + ":" + getMin(minPressureTime.getMinutes());
+						}
+					} else if (units == "both") {
+						_gel("extreme_maxTemp").innerHTML = maxTempF + " F / " + toCelsius(parseFloat(maxTempF)) + " ºC";
+						_gel("extreme_minTemp").innerHTML =  minTempF + " F / " + toCelsius(parseFloat(minTempF)) + " ºC";
+						if (prefs.getBool("show_dewpoint")==true) {
+							_gel("extreme_DewPoint").innerHTML = "Dew point";
+							_gel("extreme_maxDewPoint").innerHTML = maxDewPointF + " F / " + toCelsius(parseFloat(maxDewPointF)) + " ºC";
+							_gel("extreme_maxDewPointTime").innerHTML = "&nbsp;at " + maxDewPointTime.getHours() + ":" + getMin(maxDewPointTime.getMinutes());
+							_gel("extreme_minDewPoint").innerHTML = minDewPointF + " F / " + toCelsius(parseFloat(minDewPointF)) + " ºC";
+							_gel("extreme_minDewPointTime").innerHTML = "&nbsp;at " + minDewPointTime.getHours() + ":" + getMin(minDewPointTime.getMinutes());
+						}
+						if (prefs.getBool("show_wind")==true) {
+							_gel("extreme_Wind").innerHTML = "Wind gust";
+							_gel("extreme_maxWind").innerHTML = maxWindMph + " mph / " + toKmh(parseFloat(maxWindMph)) + " km/h";
+							_gel("extreme_maxWindTime").innerHTML = "&nbsp;at " + maxWindTime.getHours() + ":" + getMin(maxWindTime.getMinutes());
+						}
+						if (prefs.getBool("show_pressure")==true) {
+							_gel("extreme_Pressure").innerHTML = "Pressure";
+							_gel("extreme_maxPressure").innerHTML = maxPressureIn + " in / " + toMb(parseFloat(maxPressureIn)) + " mb";
+							_gel("extreme_maxPressureTime").innerHTML = "&nbsp;at " + maxPressureTime.getHours() + ":" + getMin(maxPressureTime.getMinutes());
+							_gel("extreme_minPressure").innerHTML = minPressureIn + " in / " + toMb(parseFloat(minPressureIn)) + " mb";
+							_gel("extreme_minPressureTime").innerHTML = "&nbsp;at " + minPressureTime.getHours() + ":" + getMin(minPressureTime.getMinutes());
+						}
+					}
 				}
 				
 				// Create 'Hints' tab html.
@@ -306,8 +415,6 @@
 					html += "</ul>";
 					// Display HTML string
 					_gel(hintsTabId).innerHTML = html;
-					// Set the timeout
-					setTimeout("displayHintsTab()", 300000);
 				}
 				
 				// Adds a leading 0 to the provided minutes when needed.
@@ -375,18 +482,6 @@
 					return url = "http://api.wunderground.com/auto/wui/geo/ForecastXML/index.xml?query=" + latitude + "," + longitude;
 				}
 				
-				function displayCurrentTab(tabId) {
-					_IG_FetchXmlContent(getCurrentConditionsUrl(), displayCurrentConditionsHtml);
-				}
-
-				function displayExtremeTab(tabId) {
-					//_IG_FetchXmlContent(getDailyObservationsUrl(), displayExtremeHtml);
-				}
-
-				function displayHintsTab(tabId) {
-					_IG_FetchXmlContent(getCurrentConditionsUrl(), displayHintsHtml);
-				}
-
 				function displayAboutTab(tabId) {
 					var html = "<center><h3>" + version + "</h3></center>";
 					html += "<ul>";
