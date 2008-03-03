@@ -81,9 +81,13 @@ Here you have a list with a brief description containing all icons you can see:
 
  * Improve design.
  * Internacionalization.
- * Add new tabs (forecast, lunar phase...).
+ * Add new tabs (lunar phase, charts...).
 
 = Version History =
+ * (03/03/2008) v2.3.0
+    * Added new Forecast tab.
+    * Font size fixed in Internet Explorer.
+    * Added Last updated info to Extreme tab.
  * (26/02/2008) v2.2.1
     * Several code enhancements.
     * Fixed bug that causes sometimes show the current weather icon twice.
