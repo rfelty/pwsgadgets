@@ -24,6 +24,13 @@ To add this gadget to your iGoogle click the button [http://fusion.google.com/ad
  * Customize the title.
  * If your station is not uploading data to Weather Underground for more than 10 minutes the gadget advises you.
 
+= Tabs =
+ * Current: Current weather conditions at your personal weather station location.
+ * Extreme: Today's extreme data including time.
+ * Forecast: Five days forecast including today.
+ * Hints: Some hints that could help you to improve the data shown by the gadget.
+ * About: Info tab containg my email address.
+
 = Configuration Parameters =
 
 In the Current Conditions gadget you can find the following configuration parameters :
