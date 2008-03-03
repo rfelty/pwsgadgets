@@ -61,41 +61,68 @@
 				<table>
 					<tr>
 						<td align="left" width="24%">&nbsp;</td>
-						<td align="left" width="38%"><div style="font-size: small; color:red; font-weight: bold">Max</div></td>
-						<td align="left" width="38%"><div style="font-size: small; color:blue; font-weight: bold">Min</div></td>
+						<td align="left" width="38%"><div style="font-size: 10pt; color:red; font-weight: bold">Max</div></td>
+						<td align="left" width="38%"><div style="font-size: 10pt; color:blue; font-weight: bold">Min</div></td>
 					</tr>
 					<tr>
-						<td align="left" width="24%"><div id="extreme_Temp" style="font-size: small; font-weight: bold"></div></td>
-						<td align="right" width="38%"><div id="extreme_maxTemp" style="float: left; font-size: small; color:red; font-weight: bold"></div><div id="extreme_maxTempTime" style="float: left; font-size: small"></div></td>
-						<td align="right" width="38%"><div id="extreme_minTemp" style="float: left; font-size: small; color:blue; font-weight: bold"></div><div id="extreme_minTempTime" style="float: left; font-size: small"></div></td>
+						<td align="left" width="24%"><div id="extreme_Temp" style="font-size: 10pt; font-weight: bold"></div></td>
+						<td align="right" width="38%"><div id="extreme_maxTemp" style="float: left; font-size: 10pt; color:red; font-weight: bold"></div><div id="extreme_maxTempTime" style="float: left; font-size: 10pt"></div></td>
+						<td align="right" width="38%"><div id="extreme_minTemp" style="float: left; font-size: 10pt; color:blue; font-weight: bold"></div><div id="extreme_minTempTime" style="float: left; font-size: 10pt"></div></td>
 					</tr>
 					<tr>
-						<td align="left" width="24%"><div id="extreme_DewPoint" style="font-size: small; font-weight: bold"></div></td>
-						<td align="right" width="38%"><div id="extreme_maxDewPoint" style="float: left; font-size: small; color:red; font-weight: bold"></div><div id="extreme_maxDewPointTime" style="float: left; font-size: small"></div></td>
-						<td align="right" width="38%"><div id="extreme_minDewPoint" style="float: left; font-size: small; color:blue; font-weight: bold"></div><div id="extreme_minDewPointTime" style="float: left; font-size: small"></div></td>
+						<td align="left" width="24%"><div id="extreme_DewPoint" style="font-size: 10pt; font-weight: bold"></div></td>
+						<td align="right" width="38%"><div id="extreme_maxDewPoint" style="float: left; font-size: 10pt; color:red; font-weight: bold"></div><div id="extreme_maxDewPointTime" style="float: left; font-size: 10pt"></div></td>
+						<td align="right" width="38%"><div id="extreme_minDewPoint" style="float: left; font-size: 10pt; color:blue; font-weight: bold"></div><div id="extreme_minDewPointTime" style="float: left; font-size: 10pt"></div></td>
 					</tr>
 					<tr>
-						<td align="left" width="24%"><div id="extreme_Humidity" style="font-size: small; font-weight: bold"></div></td>
-						<td align="right" width="38%"><div id="extreme_maxHumidity" style="float: left; font-size: small; color:red; font-weight: bold"></div><div id="extreme_maxHumidityTime" style="float: left; font-size: small"></div></td>
-						<td align="right" width="38%"><div id="extreme_minHumidity" style="float: left; font-size: small; color:blue; font-weight: bold"></div><div id="extreme_minHumidityTime" style="float: left; font-size: small"></div></td>
+						<td align="left" width="24%"><div id="extreme_Humidity" style="font-size: 10pt; font-weight: bold"></div></td>
+						<td align="right" width="38%"><div id="extreme_maxHumidity" style="float: left; font-size: 10pt; color:red; font-weight: bold"></div><div id="extreme_maxHumidityTime" style="float: left; font-size: 10pt"></div></td>
+						<td align="right" width="38%"><div id="extreme_minHumidity" style="float: left; font-size: 10pt; color:blue; font-weight: bold"></div><div id="extreme_minHumidityTime" style="float: left; font-size: 10pt"></div></td>
 					</tr>
 					<tr>
-						<td align="left" width="24%"><div id="extreme_Wind" style="font-size: small; font-weight: bold"></div></td>
-						<td align="left" width="76%" colspan="2"><div id="extreme_maxWind" style="float: left; font-size: small; color:red; font-weight: bold"></div><div id="extreme_maxWindTime" style="float: left; font-size: small"></div></td>
+						<td align="left" width="24%"><div id="extreme_Wind" style="font-size: 10pt; font-weight: bold"></div></td>
+						<td align="left" width="76%" colspan="2"><div id="extreme_maxWind" style="float: left; font-size: 10pt; color:red; font-weight: bold"></div><div id="extreme_maxWindTime" style="float: left; font-size: 10pt"></div></td>
 					<tr>
-						<td align="left" width="24%"><div id="extreme_Pressure" style="font-size: small; font-weight: bold"></div></td>
-						<td align="right" width="38%"><div id="extreme_maxPressure" style="float: left; font-size: small; color:red; font-weight: bold"></div><div id="extreme_maxPressureTime" style="float: left; font-size: small"></div></td>
-						<td align="right" width="38%"><div id="extreme_minPressure" style="float: left; font-size: small; color:blue; font-weight: bold"></div><div id="extreme_minPressureTime" style="float: left; font-size: small"></div></td>
+						<td align="left" width="24%"><div id="extreme_Pressure" style="font-size: 10pt; font-weight: bold"></div></td>
+						<td align="right" width="38%"><div id="extreme_maxPressure" style="float: left; font-size: 10pt; color:red; font-weight: bold"></div><div id="extreme_maxPressureTime" style="float: left; font-size: 10pt"></div></td>
+						<td align="right" width="38%"><div id="extreme_minPressure" style="float: left; font-size: 10pt; color:blue; font-weight: bold"></div><div id="extreme_minPressureTime" style="float: left; font-size: 10pt"></div></td>
 					</tr>
 				</table>
-				<div id="extreme_lastUpdated"></div>
+				<div id="extreme_lastUpdated" style="font-size: 10pt"></div>
+			</div>
+			<div id="forecast">
+				<br>
+				<table width="100%">
+					<tr>
+						<td align="center" width="20%"><div id="forecast_period0" style="font-size: 10pt"></div></td>
+						<td align="center" width="20%"><div id="forecast_period1" style="font-size: 10pt"></div></td>
+						<td align="center" width="20%"><div id="forecast_period2" style="font-size: 10pt"></div></td>
+						<td align="center" width="20%"><div id="forecast_period3" style="font-size: 10pt"></div></td>
+						<td align="center" width="20%"><div id="forecast_period4" style="font-size: 10pt"></div></td>
+					</tr>
+					<tr>
+						<td align="center" width="20%"><div id="forecast_period0_icon"></div></td>
+						<td align="center" width="20%"><div id="forecast_period1_icon"></div></td>
+						<td align="center" width="20%"><div id="forecast_period2_icon"></div></td>
+						<td align="center" width="20%"><div id="forecast_period3_icon"></div></td>
+						<td align="center" width="20%"><div id="forecast_period4_icon"></div></td>
+					</tr>
+					<tr>
+						<td align="center" width="20%"><div id="forecast_period0_maxmin" style="font-size: 10pt"></div></td>
+						<td align="center" width="20%"><div id="forecast_period1_maxmin" style="font-size: 10pt"></div></td>
+						<td align="center" width="20%"><div id="forecast_period2_maxmin" style="font-size: 10pt"></div></td>
+						<td align="center" width="20%"><div id="forecast_period3_maxmin" style="font-size: 10pt"></div></td>
+						<td align="center" width="20%"><div id="forecast_period4_maxmin" style="font-size: 10pt"></div></td>
+					</tr>
+				</table>
+				<div id="forecast_lastUpdated" style="font-size: 10pt"></div>
 			</div>
 			<div id="hints" style="font-size:9pt; padding:5px; color: gray; text-align: left;"></div>
 			<div id="about" style="font-size:10pt; padding:5px; color: gray; text-align: left;"></div>
 			<div id="footer" style="font-size:7pt; padding:5px; color: gray; text-align: right;"></div>
 			<script type="text/javascript">
 			  // version variable
-				var version = "v2.2.1";
+				var version = "v2.3.0";
 				// Current conditions tab id
 				var currentTabId = "current";
 				var currentTabTemperatureId = "current_temperature";
@@ -103,6 +130,8 @@
 				var currentTabOtherId = "current_otherparams";
 				// Extreme values tab id
 				var extremeTabId = "extreme";
+				// Forecast tab id
+				var forecastTabId = "forecast";
 				// Hints tab id
 				var hintsTabId = "hints";
 				// About tab id
@@ -119,6 +148,7 @@
 					// Add the gadget tabs.
 					tabs.addTab("Current", currentTabId);
 					tabs.addTab("Extreme", extremeTabId);
+					tabs.addTab("Forecast", forecastTabId);
 					tabs.addTab("Hints", hintsTabId);
 					tabs.addTab("About", aboutTabId, displayAboutTab);
 					_IG_FetchXmlContent(getCurrentConditionsUrl(), processCurrentConditionsResponse);
@@ -140,6 +170,7 @@
 				
 				function processForecastResponse(xml) {
 					displayCurrentIconHtml(xml);
+					displayForecastHtml(xml);
 				}
 				
 				function displayFooterHtml(xml) {
@@ -268,7 +299,7 @@
 					var currentHumidity = 0;
 					var currentPressure = 0;
 					var currentWind = 0;
-					var observationList = xml.getElementsByTagName("current_observation");					
+					var observationList = xml.getElementsByTagName("current_observation");
 					for (var i = 0; i < observationList.length ; i++) { 
 						currentTemp = parseFloat(observationList[i].getElementsByTagName("temp_f")[0].firstChild.data);
 						currentDewPoint = parseFloat(observationList[i].getElementsByTagName("dewpoint_f")[0].firstChild.data);
@@ -390,6 +421,35 @@
 							_gel("extreme_minPressureTime").innerHTML = "&nbsp;at " + minPressureTime.getHours() + ":" + getMin(minPressureTime.getMinutes());
 						}
 					}
+					_gel("extreme_lastUpdated").innerHTML = "Last updated: " + new Date().toLocaleString();
+				}
+				
+				// Create the 'Forecast' tab html.
+				function displayForecastHtml(xml) {
+					var prefs = new _IG_Prefs(__MODULE_ID__);
+					var units = prefs.getString("wnd_units");
+					var forecastList = xml.getElementsByTagName("simpleforecast")[0].getElementsByTagName("forecastday");
+					for (var i = 0; i < forecastList.length && i < 5; i++) {
+						var forecastDate = new Date();
+						forecastDate.setDate(parseInt(forecastList[i].getElementsByTagName("day")[0].firstChild.data));
+						forecastDate.setMonth((parseInt(forecastList[i].getElementsByTagName("month")[0].firstChild.data))-1);
+						forecastDate.setFullYear(parseInt(forecastList[i].getElementsByTagName("year")[0].firstChild.data));
+						var today = new Date();
+						if (forecastDate.getDate() == today.getDate() && forecastDate.getMonth() == today.getMonth() && forecastDate.getFullYear() == today.getFullYear()) {
+							_gel("forecast_period" + i).innerHTML = "Today";
+						} else {
+							_gel("forecast_period" + i).innerHTML = getDayOfWeek(forecastDate.getDay());
+						}
+						_gel("forecast_period" + i + "_icon").innerHTML = "<img src='http://icons.wunderground.com/graphics/conds/" + forecastList[i].getElementsByTagName("icon")[0].firstChild.data + ".gif' height='42' width='42'>";
+						if (units == "metric") {
+							_gel("forecast_period" + i + "_maxmin").innerHTML = forecastList[i].getElementsByTagName("high")[0].getElementsByTagName("celsius")[0].firstChild.data + "º|" + forecastList[i].getElementsByTagName("low")[0].getElementsByTagName("celsius")[0].firstChild.data + "º";
+						} else if (units == "english") {
+							_gel("forecast_period" + i + "_maxmin").innerHTML = forecastList[i].getElementsByTagName("high")[0].getElementsByTagName("fahrenheit")[0].firstChild.data + "F|" + forecastList[i].getElementsByTagName("low")[0].getElementsByTagName("fahrenheit")[0].firstChild.data + "F";
+						} else {
+							_gel("forecast_period" + i + "_maxmin").innerHTML = forecastList[i].getElementsByTagName("high")[0].getElementsByTagName("fahrenheit")[0].firstChild.data + "F|" + forecastList[i].getElementsByTagName("low")[0].getElementsByTagName("fahrenheit")[0].firstChild.data + "F<br>" + forecastList[i].getElementsByTagName("high")[0].getElementsByTagName("celsius")[0].firstChild.data + "º|" + forecastList[i].getElementsByTagName("low")[0].getElementsByTagName("celsius")[0].firstChild.data + "º";
+						}
+					}					
+					_gel("forecast_lastUpdated").innerHTML = "Last updated: " + new Date().toLocaleString();
 				}
 				
 				// Create 'Hints' tab html.
@@ -467,6 +527,18 @@
 					return s;
 				}
 
+				// Returns the day of the week.
+				function getDayOfWeek(day) {
+					var weekday=new Array(7);
+					weekday[0]="Sunday";
+					weekday[1]="Monday";
+					weekday[2]="Tuesday";
+					weekday[3]="Wednesday";
+					weekday[4]="Thursday";
+					weekday[5]="Friday";
+					weekday[6]="Saturday";
+					return weekday[day];
+				}
 				// Gets the Weather Underground Current Conditions URL.
 				function getCurrentConditionsUrl() {
 					return "http://api.wunderground.com/weatherstation/WXCurrentObXML.asp?ID=" + new _IG_Prefs(__MODULE_ID__).getString("wnd_id") + "&rnd=" + Math.random();
