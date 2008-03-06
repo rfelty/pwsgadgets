@@ -27,6 +27,7 @@ To add this gadget to your iGoogle click the button [http://fusion.google.com/ad
 = Tabs =
  * *Current*: Current weather conditions at your personal weather station location.
  * *Extreme*: Today's extreme data including time.
+ * *Temp Chart*: Temperature charts including temperature, dew point and relative humidity if selected in preferences.
  * *Forecast*: Five days forecast including today.
  * *Hints*: Some hints that could help you to improve the data shown by the gadget.
  * *About*: Info tab containg my email address.
@@ -43,6 +44,9 @@ In the Current Conditions gadget you can find the following configuration parame
   * *Update every*: You can choose refresh time.
     * This parameter is mandatory.
     * Default value: 30 seconds.
+  * *Chart width*: You can choose the chart width in pixels.
+    * This parameter is mandatory.
+    * Default value: 600 pixels.
   * *Dew point*: This parameter indicates whether to show or not the dew point temperature in thew selected unit.
     * This parameter is NOT mandatory.
     * Default value: Yes.
@@ -88,9 +92,15 @@ Here you have a list with a brief description containing all icons you can see:
 
  * Improve design.
  * Internacionalization.
- * Add new tabs (lunar phase, charts...).
+ * Add new tabs (lunar phase, wind charts, pressure charts...).
 
 = Version History =
+ * (06/03/2008) v2.4.0
+    * Added Temperature chart tab.
+    * Enhanced Current tab design.
+    * Enhanced Extreme tab design.
+    * Moved some info from Hints tabs to About tab.
+    * The daily info shown in Extreme and Temperature chart tabs now is updated every 5 minutes.
  * (03/03/2008) v2.3.0
     * Added new Forecast tab.
     * Font size fixed in Internet Explorer.
