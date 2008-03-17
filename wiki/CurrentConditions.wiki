@@ -92,7 +92,7 @@ Here you have a list with a brief description containing all icons you can see:
 
  * Improve design.
  * Internacionalization.
- * Add new tabs (lunar phase, wind charts, pressure charts...).
+ * Add new tabs (moon phase, wind charts, pressure charts...).
 
 = Version History =
  * (06/03/2008) v2.4.0
