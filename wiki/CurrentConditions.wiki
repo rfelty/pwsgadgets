@@ -97,7 +97,7 @@ Here you have a list with a brief description containing all icons you can see:
 = Version History =
  * (18/03/2008) v2.4.1
     * Lots of code improvements.
-    * Added the date and time the data was uploaded to Weather Underground.
+    * Added the date and time the data was uploaded to Weather Underground in the 'Current' tab.
     * Design improvements.
     * Chart colors changed.
  * (06/03/2008) v2.4.0
