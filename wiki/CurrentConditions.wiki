@@ -29,6 +29,7 @@ To add this gadget to your iGoogle click the button [http://fusion.google.com/ad
  * *Extreme*: Today's extreme data including time.
  * *Temp Chart*: Temperature charts including temperature, dew point and relative humidity if selected in preferences.
  * *Forecast*: Five days forecast including today.
+ * *Astronomy*: Astronomical data such as Moon phase, sunset time, sunrise time,...
  * *Hints*: Some hints that could help you to improve the data shown by the gadget.
  * *About*: Info tab containg my email address.
 
@@ -47,6 +48,18 @@ In the Current Conditions gadget you can find the following configuration parame
   * *Chart width*: You can choose the chart width in pixels.
     * This parameter is mandatory.
     * Default value: 600 pixels.
+  * *Icon set*: You can choose the icon set that will be used in the Current and Forecast tabs.
+    * This parameter is mandatory.
+    * Default value: Old School.
+    * Possible values:
+      * || Default || http://icons-pe.wxug.com/i/c/a/sunny.gif ||
+      * || Smiley || http://icons-pe.wxug.com/i/c/b/sunny.gif ||
+      * || Generic || http://icons-pe.wxug.com/i/c/c/sunny.gif ||
+      * || Old School || http://icons-pe.wxug.com/i/c/d/sunny.gif ||
+      * || Cartoon || http://icons-pe.wxug.com/i/c/e/sunny.gif ||
+      * || Mobile || http://icons-pe.wxug.com/i/c/f/sunny.gif ||
+      * || Simple || http://icons-pe.wxug.com/i/c/g/sunny.gif ||
+      * || Contemporary || http://icons-pe.wxug.com/i/c/h/sunny.gif ||
   * *Dew point*: This parameter indicates whether to show or not the dew point temperature in thew selected unit.
     * This parameter is NOT mandatory.
     * Default value: Yes.
@@ -74,27 +87,31 @@ In the Current Conditions gadget you can find the following configuration parame
 The current weather icon is the icon next to the temparature.
 It shows you the estimated current weather conditions at your personal weather station location.
 
-Here you have a list with a brief description containing all icons you can see:
+Here you have a list with a brief description containing all icons you can see (note that only Default icon set have been used):
 
 *Daytime Images*
-|| Chance of Flurries || http://icons.wunderground.com/graphics/conds/chanceflurries.gif || Chance of Rain || http://icons.wunderground.com/graphics/conds/chancerain.gif || Chance of Sleet || http://icons.wunderground.com/graphics/conds/chancesleet.gif || Chance of Snow || http://icons.wunderground.com/graphics/conds/chancesnow.gif || Chance of Thunderstorms || http://icons.wunderground.com/graphics/conds/chancetstorms.gif ||
-|| Clear || http://icons.wunderground.com/graphics/conds/clear.gif || Cloudy || http://icons.wunderground.com/graphics/conds/cloudy.gif || Flurries || http://icons.wunderground.com/graphics/conds/flurries.gif || Fog || http://icons.wunderground.com/graphics/conds/fog.gif || Hazy || http://icons.wunderground.com/graphics/conds/hazy.gif ||
-|| Mostly cloudy || http://icons.wunderground.com/graphics/conds/mostlycloudy.gif || Mostly sunny || http://icons.wunderground.com/graphics/conds/mostlysunny.gif || Partly cloudy || http://icons.wunderground.com/graphics/conds/partlycloudy.gif || Partly sunny || http://icons.wunderground.com/graphics/conds/partlysunny.gif || Rain || http://icons.wunderground.com/graphics/conds/rain.gif ||
-|| Sleet || http://icons.wunderground.com/graphics/conds/sleet.gif || Snow || http://icons.wunderground.com/graphics/conds/snow.gif || Sunny || http://icons.wunderground.com/graphics/conds/sunny.gif || Thunderstorms || http://icons.wunderground.com/graphics/conds/tstorms.gif || Unknown || http://icons.wunderground.com/graphics/conds/unknown.gif ||
+|| Chance of Flurries || http://icons-pe.wxug.com/i/c/a/chanceflurries.gif || Chance of Rain || http://icons-pe.wxug.com/i/c/a/chancerain.gif || Chance of Sleet || http://icons-pe.wxug.com/i/c/a/chancesleet.gif || Chance of Snow || http://icons-pe.wxug.com/i/c/a/chancesnow.gif || Chance of Thunderstorms || http://icons-pe.wxug.com/i/c/a/chancetstorms.gif ||
+|| Clear || http://icons-pe.wxug.com/i/c/a/clear.gif || Cloudy || http://icons-pe.wxug.com/i/c/a/cloudy.gif || Flurries || http://icons-pe.wxug.com/i/c/a/flurries.gif || Fog || http://icons-pe.wxug.com/i/c/a/fog.gif || Hazy || http://icons-pe.wxug.com/i/c/a/hazy.gif ||
+|| Mostly cloudy || http://icons-pe.wxug.com/i/c/a/mostlycloudy.gif || Mostly sunny || http://icons-pe.wxug.com/i/c/a/mostlysunny.gif || Partly cloudy || http://icons-pe.wxug.com/i/c/a/partlycloudy.gif || Partly sunny || http://icons-pe.wxug.com/i/c/a/partlysunny.gif || Rain || http://icons-pe.wxug.com/i/c/a/rain.gif ||
+|| Sleet || http://icons-pe.wxug.com/i/c/a/sleet.gif || Snow || http://icons-pe.wxug.com/i/c/a/snow.gif || Sunny || http://icons-pe.wxug.com/i/c/a/sunny.gif || Thunderstorms || http://icons-pe.wxug.com/i/c/a/tstorms.gif || Unknown || http://icons-pe.wxug.com/i/c/a/unknown.gif ||
 
 *Nightime Images*
-|| Chance of Flurries || http://icons.wunderground.com/graphics/conds/nt_chanceflurries.gif || Chance of Rain || http://icons.wunderground.com/graphics/conds/nt_chancerain.gif || Chance of Sleet || http://icons.wunderground.com/graphics/conds/nt_chancesleet.gif || Chance of Snow || http://icons.wunderground.com/graphics/conds/nt_chancesnow.gif || Chance of Thunderstorms || http://icons.wunderground.com/graphics/conds/nt_chancetstorms.gif ||
-|| Clear || http://icons.wunderground.com/graphics/conds/nt_clear.gif || Cloudy || http://icons.wunderground.com/graphics/conds/nt_cloudy.gif || Flurries || http://icons.wunderground.com/graphics/conds/nt_flurries.gif || Fog || http://icons.wunderground.com/graphics/conds/nt_fog.gif || Hazy || http://icons.wunderground.com/graphics/conds/nt_hazy.gif ||
-|| Mostly cloudy || http://icons.wunderground.com/graphics/conds/nt_mostlycloudy.gif || Mostly sunny || http://icons.wunderground.com/graphics/conds/nt_mostlysunny.gif || Partly cloudy || http://icons.wunderground.com/graphics/conds/nt_partlycloudy.gif || Partly sunny || http://icons.wunderground.com/graphics/conds/nt_partlysunny.gif || Rain || http://icons.wunderground.com/graphics/conds/nt_rain.gif ||
-|| Sleet || http://icons.wunderground.com/graphics/conds/nt_sleet.gif || Snow || http://icons.wunderground.com/graphics/conds/nt_snow.gif || Sunny || http://icons.wunderground.com/graphics/conds/nt_sunny.gif || Thunderstorms || http://icons.wunderground.com/graphics/conds/nt_tstorms.gif || Unknown || http://icons.wunderground.com/graphics/conds/nt_unknown.gif ||
+|| Chance of Flurries || http://icons-pe.wxug.com/i/c/a/nt_chanceflurries.gif || Chance of Rain || http://icons-pe.wxug.com/i/c/a/nt_chancerain.gif || Chance of Sleet || http://icons-pe.wxug.com/i/c/a/nt_chancesleet.gif || Chance of Snow || http://icons-pe.wxug.com/i/c/a/nt_chancesnow.gif || Chance of Thunderstorms || http://icons-pe.wxug.com/i/c/a/nt_chancetstorms.gif ||
+|| Clear || http://icons-pe.wxug.com/i/c/a/nt_clear.gif || Cloudy || http://icons-pe.wxug.com/i/c/a/nt_cloudy.gif || Flurries || http://icons-pe.wxug.com/i/c/a/nt_flurries.gif || Fog || http://icons-pe.wxug.com/i/c/a/nt_fog.gif || Hazy || http://icons-pe.wxug.com/i/c/a/nt_hazy.gif ||
+|| Mostly cloudy || http://icons-pe.wxug.com/i/c/a/nt_mostlycloudy.gif || Mostly sunny || http://icons-pe.wxug.com/i/c/a/nt_mostlysunny.gif || Partly cloudy || http://icons-pe.wxug.com/i/c/a/nt_partlycloudy.gif || Partly sunny || http://icons-pe.wxug.com/i/c/a/nt_partlysunny.gif || Rain || http://icons-pe.wxug.com/i/c/a/nt_rain.gif ||
+|| Sleet || http://icons-pe.wxug.com/i/c/a/nt_sleet.gif || Snow || http://icons-pe.wxug.com/i/c/a/nt_snow.gif || Sunny || http://icons-pe.wxug.com/i/c/a/nt_sunny.gif || Thunderstorms || http://icons-pe.wxug.com/i/c/a/nt_tstorms.gif || Unknown || http://icons-pe.wxug.com/i/c/a/nt_unknown.gif ||
 
 = Future versions =
 
  * Improve design.
  * Internacionalization.
- * Add new tabs (moon phase, wind charts, pressure charts...).
+ * Add new tabs (wind charts, pressure charts...).
 
 = Version History =
+ * (21/03/2008) v2.5.0
+    * Added Astronomy tab.
+    * Added the ability to change the icon set.
+    * In the Forecast tab now the maximum temperature is red and the minimum is blue.
  * (18/03/2008) v2.4.1
     * Lots of code improvements.
     * Added the date and time the data was uploaded to Weather Underground in the 'Current' tab.
