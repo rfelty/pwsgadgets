@@ -36,6 +36,16 @@
 		<EnumValue value="550" display_value="550" />
 		<EnumValue value="350" display_value="350" />
 	</UserPref>
+	<UserPref name="wnd_icons" datatype="enum" display_name="Icon set: " default_value="http://icons-pe.wxug.com/i/c/d/" required="true">
+		<EnumValue value="http://icons-pe.wxug.com/i/c/a/" display_value="Default" />
+		<EnumValue value="http://icons-pe.wxug.com/i/c/b/" display_value="Smiley" />
+		<EnumValue value="http://icons-pe.wxug.com/i/c/c/" display_value="Generic" />
+		<EnumValue value="http://icons-pe.wxug.com/i/c/d/" display_value="Old School" />
+		<EnumValue value="http://icons-pe.wxug.com/i/c/e/" display_value="Cartoon" />
+		<EnumValue value="http://icons-pe.wxug.com/i/c/f/" display_value="Mobile" />
+		<EnumValue value="http://icons-pe.wxug.com/i/c/g/" display_value="Simple" />
+		<EnumValue value="http://icons-pe.wxug.com/i/c/h/" display_value="Contemporary" />
+	</UserPref>
 	<UserPref name="show_dewpoint" display_name="Dew point:" datatype="bool" default_value="true"/>
 	<UserPref name="show_humidity" display_name="Relative humidity:" datatype="bool" default_value="true"/>
 	<UserPref name="show_wind" display_name="Wind:" datatype="bool" default_value="true"/>
@@ -57,11 +67,18 @@
 				.extreme_normal{display:inline; font-size:10pt; text-align:left; color:black; font-family:"lucida grande",verdana,sans-serif}
 				.extreme_bold{display:inline; font-size:10pt; text-align:left; color:black; font-weight:bold; font-family:"lucida grande",verdana,sans-serif}
 				
-				.forecast_normal{display:inline; font-size:10pt; text-align:left; color:black; font-family:"lucida grande",verdana,sans-serif}
 				.forecast_bold{display:inline; font-size:10pt; text-align:left; color:black; font-weight:bold; font-family:"lucida grande",verdana,sans-serif}
+				.forecast_blue{display:inline; font-size:10pt; text-align:left; color:blue; font-weight:bold; font-family:"lucida grande",verdana,sans-serif}
+				.forecast_red{display:inline; font-size:10pt; text-align:left; color:red; font-weight:bold; font-family:"lucida grande",verdana,sans-serif}
+				
 				
 				.tempChart_flash{text-align:center}
 				.tempChart_normal{display:inline; font-size:10pt; text-align:left; color:black; font-family:"lucida grande",verdana,sans-serif}
+				
+				.astronomy_value{display:inline; font-size:10pt; text-align:left; font-family:"lucida grande",verdana,sans-serif}
+				.astronomy_bold{font-size:10pt; font-weight:bold; text-align:left; font-family:"lucida grande",verdana,sans-serif}
+				.astronomy_icon{display:inline; vertical-align:middle; height:42px; font-family:"lucida grande",verdana,sans-serif}
+				.astronomy_header{display:inline; vertical-align:middle; height:42px; font-weight:bold; padding:5px; color:black; font-family:"lucida grande",verdana,sans-serif}				
 				
 				.hints_normal{font-size:9pt; padding:5px; color:gray; text-align:left; font-family:"lucida grande",verdana,sans-serif}
 				
@@ -164,21 +181,42 @@
 						<td align="center" width="20%"><div id="forecast_Period4_Icon"></div></td>
 					</tr>
 					<tr>
-						<td align="center" width="20%"><div id="forecast_Period0_MaxMin" class="forecast_normal"></div></td>
-						<td align="center" width="20%"><div id="forecast_Period1_MaxMin" class="forecast_normal"></div></td>
-						<td align="center" width="20%"><div id="forecast_Period2_MaxMin" class="forecast_normal"></div></td>
-						<td align="center" width="20%"><div id="forecast_Period3_MaxMin" class="forecast_normal"></div></td>
-						<td align="center" width="20%"><div id="forecast_Period4_MaxMin" class="forecast_normal"></div></td>
+						<td align="center" width="20%"><div id="forecast_Period0_Max" class="forecast_red"></div><div id="forecast_Period0_Separator" class="forecast_bold">|</div><div id="forecast_Period0_Min" class="forecast_blue"></div></td>
+						<td align="center" width="20%"><div id="forecast_Period1_Max" class="forecast_red"></div><div id="forecast_Period1_Separator" class="forecast_bold">|</div><div id="forecast_Period1_Min" class="forecast_blue"></div></td>
+						<td align="center" width="20%"><div id="forecast_Period2_Max" class="forecast_red"></div><div id="forecast_Period2_Separator" class="forecast_bold">|</div><div id="forecast_Period2_Min" class="forecast_blue"></div></td>
+						<td align="center" width="20%"><div id="forecast_Period3_Max" class="forecast_red"></div><div id="forecast_Period3_Separator" class="forecast_bold">|</div><div id="forecast_Period3_Min" class="forecast_blue"></div></td>
+						<td align="center" width="20%"><div id="forecast_Period4_Max" class="forecast_red"></div><div id="forecast_Period4_Separator" class="forecast_bold">|</div><div id="forecast_Period4_Min" class="forecast_blue"></div></td>
 					</tr>
 				</table>
 				<div id="forecast_LastUpdated" class="forecast_normal"></div>
+			</div>
+			<div id="astronomy">
+				<center>
+					<p>
+						<div id="astronomy_Icon" class="astronomy_icon"></div><div id="astronomy_Percent" class="astronomy_header"></div>
+					</p>
+					<table>
+						<tr>
+							<td><div id="astronomy_Sunrise_txt" class="astronomy_bold">Sunrise</div></td>
+							<td><div id="astronomy_Sunrise" class="astronomy_value"></div></td>
+						</tr>
+						<tr>
+							<td><div id="astronomy_Sunset_txt" class="astronomy_bold">Sunset</div></td>
+							<td><div id="astronomy_Sunset" class="astronomy_value"></div></td>
+						</tr>
+						<tr>
+							<td><div id="astronomy_LightTime_txt" class="astronomy_bold">Length Of Visible Light</div></td>
+							<td><div id="astronomy_LightTime" class="astronomy_value"></div></td>
+						</tr>
+					</table>
+				</center>
 			</div>
 			<div id="hints" class="hints_normal"></div>
 			<div id="about" class="about_normal"></div>
 			<div id="footer" class="footer"></div>
 			<script type="text/javascript">
 			  // version variable
-				var version = "v2.4.1";
+				var version = "v2.5.0";
 				// Current conditions tab id
 				var currentTabId = "current";
 				// Extreme values tab id
@@ -186,7 +224,9 @@
 				// Temperature chart tab id
 				var tempChartTabId = "tempChart";
 				// Forecast tab id
-				var forecastTabId = "forecast";
+				var forecastTabId = "forecast";				
+				// astronomy tab id
+				var astronomyTabId = "astronomy";
 				// Hints tab id
 				var hintsTabId = "hints";
 				// About tab id
@@ -205,6 +245,7 @@
 					tabs.addTab("Extreme", extremeTabId);
 					tabs.addTab("Temp Chart", tempChartTabId);
 					tabs.addTab("Forecast", forecastTabId);
+					tabs.addTab("Astronomy", astronomyTabId);
 					tabs.addTab("Hints", hintsTabId);
 					tabs.addTab("About", aboutTabId, displayAboutTab);
 					_IG_FetchXmlContent(getCurrentConditionsUrl(), processCurrentConditionsResponse);
@@ -230,6 +271,7 @@
 				function processForecastResponse(xml) {
 					displayCurrentIconHtml(xml);
 					displayForecastHtml(xml);
+					displayAstronomy(xml);
 				}
 				
 				function displayFooterHtml(xml) {
@@ -389,7 +431,7 @@
 					sunset.setMinutes(sunsetMinutes);
 					var now = new Date();
 					if (xml.getElementsByTagName("icon")[0].firstChild != null) {
-						imgHtml += "<img src='http://icons.wunderground.com/graphics/conds/"
+						imgHtml += "<img src='" + new _IG_Prefs(__MODULE_ID__).getString("wnd_icons");
 						if (((sunrise.getTime() - now.getTime()) < 0) && ((sunset.getTime() - now.getTime()) > 0)) {
 							imgHtml += xml.getElementsByTagName("icon")[0].firstChild.data;
 						} else {
@@ -685,16 +727,55 @@
 						} else {
 							_gel("forecast_Period" + i).innerHTML = getDayOfWeek(forecastDate.getDay());
 						}
-						_gel("forecast_Period" + i + "_Icon").innerHTML = "<img src='http://icons.wunderground.com/graphics/conds/" + forecastList[i].getElementsByTagName("icon")[0].firstChild.data + ".gif' height='42' width='42'>";
+						_gel("forecast_Period" + i + "_Icon").innerHTML = "<img src='" + prefs.getString("wnd_icons") + forecastList[i].getElementsByTagName("icon")[0].firstChild.data + ".gif' height='42' width='42'>";
 						if (units == "metric") {
-							_gel("forecast_Period" + i + "_MaxMin").innerHTML = forecastList[i].getElementsByTagName("high")[0].getElementsByTagName("celsius")[0].firstChild.data + "º|" + forecastList[i].getElementsByTagName("low")[0].getElementsByTagName("celsius")[0].firstChild.data + "º";
+							_gel("forecast_Period" + i + "_Max").innerHTML = forecastList[i].getElementsByTagName("high")[0].getElementsByTagName("celsius")[0].firstChild.data + "º";
+							_gel("forecast_Period" + i + "_Min").innerHTML = forecastList[i].getElementsByTagName("low")[0].getElementsByTagName("celsius")[0].firstChild.data + "º";
 						} else if (units == "english") {
-							_gel("forecast_Period" + i + "_MaxMin").innerHTML = forecastList[i].getElementsByTagName("high")[0].getElementsByTagName("fahrenheit")[0].firstChild.data + "F|" + forecastList[i].getElementsByTagName("low")[0].getElementsByTagName("fahrenheit")[0].firstChild.data + "F";
+							_gel("forecast_Period" + i + "_Max").innerHTML = forecastList[i].getElementsByTagName("high")[0].getElementsByTagName("fahrenheit")[0].firstChild.data + "F";
+							_gel("forecast_Period" + i + "_Min").innerHTML = forecastList[i].getElementsByTagName("low")[0].getElementsByTagName("fahrenheit")[0].firstChild.data + "F";
 						} else {
-							_gel("forecast_Period" + i + "_MaxMin").innerHTML = forecastList[i].getElementsByTagName("high")[0].getElementsByTagName("fahrenheit")[0].firstChild.data + "F|" + forecastList[i].getElementsByTagName("low")[0].getElementsByTagName("fahrenheit")[0].firstChild.data + "F<br>" + forecastList[i].getElementsByTagName("high")[0].getElementsByTagName("celsius")[0].firstChild.data + "º|" + forecastList[i].getElementsByTagName("low")[0].getElementsByTagName("celsius")[0].firstChild.data + "º";
+							_gel("forecast_Period" + i + "_Max").innerHTML = forecastList[i].getElementsByTagName("high")[0].getElementsByTagName("fahrenheit")[0].firstChild.data + "F/" + forecastList[i].getElementsByTagName("high")[0].getElementsByTagName("celsius")[0].firstChild.data + "º<br>";
+							_gel("forecast_Period" + i + "_Min").innerHTML = forecastList[i].getElementsByTagName("low")[0].getElementsByTagName("fahrenheit")[0].firstChild.data + "F/" + forecastList[i].getElementsByTagName("low")[0].getElementsByTagName("celsius")[0].firstChild.data + "º";
+							_gel("forecast_Period" + i + "_Separator").innerHTML = "";
 						}
 					}					
 					_gel("forecast_LastUpdated").innerHTML = "Last updated at " + getTimeLongString(new Date());
+				}
+				
+				function displayAstronomy(xml) {
+					if (xml == null || typeof(xml) != "object" || xml.firstChild == null) {
+					  return;
+					}
+					var imgHtml = "";
+					var sunriseHour = xml.getElementsByTagName("sunrise")[0].getElementsByTagName("hour")[0].firstChild.data;
+					var sunriseMinutes = xml.getElementsByTagName("sunrise")[0].getElementsByTagName("minute")[0].firstChild.data;
+					var sunsetHour = xml.getElementsByTagName("sunset")[0].getElementsByTagName("hour")[0].firstChild.data;
+					var sunsetMinutes = xml.getElementsByTagName("sunset")[0].getElementsByTagName("minute")[0].firstChild.data;
+					var sunrise = new Date();
+					sunrise.setHours(sunriseHour);
+					sunrise.setMinutes(sunriseMinutes);
+					sunrise.setSeconds(0);
+					var sunset = new Date();
+					sunset.setHours(sunsetHour);
+					sunset.setMinutes(sunsetMinutes);
+					sunset.setSeconds(0);
+					var dayLight = new Date();
+					dayLight.setTime(sunset.getTime() - sunrise.getTime());
+					
+					if (xml.getElementsByTagName("ageOfMoon")[0].firstChild != null) {
+						imgHtml += "<img src='http://icons-pe.wxug.com/graphics/moonpictsnew/moon";
+						imgHtml += xml.getElementsByTagName("ageOfMoon")[0].firstChild.data;
+						imgHtml += ".gif' height='48' width='48'>";
+					}
+					// Display moon img
+					_gel("astronomy_Icon").innerHTML = imgHtml;
+					if (xml.getElementsByTagName("percentIlluminated")[0].firstChild != null) {
+						_gel("astronomy_Percent").innerHTML = xml.getElementsByTagName("percentIlluminated")[0].firstChild.data + "% of the Moon is Illuminated";
+					}
+					_gel("astronomy_Sunset").innerHTML = getTimeString(sunset);
+					_gel("astronomy_Sunrise").innerHTML = getTimeString(sunrise);
+					_gel("astronomy_LightTime").innerHTML = dayLight.getHours() + " hours " + format(dayLight.getMinutes()) + " minutes";
 				}
 				
 				// Create 'Hints' tab html.
