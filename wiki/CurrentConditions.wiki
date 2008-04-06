@@ -108,6 +108,11 @@ Here you have a list with a brief description containing all icons you can see (
  * Add new tabs (wind charts, pressure charts...).
 
 = Version History =
+ * (06/04/2008) v2.5.1
+    * Changed chart color lines.
+    * Fixed some texts.
+    * Link in the About tab to the PWS history in WeatherUnderground fixed.
+    * Set the default icon set to Default.
  * (21/03/2008) v2.5.0
     * Added Astronomy tab.
     * Added the ability to change the icon set.
