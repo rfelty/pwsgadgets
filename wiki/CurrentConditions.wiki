@@ -50,7 +50,7 @@ In the Current Conditions gadget you can find the following configuration parame
     * Default value: 600 pixels.
   * *Icon set*: You can choose the icon set that will be used in the Current and Forecast tabs.
     * This parameter is mandatory.
-    * Default value: Old School.
+    * Default value: Default.
     * Possible values:
       * || Default || http://icons-pe.wxug.com/i/c/a/sunny.gif ||
       * || Smiley || http://icons-pe.wxug.com/i/c/b/sunny.gif ||
