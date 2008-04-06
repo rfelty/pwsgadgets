@@ -36,7 +36,7 @@
 		<EnumValue value="550" display_value="550" />
 		<EnumValue value="350" display_value="350" />
 	</UserPref>
-	<UserPref name="wnd_icons" datatype="enum" display_name="Icon set: " default_value="http://icons-pe.wxug.com/i/c/d/" required="true">
+	<UserPref name="wnd_icons" datatype="enum" display_name="Icon set: " default_value="http://icons-pe.wxug.com/i/c/a/" required="true">
 		<EnumValue value="http://icons-pe.wxug.com/i/c/a/" display_value="Default" />
 		<EnumValue value="http://icons-pe.wxug.com/i/c/b/" display_value="Smiley" />
 		<EnumValue value="http://icons-pe.wxug.com/i/c/c/" display_value="Generic" />
@@ -216,7 +216,7 @@
 			<div id="footer" class="footer"></div>
 			<script type="text/javascript">
 			  // version variable
-				var version = "v2.5.0";
+				var version = "v2.5.1";
 				// Current conditions tab id
 				var currentTabId = "current";
 				// Extreme values tab id
@@ -680,10 +680,10 @@
 					so.addVariable("y_grid_colour","#ADB5C7");
 					so.addVariable("y_legend",yLegend + ",10,#000000");
 					so.addVariable("y_ticks","5,10,5");
-					so.addVariable("line","2,#164166," + line + ",10");
+					so.addVariable("line","2,#CD5C5C," + line + ",10");
 					so.addVariable("values",tempArray);
 					if (prefs.getBool("show_dewpoint")==true) {
-						so.addVariable("line_2","1,#818D9D," + line2 + ",10");
+						so.addVariable("line_2","1,#98FB98," + line2 + ",10");
 						so.addVariable("values_2",dewArray);
 						if (prefs.getBool("show_humidity")==true) {
 							so.addVariable("y2_min", "0");
@@ -691,7 +691,7 @@
 							so.addVariable("y2_legend", "Relative humidity %25, 10, #000000")
 							so.addVariable("y2_lines", "3");
 							so.addVariable("show_y2","true");
-							so.addVariable("line_3","1,#E7D1D3,Relative humidity %25,10");
+							so.addVariable("line_3","1,#7B68EE,Relative humidity %25,10");
 							so.addVariable("values_3",humidityArray);
 						}
 					} else {
@@ -794,13 +794,13 @@
 							// If the info is not updated for more than 10 minutes show an alarm.
 							if (notUpdated > 600000) {
 								existHint = true;
-								html += "<li><b>Your personal weather station have not sent any information to Weather Underground for more than " + parseInt(((notUpdated/1000)/60)) + " minutes. Please check your station is propertly configured to upload data to Weather Underground.</b></li>";
+								html += "<li><b>The selected weather station have not sent any information to Weather Underground for more than " + parseInt(((notUpdated/1000)/60)) + " minutes. Please check the station is propertly configured to upload data to Weather Underground.</b></li>";
 							}
 						}
 						// If the neightborhood info is not at wunderground.
 						if (xml.getElementsByTagName("neighborhood")[0].firstChild == null) {
 							existHint = true;
-							html += "<li>If you want to see your neighborhood information next to the temperature in the 'Current' tab, please complete your Personal Weather Station info at <a href='http://www.wunderground.com/wxstation/signup.html' target='_blank'>Weather Underground</a> web site.</li>";
+							html += "<li>If you want to see the selected PWS neighborhood information next to the temperature in the 'Current' tab, please complete Personal Weather Station info at <a href='http://www.wunderground.com/wxstation/signup.html' target='_blank'>Weather Underground</a> web site.</li>";
 						}
 					}
 					if (!existHint) {
@@ -928,7 +928,7 @@
 					html += "<li>CurrentConditions gadget <a href='http://code.google.com/p/pwsgadgets/wiki/CurrentConditions' target='_blank'>home page.</a></li>";
 					html += "<li>Feel free to write any feedback to <a href='mailto:pwsgadgets.feedback@gmail.com'>pwsgadgets.feedback@gmail.com</a></li>"
 					html += "<li>Get more gadgets for your personal weather station at PWS Gadgets project <a href='http://pwsgadgets.googlecode.com/' target='_blank'>home page</a></li>";
-					html += "<li>See your Personal Weather Station History at <a href='http://www.wunderground.com/weatherstation/WXDailyHistory.asp?ID=IISLASBA11' target='_blank'>Weather Underground</a>.</li>"
+					html += "<li>See the selected Personal Weather Station History at <a href='http://www.wunderground.com/weatherstation/WXDailyHistory.asp?ID=" + new _IG_Prefs(__MODULE_ID__).getString("wnd_id") + "' target='_blank'>Weather Underground</a>.</li>"
 					html += "</ul>";
 					_gel(tabId).innerHTML = html;
 				}
