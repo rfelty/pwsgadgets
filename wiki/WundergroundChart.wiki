@@ -2,7 +2,6 @@
 #labels Featured
 
 = Description =
-
 This gadget provides you with your Personal Weather Station updated charts from wunderground.com.
 
 To add this gadget to your iGoogle click the button [http://fusion.google.com/add?source=atgs&moduleurl=http%3A//pwsgadgets.googlecode.com/svn/trunk/pws_WundergroundChart.xml http://gmodules.com/ig/images/plus_google.gif]
@@ -19,7 +18,6 @@ To add this gadget to your iGoogle click the button [http://fusion.google.com/ad
  * Customize the title.
 
 = Configuration Parameters =
-
 In the Current Conditions gadget you can find the following configuration parameters :
   * *Wunderground station id*: To get your Wunderground weather station ID you need to add and configure a personal weather station at the [http://www.wunderground.com/weatherstation/index.asp Weather Underground] web site.
     * This parameter is mandatory.
@@ -54,7 +52,6 @@ In the Current Conditions gadget you can find the following configuration parame
   * *Image width*: You can choose the chart width in pixels.
     * This parameter is mandatory.
     * Default value: 350 pixels.
-
 = Screenshots =
 TODO
 = Version History =
