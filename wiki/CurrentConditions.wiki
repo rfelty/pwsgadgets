@@ -5,7 +5,8 @@
 This gadget provides you with a Personal Weather Station updated data from [http://www.weatherunderground.com Weather Underground] web site.
 
 To add this gadget to your iGoogle click the button [http://fusion.google.com/add?source=atgs&amp;moduleurl=http%3A//pwsgadgets.googlecode.com/svn/trunk/pws_CurrentConditions.xml http://gmodules.com/ig/images/plus_google.gif]
-http://pwsgadgets.googlecode.com/svn/trunk/screenshot/CurrentTab.jpg
+http://pwsgadgets.googlecode.com/svn/trunk/screenshots/
+CurrentConditions/CurrentTab.jpg
 
 = Features =
  * You can provide any Weather Underground Personal Weather Station id.
@@ -105,15 +106,20 @@ Here you have a list with a brief description containing all icons you can see (
  * Add new tabs (wind charts, pressure charts...).
 
 = Screenshots =
-http://pwsgadgets.googlecode.com/svn/trunk/screenshot/CurrentTab.jpg
+http://pwsgadgets.googlecode.com/svn/trunk/screenshots/
+CurrentConditions/CurrentTab.jpg
 
-http://pwsgadgets.googlecode.com/svn/trunk/screenshot/ExtremeTab.jpg
+http://pwsgadgets.googlecode.com/svn/trunk/screenshots/
+CurrentConditions/ExtremeTab.jpg
 
-http://pwsgadgets.googlecode.com/svn/trunk/screenshot/TempChartTab.jpg
+http://pwsgadgets.googlecode.com/svn/trunk/screenshots/
+CurrentConditions/TempChartTab.jpg
 
-http://pwsgadgets.googlecode.com/svn/trunk/screenshot/ForecastTab.jpg
+http://pwsgadgets.googlecode.com/svn/trunk/screenshots/
+CurrentConditions/ForecastTab.jpg
 
-http://pwsgadgets.googlecode.com/svn/trunk/screenshot/AstronomyTab.jpg
+http://pwsgadgets.googlecode.com/svn/trunk/screenshots/
+CurrentConditions/AstronomyTab.jpg
 
 = Version History =
  * (06/04/2008) v2.5.1
