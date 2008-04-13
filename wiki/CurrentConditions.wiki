@@ -2,7 +2,6 @@
 #labels Featured,CurrentConditions,Description
 
 = Description =
-
 This gadget provides you with a Personal Weather Station updated data from [http://www.weatherunderground.com Weather Underground] web site.
 
 To add this gadget to your iGoogle click the button [http://fusion.google.com/add?source=atgs&amp;moduleurl=http%3A//pwsgadgets.googlecode.com/svn/trunk/pws_CurrentConditions.xml http://gmodules.com/ig/images/plus_google.gif]
@@ -35,8 +34,7 @@ http://pwsgadgets.googlecode.com/svn/trunk/screenshot/CurrentTab.jpg
  * *About*: Info tab containg my email address.
 
 = Configuration Parameters =
-
-In the Current Conditions gadget you can find the following configuration parameters :
+In this gadget you can find the following configuration parameters :
   * *Wunderground station id*: To get your Wunderground weather station ID you need to add and configure a personal weather station at the [http://www.wunderground.com/weatherstation/index.asp Weather Underground] web site.
     * This parameter is mandatory.
     * Example value: IISLASBA11.
@@ -84,7 +82,6 @@ In the Current Conditions gadget you can find the following configuration parame
     * Default value: Current Conditions.
 
 = Current weather icon =
-
 The current weather icon is the icon next to the temparature.
 It shows you the estimated current weather conditions at your personal weather station location.
 
@@ -103,7 +100,6 @@ Here you have a list with a brief description containing all icons you can see (
 || Sleet || http://icons-pe.wxug.com/i/c/a/nt_sleet.gif || Snow || http://icons-pe.wxug.com/i/c/a/nt_snow.gif || Sunny || http://icons-pe.wxug.com/i/c/a/nt_sunny.gif || Thunderstorms || http://icons-pe.wxug.com/i/c/a/nt_tstorms.gif || Unknown || http://icons-pe.wxug.com/i/c/a/nt_unknown.gif ||
 
 = Future versions =
-
  * Improve design.
  * Internacionalization.
  * Add new tabs (wind charts, pressure charts...).
