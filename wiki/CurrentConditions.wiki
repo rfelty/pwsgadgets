@@ -108,23 +108,23 @@ Here you have a list with a brief description containing all icons you can see (
  * Add new tabs (wind charts, pressure charts...).
 
 = Screenshots =
-http://pwsgadgets.googlecode.com/svn/trunk/screenshot/2.5.1/CurrentTab.jpg
+http://pwsgadgets.googlecode.com/svn/trunk/screenshot/CurrentTab.jpg
 
 *Current Tab*
 
-http://pwsgadgets.googlecode.com/svn/trunk/screenshot/2.5.1/ExtremeTab.jpg
+http://pwsgadgets.googlecode.com/svn/trunk/screenshot/ExtremeTab.jpg
 
 *Extreme Tab*
 
-http://pwsgadgets.googlecode.com/svn/trunk/screenshot/2.5.1/TempChartTab.jpg
+http://pwsgadgets.googlecode.com/svn/trunk/screenshot/TempChartTab.jpg
 
 *Temp Chart Tab*
 
-http://pwsgadgets.googlecode.com/svn/trunk/screenshot/2.5.1/ForecastTab.jpg
+http://pwsgadgets.googlecode.com/svn/trunk/screenshot/ForecastTab.jpg
 
 *Forecast Tab*
 
-http://pwsgadgets.googlecode.com/svn/trunk/screenshot/2.5.1/AstronomyTab.jpg
+http://pwsgadgets.googlecode.com/svn/trunk/screenshot/AstronomyTab.jpg
 
 *Astronomy Tab*
 = Version History =
