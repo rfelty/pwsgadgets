@@ -18,7 +18,7 @@ To add this gadget to your iGoogle click the button [http://fusion.google.com/ad
  * Customize the title.
 
 = Configuration Parameters =
-In the Current Conditions gadget you can find the following configuration parameters :
+In this gadget you can find the following configuration parameters :
   * *Wunderground station id*: To get your Wunderground weather station ID you need to add and configure a personal weather station at the [http://www.wunderground.com/weatherstation/index.asp Weather Underground] web site.
     * This parameter is mandatory.
     * Example value: IISLASBA11.
