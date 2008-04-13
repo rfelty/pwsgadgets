@@ -18,6 +18,43 @@ To add this gadget to your iGoogle click the button [http://fusion.google.com/ad
     * Rain
  * Customize the title.
 
+= Configuration Parameters =
+
+In the Current Conditions gadget you can find the following configuration parameters :
+  * *Wunderground station id*: To get your Wunderground weather station ID you need to add and configure a personal weather station at the [http://www.wunderground.com/weatherstation/index.asp Weather Underground] web site.
+    * This parameter is mandatory.
+    * Example value: IISLASBA11.
+  * *Update every*: You can choose refresh time.
+    * This parameter is mandatory.
+    * Default value: 30 seconds.
+  * *Temperature*: This parameter indicates whether to show or not the chart with the temperature and dew point temperature.
+    * This parameter is NOT mandatory.
+    * Default value: Yes.
+  * *Wind speed*: This parameter indicates whether to show or not the chart with the wind speed and wind gust.
+    * This parameter is NOT mandatory.
+    * Default value: Yes.
+  * *Wind direction*: This parameter indicates whether to show or not the chart with the wind direction.
+    * This parameter is NOT mandatory.
+    * Default value: Yes.
+  * *Rain*: This parameter indicates whether to show or not the chart with the rainfall.
+    * This parameter is NOT mandatory.
+    * Default value: Yes.
+  * *Solar radiation*: This parameter indicates whether to show or not the chart with the solar radiation.
+    * This parameter is NOT mandatory.
+    * Default value: No.
+  * *UV (index)*: This parameter indicates whether to show or not the chart with the UV index.
+    * This parameter is NOT mandatory.
+    * Default value: No.
+  * *Range*: This parameter selects the time range of the chart.
+    * This parameter is mandatory.
+    * Default value: Today.
+  * *Title*: This is the title you want to show in the gadget.
+    * This parameter is mandatory.
+    * Default value: Current Conditions.
+  * *Image width*: You can choose the chart width in pixels.
+    * This parameter is mandatory.
+    * Default value: 350 pixels.
+
 = Version History =
  * (31/01/2008) v1.1.3
     * Added last gadget refresh date and time.
