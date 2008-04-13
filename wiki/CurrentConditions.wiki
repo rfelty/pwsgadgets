@@ -107,6 +107,26 @@ Here you have a list with a brief description containing all icons you can see (
  * Internacionalization.
  * Add new tabs (wind charts, pressure charts...).
 
+= Screenshots =
+http://pwsgadgets.googlecode.com/svn/trunk/screenshot/2.5.1/CurrentTab.jpg
+
+*Current Tab*
+
+http://pwsgadgets.googlecode.com/svn/trunk/screenshot/2.5.1/ExtremeTab.jpg
+
+*Extreme Tab*
+
+http://pwsgadgets.googlecode.com/svn/trunk/screenshot/2.5.1/TempChartTab.jpg
+
+*Temp Chart Tab*
+
+http://pwsgadgets.googlecode.com/svn/trunk/screenshot/2.5.1/ForecastTab.jpg
+
+*Forecast Tab*
+
+http://pwsgadgets.googlecode.com/svn/trunk/screenshot/2.5.1/AstronomyTab.jpg
+
+*Astronomy Tab*
 = Version History =
  * (06/04/2008) v2.5.1
     * Changed chart color lines.
