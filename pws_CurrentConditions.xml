@@ -75,6 +75,9 @@
 				
 				.tempChart_flash{text-align:center}
 				.tempChart_normal{display:inline; font-size:10pt; text-align:left; color:black; font-family:"lucida grande",verdana,sans-serif}
+
+				.windChart_flash{text-align:center}
+				.windChart_normal{display:inline; font-size:10pt; text-align:left; color:black; font-family:"lucida grande",verdana,sans-serif}
 				
 				.astronomy_value{display:inline; font-size:10pt; text-align:left; font-family:"lucida grande",verdana,sans-serif}
 				.astronomy_bold{font-size:10pt; font-weight:bold; text-align:left; font-family:"lucida grande",verdana,sans-serif}
@@ -164,6 +167,10 @@
 				<div id="tempChart_flash" class="tempChart_flash"></div>
 				<div id="tempChart_LastUpdated" class="tempChart_normal"></div>
 			</div>
+			<div id="windChart">
+				<div id="windChart_flash" class="windChart_flash"></div>
+				<div id="windChart_LastUpdated" class="windChart_normal"></div>
+			</div>
 			<div id="forecast">
 				<br>
 				<table width="100%">
@@ -217,13 +224,15 @@
 			<div id="footer" class="footer"></div>
 			<script type="text/javascript">
 			  // version variable
-				var version = "v2.5.1";
+				var version = "v2.6.0";
 				// Current conditions tab id
 				var currentTabId = "current";
 				// Extreme values tab id
 				var extremeTabId = "extreme";
 				// Temperature chart tab id
 				var tempChartTabId = "tempChart";
+				// Wind chart tab id
+				var windChartTabId = "windChart";
 				// Forecast tab id
 				var forecastTabId = "forecast";				
 				// astronomy tab id
@@ -245,6 +254,7 @@
 					tabs.addTab("Current", currentTabId);
 					tabs.addTab("Extreme", extremeTabId);
 					tabs.addTab("Temp Chart", tempChartTabId);
+					tabs.addTab("Wind Chart", windChartTabId);
 					tabs.addTab("Forecast", forecastTabId);
 					tabs.addTab("Astronomy", astronomyTabId);
 					tabs.addTab("Hints", hintsTabId);
@@ -265,6 +275,7 @@
 				function processDailyObservationsResponse(xml) {
 					displayExtremeHtml(xml);
 					displayTemperatureChart(xml);
+					displayWindChart(xml);
 					// Set the timeout to 5 minutes
 					setTimeout("_IG_FetchXmlContent(getDailyObservationsUrl(), processDailyObservationsResponse)", 300000);
 				}
@@ -675,7 +686,7 @@
 					so.addVariable("x_grid_colour","#F0F0F0");
 					so.addVariable("x_axis_steps", "60");
 					so.addVariable("x_legend","Time,10,#000000");
-					so.addVariable("x_labels",fillTempChartXLabels());
+					so.addVariable("x_labels",fillChartXLabels());
 					so.addVariable("y_min",Math.min(Math.floor(minTemp),Math.floor(minDew)) - 1);
 					so.addVariable("y_max",Math.max(Math.ceil(maxTemp),Math.ceil(maxDew)) + 1);
 					so.addVariable("y_grid_colour","#ADB5C7");
@@ -712,6 +723,86 @@
 					_gel("tempChart_LastUpdated").innerHTML = "Last updated at " + getTimeLongString(new Date());
 				}
 				
+				// Create the wind chart.
+				function displayWindChart(xml) {
+					if (xml == null || typeof(xml) != "object" || xml.firstChild == null) {
+					  return;
+					}
+					var prefs = new _IG_Prefs(__MODULE_ID__);
+					var units = prefs.getString("wnd_units");
+					var maxGust = -10000;
+					var maxPressure = -10000; 
+					var minPressure = 10000;     
+					var gust = 0;
+					var pressure = 0;
+					var observationList = xml.getElementsByTagName("current_observation");					
+					var gustArray = new Array(1440);
+					var pressureArray = new Array(1440);
+					// Init gust and pressure point arrays.
+					for (var i = 0; i < 1440; i++) {
+						gustArray[i] = "null";
+						pressureArray[i] = "null";
+					}
+					var obsTime = new Date();
+					for (var i = 0; i < observationList.length ; i++) { 
+						gust = parseFloat(observationList[i].getElementsByTagName("wind_gust_mph")[0].firstChild.data);
+						pressure = parseFloat(observationList[i].getElementsByTagName("pressure_in")[0].firstChild.data);
+						obsTime.setTime(Date.parse(observationList[i].getElementsByTagName("observation_time_rfc822")[0].firstChild.data));
+						if (units == "metric") {
+							gustArray[getIndex(obsTime)] = toKmh(gust);
+							pressureArray[getIndex(obsTime)] = toMb(pressure);
+						} else {
+							gustArray[getIndex(obsTime)] = gust;
+							pressureArray[getIndex(obsTime)] = pressure;
+						}
+						if (gust > maxGust) { maxGust = gust;	}
+						if (pressure > maxPressure) { maxPressure = pressure;	}                      
+						if (pressure < minPressure) { minPressure = pressure;	}
+					}
+					var yLegend = "Mph";
+					var y2Legend = "in";
+					var line = "Wind Speed Mph";
+					var line2 = "Pressure in";
+					if (units == "metric") {
+						maxGust = toKmh(maxGust);
+						maxPressure = toMb(maxPressure);
+						minPressure = toMb(minPressure);
+						yLegend = "Km/h";
+						y2Legend = "Mb";
+						line = "Wind Gust Km/h";
+						line2 = "Pressure Mb";
+					}
+					
+					var so = new SWFObject("http://pwsgadgets.googlecode.com/svn/trunk/open-flash-chart.swf", "ofc", prefs.getString("chart_width"), "225", "9", "#FFFFFF");
+					so.addVariable("variables","true");
+					so.addVariable("title", "&nbsp;");
+					so.addVariable("x_label_style", "10,#000000,0,180,#000000");
+					so.addVariable("x_grid_colour","#F0F0F0");
+					so.addVariable("x_axis_steps", "60");
+					so.addVariable("x_legend","Time,10,#000000");
+					so.addVariable("x_labels",fillChartXLabels());
+					so.addVariable("y_min",0);
+					so.addVariable("y_max",Math.ceil(maxGust) + 1);
+					so.addVariable("y_grid_colour","#ADB5C7");
+					so.addVariable("y_legend",yLegend + ",10,#000000");
+					so.addVariable("y_ticks","5,10,5");
+					so.addVariable("line","2,#CD5C5C," + line + ",10");
+					so.addVariable("values",gustArray);
+					if (prefs.getBool("show_pressure")==true) {
+						so.addVariable("y2_min", Math.floor(minPressure));
+						so.addVariable("y2_max", Math.ceil(maxPressure));
+						so.addVariable("y2_legend", y2Legend + ", 10, #000000")
+						so.addVariable("y2_lines", "2");
+						so.addVariable("show_y2","true");
+						so.addVariable("line_2","1,#7B68EE," + line2 + ",10");
+						so.addVariable("values_2",pressureArray);
+					}
+					so.addVariable("bg_colour","#FFFFFF");
+					so.addVariable("tool_tip","#key#<br>#val# at #x_label#");
+					so.write("windChart_flash");
+					_gel("windChart_LastUpdated").innerHTML = "Last updated at " + getTimeLongString(new Date());
+				}
+
 				// Create the 'Forecast' tab html.
 				function displayForecastHtml(xml) {
 					var prefs = new _IG_Prefs(__MODULE_ID__);
@@ -895,7 +986,7 @@
 				}
 
 				// Fills the chart X axis labels with time along the day.
-				function fillTempChartXLabels() {
+				function fillChartXLabels() {
 					var labels = new Array(1440);
 					var today = new Date();
 					today.setHours(0);
