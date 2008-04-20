@@ -111,11 +111,15 @@ http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/Extreme
 
 http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/TempChartTab.jpg
 
+http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/WindChartTab.jpg
+
 http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/ForecastTab.jpg
 
 http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/AstronomyTab.jpg
 
 = Version History =
+ * (20/04/2008) v2.6.0
+    * Added new Wind cart tab.
  * (06/04/2008) v2.5.1
     * Changed chart color lines.
     * Fixed some texts.
