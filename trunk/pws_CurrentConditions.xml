@@ -152,7 +152,7 @@
 						</tr>
 						<tr id="extreme_Wind_Row">
 							<td width="24%"><div id="extreme_Wind" class="extreme_bold">Wind</div></td>
-							<td width="76%" colspan="2"><div id="extreme_Wind_Max_Mph" class="extreme_value_max"></div><div id="extreme_Wind_Separator" class="extreme_value_max"></div><div id="extreme_Wind_Max_Kmh" class="extreme_value_max"></div><div id="extreme_Wind_MaxTime" class="extreme_normal"></div></td>
+							<td width="76%" colspan="2"><div id="extreme_Wind_Direction" class="extreme_value_max"></div><div id="extreme_Wind_Max_Mph" class="extreme_value_max"></div><div id="extreme_Wind_Separator" class="extreme_value_max"></div><div id="extreme_Wind_Max_Kmh" class="extreme_value_max"></div><div id="extreme_Wind_MaxTime" class="extreme_normal"></div></td>
 						</tr>
 						<tr id="extreme_Pressure_Row">
 							<td width="24%"><div id="extreme_Pressure" class="extreme_bold">Pressure</div></td>
@@ -224,7 +224,7 @@
 			<div id="footer" class="footer"></div>
 			<script type="text/javascript">
 			  // version variable
-				var version = "v2.6.0";
+				var version = "v2.6.1";
 				// Current conditions tab id
 				var currentTabId = "current";
 				// Extreme values tab id
@@ -444,10 +444,15 @@
 					var now = new Date();
 					if (xml.getElementsByTagName("icon")[0].firstChild != null) {
 						imgHtml += "<img src='" + new _IG_Prefs(__MODULE_ID__).getString("wnd_icons");
+						var icon = xml.getElementsByTagName("icon")[0].firstChild.data;
 						if (((sunrise.getTime() - now.getTime()) < 0) && ((sunset.getTime() - now.getTime()) > 0)) {
-							imgHtml += xml.getElementsByTagName("icon")[0].firstChild.data;
+							imgHtml += icon;
 						} else {
-							imgHtml += "nt_" + xml.getElementsByTagName("icon")[0].firstChild.data;
+							if (icon.indexOf("nt_")!= -1) {
+								imgHtml += icon;
+							} else {
+								imgHtml += "nt_" + icon;
+							}
 						}
 						imgHtml += ".gif' height='42' width='42'>";
 					}
@@ -481,11 +486,13 @@
 					var minPressureTime = new Date();
 					var maxWindMph = -10000;
 					var maxWindTime = new Date();
+					var maxWindDirection = -1;
 					var currentTemp = 0;
 					var currentDewPoint = 0;
 					var currentHumidity = 0;
 					var currentPressure = 0;
 					var currentWind = 0;
+					var currentWindDirection = 0;
 					var observationList = xml.getElementsByTagName("current_observation");
 					for (var i = 0; i < observationList.length ; i++) { 
 						currentTemp = parseFloat(observationList[i].getElementsByTagName("temp_f")[0].firstChild.data);
@@ -493,6 +500,7 @@
 						currentHumidity = parseFloat(observationList[i].getElementsByTagName("relative_humidity")[0].firstChild.data);
 						currentPressure = parseFloat(observationList[i].getElementsByTagName("pressure_in")[0].firstChild.data);
 						currentWind = parseFloat(observationList[i].getElementsByTagName("wind_gust_mph")[0].firstChild.data);
+						currentWindDirection = parseInt(observationList[i].getElementsByTagName("wind_degrees")[0].firstChild.data);
 						if (currentTemp > maxTempF) {                    
 							maxTempF = currentTemp;
 							maxTempTime.setTime(Date.parse(observationList[i].getElementsByTagName("observation_time_rfc822")[0].firstChild.data));
@@ -528,6 +536,7 @@
 						if (currentWind > maxWindMph) {                    
 							maxWindMph = currentWind;
 							maxWindTime.setTime(Date.parse(observationList[i].getElementsByTagName("observation_time_rfc822")[0].firstChild.data));
+							maxWindDirection = currentWindDirection;
 						}                      
 					}
 					_gel("extreme_Temp_Max_F").innerHTML = maxTempF + " F ";
@@ -553,6 +562,7 @@
 					_gel("extreme_Humidity_Min").innerHTML = minHumidity + "% ";
 					_gel("extreme_Humidity_MinTime").innerHTML = "at " + getTimeString(minHumidityTime);
 
+					_gel("extreme_Wind_Direction").innerHTML = lookupWindString(maxWindDirection) + " at ";
 					_gel("extreme_Wind_Max_Mph").innerHTML = maxWindMph + " mph ";
 					_gel("extreme_Wind_Max_Kmh").innerHTML = toKmh(parseFloat(maxWindMph)) + " km/h ";
 					_gel("extreme_Wind_Separator").innerHTML = "/ ";
@@ -786,7 +796,7 @@
 					so.addVariable("y_grid_colour","#ADB5C7");
 					so.addVariable("y_legend",yLegend + ",10,#000000");
 					so.addVariable("y_ticks","5,10,5");
-					so.addVariable("line","2,#CD5C5C," + line + ",10");
+					so.addVariable("line","1,#CD5C5C," + line + ",10");
 					so.addVariable("values",gustArray);
 					if (prefs.getBool("show_pressure")==true) {
 						so.addVariable("y2_min", Math.floor(minPressure));
