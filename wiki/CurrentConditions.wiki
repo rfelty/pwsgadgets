@@ -117,11 +117,17 @@ http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/Forecas
 
 http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/AstronomyTab.jpg
 
+http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/Configuration.jpg
+
 = Version History =
+ * (24/04/2008) v2.6.1
+    * Fixed bug that causes to show a broken image in the current weather icon. Thanks to Erik.
+    * Changed line width for Wind Gust speed in Wind Chart tab.
+    * Added wind direction in the Extreme tab.
  * (20/04/2008) v2.6.0
     * Added new Wind cart tab.
  * (06/04/2008) v2.5.1
-    * Changed chart color lines.
+    * Changed chart color lines. Thanks to Mauro.
     * Fixed some texts.
     * Link in the About tab to the PWS history in !WeatherUnderground fixed.
     * Set the default icon set to Default.
