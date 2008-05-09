@@ -100,9 +100,8 @@ Here you have a list with a brief description containing all icons you can see (
 || Sleet || http://icons-pe.wxug.com/i/c/a/nt_sleet.gif || Snow || http://icons-pe.wxug.com/i/c/a/nt_snow.gif || Sunny || http://icons-pe.wxug.com/i/c/a/nt_sunny.gif || Thunderstorms || http://icons-pe.wxug.com/i/c/a/nt_tstorms.gif || Unknown || http://icons-pe.wxug.com/i/c/a/nt_unknown.gif ||
 
 = Future versions =
- * Improve design.
+ * Improve design. (Any help will be appreciated).
  * Internacionalization.
- * Add new tabs (wind charts, pressure charts...).
 
 = Screenshots =
 http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/CurrentTab.jpg
