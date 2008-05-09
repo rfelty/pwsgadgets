@@ -8,13 +8,13 @@ To add this gadget to your iGoogle click the button [http://fusion.google.com/ad
 http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/CurrentTab.jpg
 
 = Features =
- * You can provide any Weather Underground Personal Weather Station id.
+ * Provide any Weather Underground Personal Weather Station id.
  * Select between Metric units, English units or both.
  * Select the refresh rate.
- * Shows temperature and last refresh time.
- * Shows current weather icon.
+ * Show temperature and last refresh time.
+ * Show current weather icon.
  * Current weather icon is different during daytime and night.
- * Select the data you want to show:
+ * Select the data you want to see:
     * Dew point.
     * Relative humidity.
     * Wind.
