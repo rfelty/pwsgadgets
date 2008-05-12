@@ -1,14 +1,37 @@
-#summary One-sentence summary of this page.
+#summary Current Conditions Gadget.
 #labels Featured
 
-= Introduction =
+= Description =
+This gadget provides you with a Personal Weather Station updated data from [http://www.meteoclimatic.com Meteoclimatic] web site.
 
-Add your content here.
+To add this gadget to your iGoogle click the button [http://fusion.google.com/add?source=atgs&amp;moduleurl=http%3A//pwsgadgets.googlecode.com/svn/trunk/pws_Meteoclimatic.xml http://gmodules.com/ig/images/plus_google.gif]
+http://pwsgadgets.googlecode.com/svn/trunk/screenshots/Meteoclimatic/CurrentTab.jpg
 
+= Features =
+ * Provide any Meteoclimatic Personal Weather Station id.
+ * Show temperature, humidity, wind speed, pressure, rain and last refresh time.
 
-= Details =
+= Tabs =
+ * *Current*: Current weather conditions at your personal weather station location.
+ * *Extreme*: Today's extreme data.
+ * *About*: Info tab containg my email address.
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+= Configuration Parameters =
+In this gadget you can find the following configuration parameters :
+  * *Meteoclimatic id*: To get your Meteoclimatic weather station ID you need to add and configure a personal weather station at the [http://www.meteoclimatic.com Meteoclimatic] web site.
+    * This parameter is mandatory.
+    * Example value: ESIBA0700000107193A.
+
+= Future versions =
+ * Improve design. (Any help will be appreciated).
+
+= Screenshots =
+http://pwsgadgets.googlecode.com/svn/trunk/screenshots/Meteoclimatic/CurrentTab.jpg
+
+http://pwsgadgets.googlecode.com/svn/trunk/screenshots/Meteoclimatic/ExtremeTab.jpg
+
+http://pwsgadgets.googlecode.com/svn/trunk/screenshots/Meteoclimatic/Configuration.jpg
+
+= Version History =
+ * (xx/0x/2008) v1.0.0
+    * Initial release.
