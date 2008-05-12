@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<ModulePrefs title="__MSG_title__" 
+							 description="This gadget provides you with your Personal Weather Station updated data from meteoclimatic.com." 
+							 author="Jordi Morell"
+							 author_email="pwsgadgets.feedback@gmail.com" 
+							 author_location="Palma de Mallorca, Spain"
+							 thumbnail="http://www.meteoclimatic.com/img/logo.png"
+							 screenshot="http://pwsgadgets.googlecode.com/svn/trunk/screenshots/Meteoclimatic/CurrentTab.jpg"
+							 title_url="http://pwsgadgets.googlecode.com" 
+							 directory_title="Meteoclimatic PWS." 
+							 author_link="http://hokusgadgets.blogspot.com/"
+							 height="155"
+							 scaling="true"
+							 singleton="false"
+							 scrolling="true">
+		<Require feature="analytics"/>
+		<Require feature="tabs"/>
+		<Require feature="dynamic-height"/>
+ 		<Locale messages="http://pwsgadgets.googlecode.com/svn/trunk/locale/Meteoclimatic/en_ALL.xml"/> 
+  	<Locale lang="es" messages="http://pwsgadgets.googlecode.com/svn/trunk/locale/Meteoclimatic/es_ALL.xml"/>
+  	<Locale lang="ca" messages="http://pwsgadgets.googlecode.com/svn/trunk/locale/Meteoclimatic/ca_ALL.xml"/>
+  	<Locale lang="en" messages="http://pwsgadgets.googlecode.com/svn/trunk/locale/Meteoclimatic/en_ALL.xml"/>
+	</ModulePrefs>
+	<UserPref name="mto_id" display_name="__MSG_mto_id__" required="true"/>
+	<Content type="html">
+	  <![CDATA[
+ 			<style>
+				.current_value{display:inline; font-size:10pt; text-align:left; font-family:"lucida grande",verdana,sans-serif}
+				.current_bold{font-size:10pt; font-weight:bold; text-align:left; font-family:"lucida grande",verdana,sans-serif}
+				.current_normal{font-size:10pt; font-family:"lucida grande",verdana,sans-serif}
+				.current_icon{display:inline; vertical-align:middle; height:42px; font-family:"lucida grande",verdana,sans-serif}
+				.current_header{display:inline; vertical-align:middle; height:42px; font-weight:bold; padding:5px; color:black; font-family:"lucida grande",verdana,sans-serif}
+				
+				.extreme_value_max{display:inline; font-size:10pt; text-align:left; color:red; font-weight:bold; font-family:"lucida grande",verdana,sans-serif}
+				.extreme_value_min{display:inline; font-size:10pt; text-align:left; color:blue; font-weight:bold; font-family:"lucida grande",verdana,sans-serif}
+				.extreme_normal{display:inline; font-size:10pt; text-align:left; color:black; font-family:"lucida grande",verdana,sans-serif}
+				.extreme_bold{display:inline; font-size:10pt; text-align:left; color:black; font-weight:bold; font-family:"lucida grande",verdana,sans-serif}
+				
+				.about_normal{font-size:10pt; padding:5px; color:gray; text-align:left; font-family:"lucida grande",verdana,sans-serif}
+				
+				.footer{font-size:7pt; padding:5px; color:gray; text-align:right; font-family:"lucida grande",verdana,sans-serif}
+			</style>
+  			<div id="current">
+				<div id="current_error" class="current_normal"></div>
+				<center>
+					<p>
+						<div id="current_Neighborhood" class="current_header"></div><div id="current_Temperature" class="current_header"></div>
+					</p>
+					<div id="current_LatestUpload" class="current_normal"></div>
+					<table>
+						<tr id="current_Humidity_Row">
+							<td><div id="current_Humidity_txt" class="current_bold"></div></td>
+							<td><div id="current_Humidity" class="current_value"></div></td>
+						</tr>
+						<tr id="current_Wind_Row">
+							<td><div id="current_Wind_txt" class="current_bold"></div></td>
+							<td><div id="current_Wind_Direction" class="current_value"></div><div id="current_Wind_Separator" class="current_value"></div><div id="current_Wind" class="current_value"></div></td>
+						</tr>
+						<tr id="current_Pressure_Row">
+							<td><div id="current_Pressure_txt" class="current_bold"></div></td>
+							<td><div id="current_Pressure" class="current_value"></div></td>
+						</tr>
+						<tr id="current_Rain_Row">
+							<td><div id="current_Rain_txt" class="current_bold"></div></td>
+							<td><div id="current_Rain" class="current_value"></div></td>
+						</tr>
+
+					</table>
+					<div id="current_LastUpdated" class="current_normal"></div>
+				</center>
+			</div>
+			<div id="extreme">
+				<center>
+					<table width="90%">
+						<tr>
+							<td width="24%">&nbsp;</td>
+							<td width="38%"><div id="extreme_Value_Max" class="extreme_value_max"></div></td>
+							<td width="38%"><div id="extreme_Value_Min" class="extreme_value_min"></div></td>
+						</tr>
+						<tr>
+							<td width="24%"><div id="extreme_Temp" class="extreme_bold"></div></td>
+							<td width="38%"><div id="extreme_Temp_Max" class="extreme_value_max"></div></td>
+							<td width="38%"><div id="extreme_Temp_Min" class="extreme_value_min"></div></td>
+						</tr>
+						<tr id="extreme_Humidity_Row">
+							<td width="24%"><div id="extreme_Humidity" class="extreme_bold"></div></td>
+							<td width="38%"><div id="extreme_Humidity_Max" class="extreme_value_max"></div></td>
+							<td width="38%"><div id="extreme_Humidity_Min" class="extreme_value_min"></div></td>
+						</tr>
+						<tr id="extreme_Wind_Row">
+							<td width="24%"><div id="extreme_Wind" class="extreme_bold"></div></td>
+							<td width="76%" colspan="2"><div id="extreme_Wind_Max" class="extreme_value_max"></div></td>
+						</tr>
+						<tr id="extreme_Pressure_Row">
+							<td width="24%"><div id="extreme_Pressure" class="extreme_bold"></div></td>
+							<td width="38%"><div id="extreme_Pressure_Max" class="extreme_value_max"></div></td>
+							<td width="38%"><div id="extreme_Pressure_Min" class="extreme_value_min"></div></td>
+						</tr>
+					</table>
+					<div id="extreme_LastUpdated" class="extreme_normal"></div>
+				</center>
+			</div>
+			<div id="about" class="about_normal"></div>
+			<div id="footer" class="footer"></div>
+			<script type="text/javascript">
+			  // version variable
+				var version = "v1.0.0";
+				// Current conditions tab id
+				var currentTabId = "current";
+				// Extreme values tab id
+				var extremeTabId = "extreme";
+				// About tab id
+				var aboutTabId = "about";
+				// Footer id.
+				var footerId = "footer";
+				// Initialize tabs.
+				var tabs = new _IG_Tabs(__MODULE_ID__, new _IG_Prefs(__MODULE_ID__).getMsg("current_Tab"));
+				
+				// Track this gadget using Google Analytics specifiying the wunder id used.
+				_IG_Analytics("UA-3007781-2", "/Meteoclimatic/" + new _IG_Prefs(__MODULE_ID__).getString("mto_id"));
+				// Init function.
+				function init() {
+					var prefs = new _IG_Prefs();
+					// Add the gadget tabs.
+					var currentTabName = prefs.getMsg("current_Tab");
+					var extremeTabName = prefs.getMsg("extreme_Tab");
+					var aboutTabName = prefs.getMsg("about_Tab");
+					tabs.addTab(currentTabName, currentTabId);
+					tabs.addTab(extremeTabName, extremeTabId);
+					tabs.addTab(aboutTabName, aboutTabId, displayAboutTab);
+					_IG_FetchXmlContent(getMeteoclimaticUrl(), processMeteoclimaticResponse);
+				}
+
+				function processMeteoclimaticResponse(xml) {
+					displayCurrentConditionsHtml(xml);
+					displayExtremeHtml(xml);
+					displayFooterHtml(xml);
+					_IG_AdjustIFrameHeight();
+					// Set the timeout to 15 minutes
+					setTimeout("_IG_FetchXmlContent(getMeteoclimaticUrl(), processMeteoclimaticResponse)", 15 * 60 * 1000);
+				}
+
+				function displayAboutTab(tabId) {
+					var prefs = new _IG_Prefs();
+					var html = "<center><h3>" + version + "</h3></center>";
+					html += "<ul>";
+					html += "<li>" + prefs.getMsg("about_line1") + "</li>";
+					html += "<li>" + prefs.getMsg("about_line2") + "</li>";
+					html += "<li>" + prefs.getMsg("about_line3") + "</li>"
+					html += "<li>" + prefs.getMsg("about_line4") + "</li>";
+					html += "<li>" + prefs.getMsg("about_line5") + " <a href='http://www.meteoclimatic.com/index/pg.0.fitxa.php?st=" + new _IG_Prefs(__MODULE_ID__).getString("mto_id") + "' target='_blank'>Meteoclimatic</a>.</li>";
+					html += "</ul>";
+					_gel(tabId).innerHTML = html;
+				}
+
+				// Gets the Meteoclimatic URL.
+				function getMeteoclimaticUrl() {
+					return "http://meteoclimatic.com/feed/xml/" + new _IG_Prefs(__MODULE_ID__).getString("mto_id") + "?rnd=" + Math.random();
+				}
+				
+				function displayCurrentConditionsHtml(xml) {
+					var prefs = new _IG_Prefs();
+					var latestUpload = new Date();
+					latestUpload.setTime(Date.parse(xml.getElementsByTagName("station")[0].getElementsByTagName("pubDate")[0].firstChild.data));
+					if (latestUpload != null) { _gel("current_LatestUpload").innerHTML = prefs.getMsg("current_LatestUpload") + " " + latestUpload.toLocaleString(); }
+					_gel("current_Neighborhood").innerHTML = xml.getElementsByTagName("location")[0].firstChild.data;
+					if (xml.getElementsByTagName("temperature")[0] != null) {	_gel("current_Temperature").innerHTML = xml.getElementsByTagName("temperature")[0].getElementsByTagName("now")[0].firstChild.data + " " + xml.getElementsByTagName("temperature")[0].getElementsByTagName("unit")[0].firstChild.data; }
+					if (xml.getElementsByTagName("humidity")[0] != null) {
+						_gel("current_Humidity_txt").innerHTML = prefs.getMsg("current_Humidity");
+						_gel("current_Humidity").innerHTML = xml.getElementsByTagName("humidity")[0].getElementsByTagName("now")[0].firstChild.data + " " + xml.getElementsByTagName("humidity")[0].getElementsByTagName("unit")[0].firstChild.data;
+					}
+					if (xml.getElementsByTagName("wind")[0] != null) {
+						_gel("current_Wind_txt").innerHTML = prefs.getMsg("current_Wind");
+						_gel("current_Wind_Direction").innerHTML = lookupWindString(xml.getElementsByTagName("wind")[0].getElementsByTagName("azimuth")[0].firstChild.data) + " ";
+						_gel("current_Wind_Separator").innerHTML = prefs.getMsg("current_Wind_Separator") + " ";
+						_gel("current_Wind").innerHTML = xml.getElementsByTagName("wind")[0].getElementsByTagName("now")[0].firstChild.data + " " + xml.getElementsByTagName("wind")[0].getElementsByTagName("unit")[0].firstChild.data;
+					}
+					if (xml.getElementsByTagName("barometre")[0] != null) {
+						_gel("current_Pressure_txt").innerHTML = prefs.getMsg("current_Pressure");
+						_gel("current_Pressure").innerHTML = xml.getElementsByTagName("barometre")[0].getElementsByTagName("now")[0].firstChild.data + " " + xml.getElementsByTagName("barometre")[0].getElementsByTagName("unit")[0].firstChild.data;
+					}
+					if (xml.getElementsByTagName("rain")[0] != null) {
+						_gel("current_Rain_txt").innerHTML = prefs.getMsg("current_Rain");
+						_gel("current_Rain").innerHTML = xml.getElementsByTagName("rain")[0].getElementsByTagName("now")[0].firstChild.data + " " + xml.getElementsByTagName("rain")[0].getElementsByTagName("unit")[0].firstChild.data;
+					}
+					_gel("current_LastUpdated").innerHTML = prefs.getMsg("current_LastUpdated") + " " + new Date().toLocaleString();
+				}
+				
+				function displayExtremeHtml(xml) {
+					var prefs = new _IG_Prefs();
+					_gel("extreme_Value_Max").innerHTML = prefs.getMsg("extreme_Value_Max")
+					_gel("extreme_Value_Min").innerHTML = prefs.getMsg("extreme_Value_Min")
+					if (xml.getElementsByTagName("temperature")[0] != null) {
+						_gel("extreme_Temp").innerHTML = prefs.getMsg("extreme_Temp")
+						_gel("extreme_Temp_Max").innerHTML = xml.getElementsByTagName("temperature")[0].getElementsByTagName("max")[0].firstChild.data + " " + xml.getElementsByTagName("temperature")[0].getElementsByTagName("unit")[0].firstChild.data;
+						_gel("extreme_Temp_Min").innerHTML = xml.getElementsByTagName("temperature")[0].getElementsByTagName("min")[0].firstChild.data + " " + xml.getElementsByTagName("temperature")[0].getElementsByTagName("unit")[0].firstChild.data;
+					}
+					if (xml.getElementsByTagName("humidity")[0] != null) {
+						_gel("extreme_Humidity").innerHTML = prefs.getMsg("extreme_Humidity")
+						_gel("extreme_Humidity_Max").innerHTML = xml.getElementsByTagName("humidity")[0].getElementsByTagName("max")[0].firstChild.data + " " + xml.getElementsByTagName("humidity")[0].getElementsByTagName("unit")[0].firstChild.data;
+						_gel("extreme_Humidity_Min").innerHTML = xml.getElementsByTagName("humidity")[0].getElementsByTagName("min")[0].firstChild.data + " " + xml.getElementsByTagName("humidity")[0].getElementsByTagName("unit")[0].firstChild.data;
+					}
+					if (xml.getElementsByTagName("wind")[0] != null) {
+						_gel("extreme_Wind").innerHTML = prefs.getMsg("extreme_Wind")
+						_gel("extreme_Wind_Max").innerHTML = xml.getElementsByTagName("wind")[0].getElementsByTagName("max")[0].firstChild.data + " " + xml.getElementsByTagName("wind")[0].getElementsByTagName("unit")[0].firstChild.data;
+					}
+					if (xml.getElementsByTagName("barometre")[0] != null) {
+						_gel("extreme_Pressure").innerHTML = prefs.getMsg("extreme_Pressure")
+						_gel("extreme_Pressure_Max").innerHTML = xml.getElementsByTagName("barometre")[0].getElementsByTagName("max")[0].firstChild.data + " " + xml.getElementsByTagName("barometre")[0].getElementsByTagName("unit")[0].firstChild.data;
+						_gel("extreme_Pressure_Min").innerHTML = xml.getElementsByTagName("barometre")[0].getElementsByTagName("min")[0].firstChild.data + " " + xml.getElementsByTagName("barometre")[0].getElementsByTagName("unit")[0].firstChild.data;
+					}
+					_gel("extreme_LastUpdated").innerHTML = prefs.getMsg("extreme_LastUpdated") + " " + new Date().toLocaleString();					
+				}
+				
+				function displayFooterHtml(xml) {
+					if (xml.getElementsByTagName("temperature")[0] != null) {	_gel(footerId).innerHTML = xml.getElementsByTagName("temperature")[0].getElementsByTagName("now")[0].firstChild.data + " " + xml.getElementsByTagName("temperature")[0].getElementsByTagName("unit")[0].firstChild.data + " " + version; }
+					else { _gel(footerId).innerHTML = version; }
+				}
+				
+				// Outputs the wind direction string from the degrees
+				function lookupWindString(n) {
+					var prefs = new _IG_Prefs();
+					var s="-";
+					if (n > 360) n = n%360;
+					if (n >= 0 && n < 11.25 ) s=prefs.getMsg("wind_Direction_N");
+					else if (n >= 11.25  && n < 33.75 ) s=prefs.getMsg("wind_Direction_NNE");
+					else if (n >= 33.75  && n < 56.25 ) s=prefs.getMsg("wind_Direction_NE");
+					else if (n >= 67.5   && n < 78.75 ) s=prefs.getMsg("wind_Direction_ENE");
+					else if (n >= 78.75  && n < 101.25) s=prefs.getMsg("wind_Direction_E");
+					else if (n >= 101.25 && n < 123.75) s=prefs.getMsg("wind_Direction_ESE");
+					else if (n >= 123.75 && n < 146.25) s=prefs.getMsg("wind_Direction_SE");
+					else if (n >= 146.2  && n < 168.75) s=prefs.getMsg("wind_Direction_SSE");
+					else if (n >= 168.75 && n < 191.25) s=prefs.getMsg("wind_Direction_S");
+					else if (n >= 191.25 && n < 213.75) s=prefs.getMsg("wind_Direction_SSW");
+					else if (n >= 213.75 && n < 236.25) s=prefs.getMsg("wind_Direction_SW");
+					else if (n >= 236.25 && n < 258.75) s=prefs.getMsg("wind_Direction_WSW");
+					else if (n >= 258.75 && n < 281.25) s=prefs.getMsg("wind_Direction_W");
+					else if (n >= 281.25 && n < 303.75) s=prefs.getMsg("wind_Direction_WNW");
+					else if (n >= 303.75 && n < 326.25) s=prefs.getMsg("wind_Direction_NW");
+					else if (n >= 326.25 && n < 348.75) s=prefs.getMsg("wind_Direction_NNW");
+					else if (n >= 348.75) s=prefs.getMsg("wind_Direction_N");
+					return s;
+				}
+
+				_IG_RegisterOnloadHandler(init);
+    </script>
+  	]]>
+	</Content> 
+</Module>

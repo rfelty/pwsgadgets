@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<messagebundle>
+  <msg name="title">Meteoclimatic</msg>
+  <msg name="mto_id">Id meteoclimatic</msg>
+  <msg name="current_Tab">Actualment</msg>
+  <msg name="current_LatestUpload">Condicions del</msg>
+  <msg name="current_Humidity">Humitat</msg>
+  <msg name="current_Wind">Vent</msg>
+  <msg name="current_Pressure">Pressio</msg>
+  <msg name="current_Wind_Separator">a</msg>
+  <msg name="current_Rain">Precipitacio</msg>
+  <msg name="current_LastUpdated">Ultima recarrega</msg>
+  <msg name="extreme_Tab">Val. extrems</msg>
+  <msg name="extreme_Value_Max">Max</msg>
+  <msg name="extreme_Value_Min">Min</msg>
+  <msg name="extreme_Temp">Temperatura</msg>
+  <msg name="extreme_Humidity">Humitat</msg>
+  <msg name="extreme_Wind">Vent</msg>
+  <msg name="extreme_Pressure">Pressio</msg>
+  <msg name="extreme_LastUpdated">Ultima recarrega</msg>
+  <msg name="about_Tab">Acerca de</msg>
+  <msg name="about_line1"><![CDATA[Blog Hokus Gadgets que inclou el gadget de <a href='http://hokusgadgets.blogspot.com' target='_blank'>Meteoclimatic</a>.]]></msg>
+  <msg name="about_line2"><![CDATA[<a href='http://code.google.com/p/pwsgadgets/wiki/Meteoclimatic' target='_blank'>Pagina principal</a> del gadget Meteoclimatic.]]></msg>
+  <msg name="about_line3"><![CDATA[Per favor enviau els vostres comentaris a <a href='mailto:pwsgadgets.feedback@gmail.com'>pwsgadgets.feedback@gmail.com</a>]]></msg>
+  <msg name="about_line4"><![CDATA[Aconseguiu mes gadgets per a la vostra estacio meteorologica a la pagina web del projecte <a href='http://pwsgadgets.googlecode.com/' target='_blank'>PWS Gadgets</a>.]]></msg>
+  <msg name="about_line5"><![CDATA[Veure la pagina web de la estacio meteorologica a]]></msg>
+  <msg name="wind_Direction_N">N</msg>
+	<msg name="wind_Direction_NNE">NNE</msg>
+	<msg name="wind_Direction_NE">NE</msg>
+	<msg name="wind_Direction_ENE">ENE</msg>
+	<msg name="wind_Direction_E">E</msg>
+	<msg name="wind_Direction_ESE">ESE</msg>
+	<msg name="wind_Direction_SE">SE</msg>
+	<msg name="wind_Direction_SSE">SSE</msg>
+	<msg name="wind_Direction_S">S</msg>
+	<msg name="wind_Direction_SSW">SSO</msg>
+	<msg name="wind_Direction_SW">SO</msg>
+	<msg name="wind_Direction_WSW">OSO</msg>
+	<msg name="wind_Direction_W">O</msg>
+	<msg name="wind_Direction_WNW">ONO</msg>
+	<msg name="wind_Direction_NW">NO</msg>
+	<msg name="wind_Direction_NNW">NNO</msg>
+</messagebundle>
