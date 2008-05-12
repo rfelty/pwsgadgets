@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<messagebundle>
+  <msg name="title">Meteoclimatic</msg>
+  <msg name="mto_id">Meteoclimatic id</msg>
+  <msg name="current_Tab">Current</msg>
+  <msg name="current_LatestUpload">Conditions as of</msg>
+  <msg name="current_Humidity">Humidity</msg>
+  <msg name="current_Wind">Wind</msg>
+  <msg name="current_Pressure">Pressure</msg>
+  <msg name="current_Wind_Separator">at</msg>
+  <msg name="current_Rain">Rain</msg>
+  <msg name="current_LastUpdated">Last updated at</msg>
+  <msg name="extreme_Tab">Extreme</msg>
+  <msg name="extreme_Value_Max">Max</msg>
+  <msg name="extreme_Value_Min">Min</msg>
+  <msg name="extreme_Temp">Temperature</msg>
+  <msg name="extreme_Humidity">Humidity</msg>
+  <msg name="extreme_Wind">Wind</msg>
+  <msg name="extreme_Pressure">Pressure</msg>
+  <msg name="extreme_LastUpdated">Last updated at</msg>
+  <msg name="about_Tab">About</msg>
+  <msg name="about_line1"><![CDATA[Hokus Gadgets blog including <a href='http://hokusgadgets.blogspot.com' target='_blank'>Meteoclimatic.</a>]]></msg>
+  <msg name="about_line2"><![CDATA[Meteoclimatic gadget <a href='http://code.google.com/p/pwsgadgets/wiki/Meteoclimatic' target='_blank'>home page.</a>]]></msg>
+  <msg name="about_line3"><![CDATA[Feel free to write any feedback to <a href='mailto:pwsgadgets.feedback@gmail.com'>pwsgadgets.feedback@gmail.com</a>]]></msg>
+  <msg name="about_line4"><![CDATA[Get more gadgets for your personal weather station at PWS Gadgets project <a href='http://pwsgadgets.googlecode.com/' target='_blank'>home page</a>]]></msg>
+  <msg name="about_line5"><![CDATA[See the selected Personal Weather Station data at]]></msg>
+  <msg name="wind_Direction_N">N</msg>
+	<msg name="wind_Direction_NNE">NNE</msg>
+	<msg name="wind_Direction_NE">NE</msg>
+	<msg name="wind_Direction_ENE">ENE</msg>
+	<msg name="wind_Direction_E">E</msg>
+	<msg name="wind_Direction_ESE">ESE</msg>
+	<msg name="wind_Direction_SE">SE</msg>
+	<msg name="wind_Direction_SSE">SSE</msg>
+	<msg name="wind_Direction_S">S</msg>
+	<msg name="wind_Direction_SSW">SSW</msg>
+	<msg name="wind_Direction_SW">SW</msg>
+	<msg name="wind_Direction_WSW">WSW</msg>
+	<msg name="wind_Direction_W">W</msg>
+	<msg name="wind_Direction_WNW">WNW</msg>
+	<msg name="wind_Direction_NW">NW</msg>
+	<msg name="wind_Direction_NNW">NNW</msg>
+</messagebundle>
