@@ -6,7 +6,7 @@
 							 author_email="pwsgadgets.feedback@gmail.com" 
 							 author_location="Palma de Mallorca, Spain"
 							 thumbnail="http://icons.wunderground.com/graphics/logos/full_4c_gradient.jpg"
-							 screenshot="http://pwsgadgets.googlecode.com/svn/trunk/screenshot/2.5.1/CurrentTab.jpg"
+							 screenshot="http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/CurrentTab.jpg"
 							 title_url="http://pwsgadgets.googlecode.com" 
 							 directory_title="Weather underground PWS current conditions." 
 							 author_link="http://hokusgadgets.blogspot.com/"
@@ -71,7 +71,6 @@
 				.forecast_bold{display:inline; font-size:10pt; text-align:left; color:black; font-weight:bold; font-family:"lucida grande",verdana,sans-serif}
 				.forecast_blue{display:inline; font-size:10pt; text-align:left; color:blue; font-weight:bold; font-family:"lucida grande",verdana,sans-serif}
 				.forecast_red{display:inline; font-size:10pt; text-align:left; color:red; font-weight:bold; font-family:"lucida grande",verdana,sans-serif}
-				
 				
 				.tempChart_flash{text-align:center}
 				.tempChart_normal{display:inline; font-size:10pt; text-align:left; color:black; font-family:"lucida grande",verdana,sans-serif}
