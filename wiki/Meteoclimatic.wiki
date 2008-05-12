@@ -1,5 +1,5 @@
 #summary Current Conditions Gadget.
-#labels Featured
+#labels Featured,Meteoclimatic,Description
 
 = Description =
 This gadget provides you with a Personal Weather Station updated data from [http://www.meteoclimatic.com Meteoclimatic] web site.
