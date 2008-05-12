@@ -25,6 +25,7 @@ In this gadget you can find the following configuration parameters :
 
 = Future versions =
  * Improve design. (Any help will be appreciated).
+ * Fix localization. (Non english characters).
 
 = Screenshots =
 http://pwsgadgets.googlecode.com/svn/trunk/screenshots/Meteoclimatic/CurrentTab.jpg
@@ -34,5 +35,5 @@ http://pwsgadgets.googlecode.com/svn/trunk/screenshots/Meteoclimatic/ExtremeTab.
 http://pwsgadgets.googlecode.com/svn/trunk/screenshots/Meteoclimatic/Configuration.jpg
 
 = Version History =
- * (xx/0x/2008) v1.0.0
+ * (12/05/2008) v1.0.0
     * Initial release.
