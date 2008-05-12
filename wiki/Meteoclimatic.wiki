@@ -10,7 +10,7 @@ To add this gadget to your iGoogle click the button [http://fusion.google.com/ad
 
 = Features =
  * Provide any Meteoclimatic Personal Weather Station id.
- * Show temperature, humidity, wind speed, pressure, rain and last refresh time.
+ * Show temperature, humidity, wind speed and direction, pressure, rain and last refresh time.
 
 = Tabs =
  * *Current*: Current weather conditions at your personal weather station location.
