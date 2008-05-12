@@ -6,7 +6,7 @@ This gadget provides you with a Personal Weather Station updated data from [http
 
 http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/CurrentTab.jpg
 
-To add this gadget to your iGoogle click the button [http://fusion.google.com/add?source=atgs&amp;moduleurl=http%3A//pwsgadgets.googlecode.com/svn/trunk/pws_CurrentConditions.xml http://gmodules.com/ig/images/plus_google.gif]
+To add this gadget to your iGoogle click the button [http://fusion.google.com/add?source=atgs&moduleurl=http%3A//pwsgadgets.googlecode.com/svn/trunk/pws_CurrentConditions.xml http://gmodules.com/ig/images/plus_google.gif]
 
 = Features =
  * Provide any Weather Underground Personal Weather Station id.
