@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+	<ModulePrefs title="Weather underground PWS Sticker" 
+							 description="This gadget provides you with your Personal Weather Station updated sticker from wunderground.com." 
+							 author="Jordi Morell"
+							 author_email="pwsgadgets.feedback@gmail.com" 
+							 author_location="Palma de Mallorca, Spain"
+							 thumbnail="http://icons.wunderground.com/graphics/logos/full_4c_gradient.jpg"
+							 screenshot="http://icons.wunderground.com/graphics/logos/full_4c_gradient.jpg"
+							 title_url="http://pwsgadgets.googlecode.com" 
+							 directory_title="Weather underground PWS sticker." 
+							 height="165"
+							 singleton="false">
+  <Require feature="analytics" /> 
+</ModulePrefs>
+<UserPref name="wnd_id" display_name="Wunderground station id" required="true" />
+<UserPref name="wnd_units" datatype="enum" display_name="Units" default_value="_metric" required="true">
+  <EnumValue value="_metric" display_value="Metric" /> 
+  <EnumValue value="_" display_value="English" /> 
+  <EnumValue value="_both" display_value="Both" /> 
+</UserPref>
+<UserPref name="update_timer" datatype="enum" display_name="Update every:" default_value="30000" required="true">
+  <EnumValue value="30000" display_value="30 seconds" /> 
+  <EnumValue value="60000" display_value="1 minute" /> 
+  <EnumValue value="120000" display_value="2 minutes" /> 
+  <EnumValue value="180000" display_value="3 minutes" /> 
+  <EnumValue value="240000" display_value="4 minutes" /> 
+  <EnumValue value="300000" display_value="5 minutes" /> 
+</UserPref>
+
+<Content type="html">
+<![CDATA[
+<div align="center" id="sticker">
+</div>
+<script type="text/javascript">
+	_IG_Analytics("UA-3007781-2", "/WundergroundSticker/" + new _IG_Prefs(__MODULE_ID__).getString("wnd_id"));
+	
+	function init() {
+		var units = new _IG_Prefs(__MODULE_ID__).getString("wnd_units");
+		if (units == "_"){
+			units = "";
+		}
+		_gel("sticker").innerHTML = "<a href='http://www.wunderground.com/weatherstation/WXDailyHistory.asp?ID=" + new _IG_Prefs(__MODULE_ID__).getString("wnd_id") + "'><img src='http://banners.wunderground.com/cgi-bin/banner/ban/wxBanner?bannertype=wxstnsticker" + units + "&weatherstationcount=" + new _IG_Prefs(__MODULE_ID__).getString("wnd_id") + "' height='160' width='160' border='0' alt='Weather Underground PWS " + new _IG_Prefs(__MODULE_ID__).getString("wnd_id") + "' /></a>"
+		setTimeout("init()", new _IG_Prefs(__MODULE_ID__).getInt("update_timer"));		
+	}
+
+	_IG_RegisterOnloadHandler(init);
+</script>
+]]>
+</Content>
+</Module>
