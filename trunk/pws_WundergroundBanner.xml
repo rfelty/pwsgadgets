@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-
 	<ModulePrefs title="Weather underground PWS Banner" 
 							 description="This gadget provides you with your Personal Weather Station updated banner from wunderground.com." 
 							 author="Jordi Morell"
