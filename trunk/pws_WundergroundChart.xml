@@ -78,7 +78,7 @@
 	
 			<script type="text/javascript">
 			  // version variable
-				var version = "v1.1.3";
+				var version = "v1.1.4";
 				// Main div name
 				mainDiv = "wunderchart__MODULE_ID__";
 				// Debug div name
@@ -127,6 +127,7 @@
 				// Sets the div height.
 				function setDivHeight(ht) {
 					_gel(mainDiv).style.height = ht;
+					setTimeout('_IG_AdjustIFrameHeight()', 1000);
 					_IG_AdjustIFrameHeight();
 				}
 				
