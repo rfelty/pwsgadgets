@@ -122,12 +122,12 @@
 					setVersion(version + "<br>Last gadget refresh: " + new Date().toLocaleString());
 					// Set the timeout
 					setTimeout("display()", prefs.getInt("update_timer"));
+					_IG_AdjustIFrameHeight();
 				}
 
 				// Sets the div height.
 				function setDivHeight(ht) {
 					_gel(mainDiv).style.height = ht;
-					setTimeout('gadgets.window.adjustHeight()', 1000);
 					_IG_AdjustIFrameHeight();
 				}
 				
@@ -158,6 +158,7 @@
 				// Outputs content to the div and resizes the gadget
 				function setContent(html) {
 					_gel(mainDiv).innerHTML = html;
+					setTimeout('_IG_AdjustIFrameHeight()', 5000);
 					_IG_AdjustIFrameHeight();
 				}
 	
