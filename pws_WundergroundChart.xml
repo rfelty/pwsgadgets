@@ -127,7 +127,7 @@
 				// Sets the div height.
 				function setDivHeight(ht) {
 					_gel(mainDiv).style.height = ht;
-					setTimeout('_IG_AdjustIFrameHeight()', 1000);
+					setTimeout('gadgets.window.adjustHeight()', 1000);
 					_IG_AdjustIFrameHeight();
 				}
 				
