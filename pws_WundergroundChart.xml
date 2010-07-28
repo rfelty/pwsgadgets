@@ -78,7 +78,7 @@
 	
 			<script type="text/javascript">
 			  // version variable
-				var version = "v1.1.4";
+				var version = "v1.1.5";
 				// Main div name
 				mainDiv = "wunderchart__MODULE_ID__";
 				// Debug div name
@@ -91,10 +91,10 @@
 	     	var debug_html = "";
 
 				// Track this gadget using Google Analytics specifiying the wunder id used.
-				_IG_Analytics("UA-3007781-2", "/WundergroundChart/" + new _IG_Prefs(__MODULE_ID__).getString("wnd_id"));
+				_IG_Analytics("UA-3007781-2", "/WundergroundChart/" + new gadgets.Prefs(__MODULE_ID__).getString("wnd_id"));
 	     	
 				function display() {
-					var prefs = new _IG_Prefs(__MODULE_ID__);
+					var prefs = new gadgets.Prefs(__MODULE_ID__);
 					var wunderID = prefs.getString("wnd_id");
 					setTitle(prefs);
 					var today = new Date();
@@ -117,49 +117,48 @@
 					// If debug enabled print info
 					print(url);
 					// Display HTML string
-					setContent("<img src='" + url + "' alt='" + prefs.getString("value") + "' onload='_IG_AdjustIFrameHeight()'>");
+					setContent("<img src='" + url	 + "' alt='" + prefs.getString("value") + "' onload='gadgets.window.adjustHeight();'>");
 					// Displays version
 					setVersion(version + "<br>Last gadget refresh: " + new Date().toLocaleString());
 					// Set the timeout
 					setTimeout("display()", prefs.getInt("update_timer"));
-					_IG_AdjustIFrameHeight();
+					gadgets.window.adjustHeight();
 				}
 
 				// Sets the div height.
 				function setDivHeight(ht) {
-					_gel(mainDiv).style.height = ht;
-					_IG_AdjustIFrameHeight();
+					document.getElementById(mainDiv).style.height = ht;
+					gadgets.window.adjustHeight();
 				}
 				
 				// Gets the div height.
 				function getDivHeight() {
-					return _gel(mainDiv).style.height;
+					return document.getElementById(mainDiv).style.height;
 				}
 
 				function setTitle(prefs) {
 					var type = prefs.getInt("type");
 					if (!prefs.getString("title") == "") {
-						_IG_SetTitle(prefs.getString("title"));
+						gadgets.window.setTitle(prefs.getString("title"));
 					} else if (type == 0) {
-						_IG_SetTitle("Current year chart");
+						gadgets.window.setTitle("Current year chart");
 					} else if (type == 1) {
-						_IG_SetTitle("Current month chart");
+						gadgets.window.setTitle("Current month chart");
 					} else if (type == 2) {
-						_IG_SetTitle("Current week chart");
+						gadgets.window.setTitle("Current week chart");
 					} else if (type == 3) {
-						_IG_SetTitle("Today chart");
+						gadgets.window.setTitle("Today chart");
 					} else if (type == 4) {
-						_IG_SetTitle("Last 3 months chart");
+						gadgets.window.setTitle("Last 3 months chart");
 					} else if (type == 5) {
-						_IG_SetTitle("Last 6 months chart");
+						gadgets.window.setTitle("Last 6 months chart");
 					}
 				}
 				
 				// Outputs content to the div and resizes the gadget
 				function setContent(html) {
-					_gel(mainDiv).innerHTML = html;
-					setTimeout('_IG_AdjustIFrameHeight()', 5000);
-					_IG_AdjustIFrameHeight();
+					document.getElementById(mainDiv).innerHTML = html;
+					gadgets.window.adjustHeight();
 				}
 	
 				// Outputs debug messages if debug flag has a non-zero value
@@ -167,18 +166,18 @@
 					if (debug) {
 						debug_html += msg + "<br>";
 						// Write debug HTML to div
-						_gel(debugDiv).innerHTML = debug_html;
-						_IG_AdjustIFrameHeight();
+						document.getElementById(debugDiv).innerHTML = debug_html;
+						gadgets.window.adjustHeight();
 					}
 				}
 
 				// Outputs version
 				function setVersion(version) {
-						_gel(versionDiv).innerHTML = version;
-						_IG_AdjustIFrameHeight();
+						document.getElementById(versionDiv).innerHTML = version;
+						gadgets.window.adjustHeight();
 				}
 
-				_IG_RegisterOnloadHandler(display);  
+				gadgets.util.registerOnLoadHandler(display);  
 			</script>
 		]]> 
 	</Content> 
