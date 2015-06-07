@@ -1,0 +1,191 @@
+# Description #
+This gadget provides you with a Personal Weather Station updated data from [Weather Underground](http://www.weatherunderground.com) web site.
+
+![http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/CurrentTab.jpg](http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/CurrentTab.jpg)
+
+To add this gadget to your iGoogle click the button [![](http://gmodules.com/ig/images/plus_google.gif)](http://fusion.google.com/add?source=atgs&moduleurl=http%3A//pwsgadgets.googlecode.com/svn/trunk/pws_CurrentConditions.xml)
+
+# Features #
+  * Provide any Weather Underground Personal Weather Station id.
+  * Select between Metric units, English units or both.
+  * Select the refresh rate.
+  * Show temperature and last refresh time.
+  * Show current weather icon.
+  * Current weather icon is different during daytime and night.
+  * Select the data you want to see:
+    * Dew point.
+    * Relative humidity.
+    * Wind.
+    * Pressure.
+    * 1 hour rain.
+    * Today rain.
+  * Customize the title.
+  * If your station is not uploading data to Weather Underground for more than 10 minutes the gadget advises you.
+
+# Tabs #
+  * **Current**: Current weather conditions at your personal weather station location.
+  * **Extreme**: Today's extreme data including time.
+  * **Temp Chart**: Temperature charts including temperature, dew point and relative humidity if selected in preferences.
+  * **Forecast**: Five days forecast including today.
+  * **Astronomy**: Astronomical data such as Moon phase, sunset time, sunrise time,...
+  * **Hints**: Some hints that could help you to improve the data shown by the gadget.
+  * **About**: Info tab containg my email address.
+
+# Configuration Parameters #
+In this gadget you can find the following configuration parameters :
+  * **Wunderground station id**: To get your Wunderground weather station ID you need to add and configure a personal weather station at the [Weather Underground](http://www.wunderground.com/weatherstation/index.asp) web site.
+    * This parameter is mandatory.
+    * Example value: IISLASBA11.
+  * **Units**: You can choose to show your data in Metric units (ºC, km/h, mb, mm), English units (F, mph, in, in) or both.
+    * This parameter is mandatory.
+    * Default value: Metric.
+  * **Update every**: You can choose refresh time.
+    * This parameter is mandatory.
+    * Default value: 30 seconds.
+  * **Chart width**: You can choose the chart width in pixels.
+    * This parameter is mandatory.
+    * Default value: 600 pixels.
+  * **Icon set**: You can choose the icon set that will be used in the Current and Forecast tabs.
+    * This parameter is mandatory.
+    * Default value: Default.
+    * Possible values:
+      * | Default | ![http://icons-pe.wxug.com/i/c/a/sunny.gif](http://icons-pe.wxug.com/i/c/a/sunny.gif) |
+|:--------|:--------------------------------------------------------------------------------------|
+      * | Smiley  | ![http://icons-pe.wxug.com/i/c/b/sunny.gif](http://icons-pe.wxug.com/i/c/b/sunny.gif) |
+      * | Generic | ![http://icons-pe.wxug.com/i/c/c/sunny.gif](http://icons-pe.wxug.com/i/c/c/sunny.gif) |
+      * | Old School | ![http://icons-pe.wxug.com/i/c/d/sunny.gif](http://icons-pe.wxug.com/i/c/d/sunny.gif) |
+      * | Cartoon | ![http://icons-pe.wxug.com/i/c/e/sunny.gif](http://icons-pe.wxug.com/i/c/e/sunny.gif) |
+      * | Mobile  | ![http://icons-pe.wxug.com/i/c/f/sunny.gif](http://icons-pe.wxug.com/i/c/f/sunny.gif) |
+      * | Simple  | ![http://icons-pe.wxug.com/i/c/g/sunny.gif](http://icons-pe.wxug.com/i/c/g/sunny.gif) |
+      * | Contemporary | ![http://icons-pe.wxug.com/i/c/h/sunny.gif](http://icons-pe.wxug.com/i/c/h/sunny.gif) |
+  * **Dew point**: This parameter indicates whether to show or not the dew point temperature in thew selected unit.
+    * This parameter is NOT mandatory.
+    * Default value: Yes.
+  * **Relative humidity**: This parameter indicates whether to show or not the relative humidity percentage.
+    * This parameter is NOT mandatory.
+    * Default value: Yes.
+  * **Wind**: This parameter indicates whether to show or not the wind info, including wind direction, wind speed and wind gust in the selected units.
+    * This parameter is NOT mandatory.
+    * Default value: Yes.
+  * **Pressure**: This parameter indicates whether to show or not the atmosferic pressure in the selected units.
+    * This parameter is NOT mandatory.
+    * Default value: Yes.
+  * **1 hour rain**: This parameter indicates whether to show or not the last hour rain in the selected units.
+    * This parameter is NOT mandatory.
+    * Default value: Yes.
+  * **Today rain**: This parameter indicates whether to show or not the today's rain in the selected units.
+    * This parameter is NOT mandatory.
+    * Default value: Yes.
+  * **Title**: This is the title you want to show in the gadget.
+    * This parameter is mandatory.
+    * Default value: Current Conditions.
+
+# Current weather icon #
+The current weather icon is the icon next to the temparature.
+It shows you the estimated current weather conditions at your personal weather station location.
+
+Here you have a list with a brief description containing all icons you can see (note that only Default icon set have been used):
+
+**Daytime Images**
+| Chance of Flurries | ![http://icons-pe.wxug.com/i/c/a/chanceflurries.gif](http://icons-pe.wxug.com/i/c/a/chanceflurries.gif) | Chance of Rain | ![http://icons-pe.wxug.com/i/c/a/chancerain.gif](http://icons-pe.wxug.com/i/c/a/chancerain.gif) | Chance of Sleet | ![http://icons-pe.wxug.com/i/c/a/chancesleet.gif](http://icons-pe.wxug.com/i/c/a/chancesleet.gif) | Chance of Snow | ![http://icons-pe.wxug.com/i/c/a/chancesnow.gif](http://icons-pe.wxug.com/i/c/a/chancesnow.gif) | Chance of Thunderstorms | ![http://icons-pe.wxug.com/i/c/a/chancetstorms.gif](http://icons-pe.wxug.com/i/c/a/chancetstorms.gif) |
+|:-------------------|:--------------------------------------------------------------------------------------------------------|:---------------|:------------------------------------------------------------------------------------------------|:----------------|:--------------------------------------------------------------------------------------------------|:---------------|:------------------------------------------------------------------------------------------------|:------------------------|:------------------------------------------------------------------------------------------------------|
+| Clear              | ![http://icons-pe.wxug.com/i/c/a/clear.gif](http://icons-pe.wxug.com/i/c/a/clear.gif)                   | Cloudy         | ![http://icons-pe.wxug.com/i/c/a/cloudy.gif](http://icons-pe.wxug.com/i/c/a/cloudy.gif)         | Flurries        | ![http://icons-pe.wxug.com/i/c/a/flurries.gif](http://icons-pe.wxug.com/i/c/a/flurries.gif)       | Fog            | ![http://icons-pe.wxug.com/i/c/a/fog.gif](http://icons-pe.wxug.com/i/c/a/fog.gif)               | Hazy                    | ![http://icons-pe.wxug.com/i/c/a/hazy.gif](http://icons-pe.wxug.com/i/c/a/hazy.gif)                   |
+| Mostly cloudy      | ![http://icons-pe.wxug.com/i/c/a/mostlycloudy.gif](http://icons-pe.wxug.com/i/c/a/mostlycloudy.gif)     | Mostly sunny   | ![http://icons-pe.wxug.com/i/c/a/mostlysunny.gif](http://icons-pe.wxug.com/i/c/a/mostlysunny.gif) | Partly cloudy   | ![http://icons-pe.wxug.com/i/c/a/partlycloudy.gif](http://icons-pe.wxug.com/i/c/a/partlycloudy.gif) | Partly sunny   | ![http://icons-pe.wxug.com/i/c/a/partlysunny.gif](http://icons-pe.wxug.com/i/c/a/partlysunny.gif) | Rain                    | ![http://icons-pe.wxug.com/i/c/a/rain.gif](http://icons-pe.wxug.com/i/c/a/rain.gif)                   |
+| Sleet              | ![http://icons-pe.wxug.com/i/c/a/sleet.gif](http://icons-pe.wxug.com/i/c/a/sleet.gif)                   | Snow           | ![http://icons-pe.wxug.com/i/c/a/snow.gif](http://icons-pe.wxug.com/i/c/a/snow.gif)             | Sunny           | ![http://icons-pe.wxug.com/i/c/a/sunny.gif](http://icons-pe.wxug.com/i/c/a/sunny.gif)             | Thunderstorms  | ![http://icons-pe.wxug.com/i/c/a/tstorms.gif](http://icons-pe.wxug.com/i/c/a/tstorms.gif)       | Unknown                 | ![http://icons-pe.wxug.com/i/c/a/unknown.gif](http://icons-pe.wxug.com/i/c/a/unknown.gif)             |
+
+**Nightime Images**
+| Chance of Flurries | ![http://icons-pe.wxug.com/i/c/a/nt_chanceflurries.gif](http://icons-pe.wxug.com/i/c/a/nt_chanceflurries.gif) | Chance of Rain | ![http://icons-pe.wxug.com/i/c/a/nt_chancerain.gif](http://icons-pe.wxug.com/i/c/a/nt_chancerain.gif) | Chance of Sleet | ![http://icons-pe.wxug.com/i/c/a/nt_chancesleet.gif](http://icons-pe.wxug.com/i/c/a/nt_chancesleet.gif) | Chance of Snow | ![http://icons-pe.wxug.com/i/c/a/nt_chancesnow.gif](http://icons-pe.wxug.com/i/c/a/nt_chancesnow.gif) | Chance of Thunderstorms | ![http://icons-pe.wxug.com/i/c/a/nt_chancetstorms.gif](http://icons-pe.wxug.com/i/c/a/nt_chancetstorms.gif) |
+|:-------------------|:--------------------------------------------------------------------------------------------------------------|:---------------|:------------------------------------------------------------------------------------------------------|:----------------|:--------------------------------------------------------------------------------------------------------|:---------------|:------------------------------------------------------------------------------------------------------|:------------------------|:------------------------------------------------------------------------------------------------------------|
+| Clear              | ![http://icons-pe.wxug.com/i/c/a/nt_clear.gif](http://icons-pe.wxug.com/i/c/a/nt_clear.gif)                   | Cloudy         | ![http://icons-pe.wxug.com/i/c/a/nt_cloudy.gif](http://icons-pe.wxug.com/i/c/a/nt_cloudy.gif)         | Flurries        | ![http://icons-pe.wxug.com/i/c/a/nt_flurries.gif](http://icons-pe.wxug.com/i/c/a/nt_flurries.gif)       | Fog            | ![http://icons-pe.wxug.com/i/c/a/nt_fog.gif](http://icons-pe.wxug.com/i/c/a/nt_fog.gif)               | Hazy                    | ![http://icons-pe.wxug.com/i/c/a/nt_hazy.gif](http://icons-pe.wxug.com/i/c/a/nt_hazy.gif)                   |
+| Mostly cloudy      | ![http://icons-pe.wxug.com/i/c/a/nt_mostlycloudy.gif](http://icons-pe.wxug.com/i/c/a/nt_mostlycloudy.gif)     | Mostly sunny   | ![http://icons-pe.wxug.com/i/c/a/nt_mostlysunny.gif](http://icons-pe.wxug.com/i/c/a/nt_mostlysunny.gif) | Partly cloudy   | ![http://icons-pe.wxug.com/i/c/a/nt_partlycloudy.gif](http://icons-pe.wxug.com/i/c/a/nt_partlycloudy.gif) | Partly sunny   | ![http://icons-pe.wxug.com/i/c/a/nt_partlysunny.gif](http://icons-pe.wxug.com/i/c/a/nt_partlysunny.gif) | Rain                    | ![http://icons-pe.wxug.com/i/c/a/nt_rain.gif](http://icons-pe.wxug.com/i/c/a/nt_rain.gif)                   |
+| Sleet              | ![http://icons-pe.wxug.com/i/c/a/nt_sleet.gif](http://icons-pe.wxug.com/i/c/a/nt_sleet.gif)                   | Snow           | ![http://icons-pe.wxug.com/i/c/a/nt_snow.gif](http://icons-pe.wxug.com/i/c/a/nt_snow.gif)             | Sunny           | ![http://icons-pe.wxug.com/i/c/a/nt_sunny.gif](http://icons-pe.wxug.com/i/c/a/nt_sunny.gif)             | Thunderstorms  | ![http://icons-pe.wxug.com/i/c/a/nt_tstorms.gif](http://icons-pe.wxug.com/i/c/a/nt_tstorms.gif)       | Unknown                 | ![http://icons-pe.wxug.com/i/c/a/nt_unknown.gif](http://icons-pe.wxug.com/i/c/a/nt_unknown.gif)             |
+
+# Future versions #
+  * Improve design. (Any help will be appreciated).
+  * Internacionalization.
+
+# Screenshots #
+![http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/CurrentTab.jpg](http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/CurrentTab.jpg)
+
+![http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/ExtremeTab.jpg](http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/ExtremeTab.jpg)
+
+![http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/TempChartTab.jpg](http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/TempChartTab.jpg)
+
+![http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/WindChartTab.jpg](http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/WindChartTab.jpg)
+
+![http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/ForecastTab.jpg](http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/ForecastTab.jpg)
+
+![http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/AstronomyTab.jpg](http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/AstronomyTab.jpg)
+
+![http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/Configuration.jpg](http://pwsgadgets.googlecode.com/svn/trunk/screenshots/CurrentConditions/Configuration.jpg)
+
+# Version History #
+  * (24/04/2008) v2.6.1
+    * Fixed bug that causes to show a broken image in the current weather icon. Thanks to Erik.
+    * Changed line width for Wind Gust speed in Wind Chart tab.
+    * Added wind direction in the Extreme tab.
+  * (20/04/2008) v2.6.0
+    * Added new Wind cart tab.
+  * (06/04/2008) v2.5.1
+    * Changed chart color lines. Thanks to Mauro.
+    * Fixed some texts.
+    * Link in the About tab to the PWS history in WeatherUnderground fixed.
+    * Set the default icon set to Default.
+  * (21/03/2008) v2.5.0
+    * Added Astronomy tab.
+    * Added the ability to change the icon set.
+    * In the Forecast tab now the maximum temperature is red and the minimum is blue.
+  * (18/03/2008) v2.4.1
+    * Lots of code improvements.
+    * Added the date and time the data was uploaded to Weather Underground in the 'Current' tab.
+    * Design improvements.
+    * Chart colors changed.
+  * (06/03/2008) v2.4.0
+    * Added Temperature chart tab.
+    * Enhanced Current tab design.
+    * Enhanced Extreme tab design.
+    * Moved some info from Hints tabs to About tab.
+    * The daily info shown in Extreme and Temperature chart tabs now is updated every 5 minutes.
+  * (03/03/2008) v2.3.0
+    * Added new Forecast tab.
+    * Font size fixed in Internet Explorer.
+    * Added Last updated info to Extreme tab.
+  * (26/02/2008) v2.2.1
+    * Several code enhancements.
+    * Fixed bug that causes sometimes show the current weather icon twice.
+  * (24/02/2008) v2.2.0
+    * Added new tab containing extreme values.
+    * Added current temperature just before version number.
+  * (18/02/2008) v2.1.4
+    * Fixed bug that causes to sometimes show the `3>` characters between the weather icon and the temperature.
+  * (12/02/2008) v2.1.3
+    * Fixed bug that causes Internet Explorer not to show the current weather icon.
+    * Fixed bug that causes to show incorrect weather icon after midnight.
+    * Fixed bug that causes to show data with invalid format when an incorrect Personal Weather Station id was configured.
+  * (11/02/2008) v2.1.2
+    * Fixed bug that sometimes causes to show only the current weather icon.
+    * The current weather icon is different during daytime and night.
+  * (11/02/2008) v2.1.1
+    * Fixed bronken image for current weather icon next to temperature.
+  * (10/02/2008) v2.1.0
+    * Current weather icon next to temperature in the 'Current' tab added.
+    * Added 'Tips' tab where you can find some suggestions and other useful information like:
+      * If your station is not uploading data to Weather Underground for more than 10 minutes.
+      * Info you can provide into Weather Underground web site to improve the design.
+      * Useful links.
+    * Fixed size.
+    * Added scrolling if the gadget is too big for the size.
+  * (07/02/2008) v2.0.0
+    * Gadget code rewrite from scratch.
+    * Added tabs.
+    * Design improvement.
+  * (31/01/2008) v1.1.2
+    * Added last gadget refresh date and time.
+    * Version color changed to gray and aligned to right.
+  * (29/01/2008) v1.1.1
+    * Added version number.
+    * Analytics fix.
+  * (26/01/2008) v1.1.0
+    * Added the ability to show data in both units (Metric and English).
+  * (23/01/2008) v1.0.0
+    * Initial release.

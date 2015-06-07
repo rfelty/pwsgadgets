@@ -1,0 +1,36 @@
+# Description #
+This gadget provides you with a Personal Weather Station updated data from [Meteoclimatic](http://www.meteoclimatic.com) web site.
+
+![http://pwsgadgets.googlecode.com/svn/trunk/screenshots/Meteoclimatic/CurrentTab.jpg](http://pwsgadgets.googlecode.com/svn/trunk/screenshots/Meteoclimatic/CurrentTab.jpg)
+
+To add this gadget to your iGoogle click the button [![](http://gmodules.com/ig/images/plus_google.gif)](http://fusion.google.com/add?source=atgs&moduleurl=http%3A//pwsgadgets.googlecode.com/svn/trunk/pws_Meteoclimatic.xml)
+
+# Features #
+  * Provide any Meteoclimatic Personal Weather Station id.
+  * Show temperature, humidity, wind speed and direction, pressure, rain and last refresh time.
+
+# Tabs #
+  * **Current**: Current weather conditions at your personal weather station location.
+  * **Extreme**: Today's extreme data.
+  * **About**: Info tab containg my email address.
+
+# Configuration Parameters #
+In this gadget you can find the following configuration parameters :
+  * **Meteoclimatic id**: To get your Meteoclimatic weather station ID you need to add and configure a personal weather station at the [Meteoclimatic](http://www.meteoclimatic.com) web site.
+    * This parameter is mandatory.
+    * Example value: ESIBA0700000107193A.
+
+# Future versions #
+  * Improve design. (Any help will be appreciated).
+  * Fix localization. (Non english characters).
+
+# Screenshots #
+![http://pwsgadgets.googlecode.com/svn/trunk/screenshots/Meteoclimatic/CurrentTab.jpg](http://pwsgadgets.googlecode.com/svn/trunk/screenshots/Meteoclimatic/CurrentTab.jpg)
+
+![http://pwsgadgets.googlecode.com/svn/trunk/screenshots/Meteoclimatic/ExtremeTab.jpg](http://pwsgadgets.googlecode.com/svn/trunk/screenshots/Meteoclimatic/ExtremeTab.jpg)
+
+![http://pwsgadgets.googlecode.com/svn/trunk/screenshots/Meteoclimatic/Configuration.jpg](http://pwsgadgets.googlecode.com/svn/trunk/screenshots/Meteoclimatic/Configuration.jpg)
+
+# Version History #
+  * (12/05/2008) v1.0.0
+    * Initial release.

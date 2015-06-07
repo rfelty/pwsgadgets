@@ -1,0 +1,88 @@
+# Description #
+This gadget provides you with your Personal Weather Station updated charts from wunderground.com.
+
+To add this gadget to your iGoogle click the button [![](http://gmodules.com/ig/images/plus_google.gif)](http://fusion.google.com/add?source=atgs&moduleurl=http%3A//pwsgadgets.googlecode.com/svn/trunk/pws_WundergroundChart.xml)
+![http://pwsgadgets.googlecode.com/svn/trunk/screenshots/WundergroundChart/Today.jpg](http://pwsgadgets.googlecode.com/svn/trunk/screenshots/WundergroundChart/Today.jpg)
+
+# Features #
+  * You can provide any Weather Underground PWS id.
+  * Select the refresh rate.
+  * Select the charts you want to see
+    * Temperature
+    * Wind speed
+    * Wind direction
+    * Pressure
+    * Rain
+  * Customize the title.
+
+# Configuration Parameters #
+In this gadget you can find the following configuration parameters :
+  * **Wunderground station id**: To get your Wunderground weather station ID you need to add and configure a personal weather station at the [Weather Underground](http://www.wunderground.com/weatherstation/index.asp) web site.
+    * This parameter is mandatory.
+    * Example value: IISLASBA11.
+  * **Update every**: You can choose refresh time.
+    * This parameter is mandatory.
+    * Default value: 30 seconds.
+  * **Temperature**: This parameter indicates whether to show or not the chart with the temperature and dew point temperature.
+    * This parameter is NOT mandatory.
+    * Default value: Yes.
+  * **Wind speed**: This parameter indicates whether to show or not the chart with the wind speed and wind gust.
+    * This parameter is NOT mandatory.
+    * Default value: Yes.
+  * **Wind direction**: This parameter indicates whether to show or not the chart with the wind direction.
+    * This parameter is NOT mandatory.
+    * Default value: Yes.
+  * **Rain**: This parameter indicates whether to show or not the chart with the rainfall.
+    * This parameter is NOT mandatory.
+    * Default value: Yes.
+  * **Solar radiation**: This parameter indicates whether to show or not the chart with the solar radiation.
+    * This parameter is NOT mandatory.
+    * Default value: No.
+  * **UV (index)**: This parameter indicates whether to show or not the chart with the UV index.
+    * This parameter is NOT mandatory.
+    * Default value: No.
+  * **Range**: This parameter selects the time range of the chart.
+    * This parameter is mandatory.
+    * Default value: Today.
+  * **Title**: This is the title you want to show in the gadget.
+    * This parameter is mandatory.
+    * Default value: Current Conditions.
+  * **Image width**: You can choose the chart width in pixels.
+    * This parameter is mandatory.
+    * Default value: 350 pixels.
+# Screenshots #
+![http://pwsgadgets.googlecode.com/svn/trunk/screenshots/WundergroundChart/Today.jpg](http://pwsgadgets.googlecode.com/svn/trunk/screenshots/WundergroundChart/Today.jpg)
+
+![http://pwsgadgets.googlecode.com/svn/trunk/screenshots/WundergroundChart/CurrentWeek.jpg](http://pwsgadgets.googlecode.com/svn/trunk/screenshots/WundergroundChart/CurrentWeek.jpg)
+
+![http://pwsgadgets.googlecode.com/svn/trunk/screenshots/WundergroundChart/CurrentMonth.jpg](http://pwsgadgets.googlecode.com/svn/trunk/screenshots/WundergroundChart/CurrentMonth.jpg)
+
+![http://pwsgadgets.googlecode.com/svn/trunk/screenshots/WundergroundChart/Last3Months.jpg](http://pwsgadgets.googlecode.com/svn/trunk/screenshots/WundergroundChart/Last3Months.jpg)
+
+![http://pwsgadgets.googlecode.com/svn/trunk/screenshots/WundergroundChart/Last6Months.jpg](http://pwsgadgets.googlecode.com/svn/trunk/screenshots/WundergroundChart/Last6Months.jpg)
+
+![http://pwsgadgets.googlecode.com/svn/trunk/screenshots/WundergroundChart/CurrentYear.jpg](http://pwsgadgets.googlecode.com/svn/trunk/screenshots/WundergroundChart/CurrentYear.jpg)
+
+![http://pwsgadgets.googlecode.com/svn/trunk/screenshots/WundergroundChart/Configuration.jpg](http://pwsgadgets.googlecode.com/svn/trunk/screenshots/WundergroundChart/Configuration.jpg)
+
+# Version History #
+  * (28/07/2010) v1.1.5
+    * Migrated from the legacy gadgets API to the gadgets API.
+  * (26/07/2010) v1.1.4
+    * Fixed a bug that caused the gadget height not to resize properly. Thanks to Ryan for reporting.
+  * (31/01/2008) v1.1.3
+    * Added last gadget refresh date and time.
+    * Chart image now is not cached.
+    * Fixed bug that causes the gadget not to resize properly.
+    * Version color changed to gray and aligned to right.
+  * (29/01/2008) v1.1.2
+    * Added version number.
+    * Analytics fix.
+  * (27/01/2008) v1.1.1
+    * Fixed bug when it runs on Firefox that causes a 'Data Not Available' image chart.
+  * (27/01/2008) v1.1.0
+    * Added solar radiation and UV index charts.
+  * (26/01/2008) v1.0.1
+    * Added different chart height options from 200 to 800 pixels.
+  * (25/01/2008) v1.0.0
+    * Initial release.
